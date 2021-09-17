@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import firebase from "firebase/app";
 import "firebase/auth";
 const AuthService={
@@ -14,5 +15,7 @@ const AuthService={
             };
         }
 
-    }
-}
+    },logout:async()=>{
+        await firebase.auth().signOut();
+    },
+};
