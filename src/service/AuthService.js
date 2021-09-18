@@ -7,7 +7,7 @@ const AuthService={
         try{
             const userCredentials=await firebase.auth().singInWithPopup(provider);
             return{
-                user:userCredentials,
+                user:userCredentials.user,
             };
         }catch(e){
             return{
