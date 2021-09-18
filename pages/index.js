@@ -14,7 +14,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to{" "}
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Omuse!</a>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">lakonyaa!</a>
         </h1>
 
         <p className={styles.description}>
