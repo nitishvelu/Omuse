@@ -1,11 +1,11 @@
 import { async } from "@firebase/util";
 import firebase from "firebase/app";
 import "firebase/auth";
-const AuthService={
+export const AuthService={
     loginWithGoogle:async()=>{
         const provider = new firebase.auth.GoogleAuthProvider();
         try{
-            const userCredentials=await firebase.auth().singInWithPopup(provider);
+            const userCredentials=await firebase.auth().signInWithPopup(provider);
             return{
                 user:userCredentials.user,
             };
