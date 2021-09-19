@@ -8,7 +8,7 @@ export default function Login() {
             {error &&<h1>{error}</h1>}
             <button onClick={loginWithGoogle}>google</button>
             <h1>{user?.uid}</h1>
-            {console.log(user.photoURL)}
+            {console.log(user)}
 
         </div>
     )

@@ -20,7 +20,7 @@ export function AuthProvider(props){
         await AuthService.logout();
         setUser(null);
     };
-    const value={user,error,loginWithGoogle,logout};
+    const value={user,error,loginWithGoogle,logout,setUser};
 
     return <authContext.Provider value={value}{...props}/>;
 }
