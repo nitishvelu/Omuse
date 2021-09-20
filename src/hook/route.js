@@ -9,6 +9,7 @@ export  function withPublic(Component) {
         
         if(auth.user){
             router.replace("/");
+            return<h1>loading......</h1>
         }
         return<Component auth={auth}{...props}/>
     }
