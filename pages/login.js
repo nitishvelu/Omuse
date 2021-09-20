@@ -1,7 +1,8 @@
 import React from 'react'
 import useAuth from '../src/hook/auth'
+import { withPublic } from '../src/hook/route';
 
-export default function Login() {
+function Login() {
     const{user,loginWithGoogle,error} =useAuth();
     return (
         <div>
@@ -13,3 +14,4 @@ export default function Login() {
         </div>
     )
 }
+export default withPublic(Login);
