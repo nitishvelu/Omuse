@@ -14,3 +14,16 @@ export  function withPublic(Component) {
         return<Component auth={auth}{...props}/>
     }
 }
+
+export  function withProtected(Component) {
+    return function WithProtected(props){
+        const auth=useAuth();
+        const router=useRouter();
+        
+        if(!auth.user){
+            router.replace("/login");
+            return<h1>loading......</h1>
+        }
+        return<Component auth={auth}{...props}/>
+    }
+}
