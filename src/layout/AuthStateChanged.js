@@ -6,11 +6,12 @@ import useAuth from '../hook/auth';
 
 export default function AuthStateChanged({children}) {
     const {setUser}=useAuth();
-    const {loading,setLoading}=useState(true);
+    const [loading,setLoading]=useState(true);
     useEffect(()=>{
         firebase.auth().onAuthStateChanged((user)=>{
             setUser(user);
-        }
+            setLoading(false);
+        });
 
     },[]);
     if(loading){
