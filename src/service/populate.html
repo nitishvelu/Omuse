@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+       
+        const firebaseConfig = {
+          apiKey: "obtain from firebase",
+          authDomain: "obtain from firebase",
+          databaseURL: "firebase",
+          projectId: "firebase",
+          storageBucket: "firebase",
+          messagingSenderId: "firebase",
+          appId: "firebase"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        import {getFirestore,collection, doc,getDoc, updateDoc,addDoc} from "https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"
+        const db=getFirestore();
+        //producer
+        const prodRef = await addDoc(collection(db,"producer"),{
+            email:"nitishvelu@gmail.com",
+            profile_picture:"http://dummyimage.com/245x100.png/ff4444/ffffff",
+            name:"Apex"
+        });
+
+        //song
+        const songRef = await addDoc(collection(db,"song"),{
+            album:"",
+            duration:"5:55",
+            art:"https://upload.wikimedia.org/wikipedia/en/c/c1/The_Weeknd_-_After_Hours.png",
+            genre:"rnb",
+            language:"english",
+            name:"Blinding lights",
+            cloud_reference:"gs://omuse-ac842.appspot.com/after hours/09 Blinding Lights.mp3",
+            no_of_likes:0,
+            no_of_streams:0,
+            year:206
+        });
+        const albumRef = await addDoc(collection(db,"album"),{
+           artist:"",
+           cover_art:"https://upload.wikimedia.org/wikipedia/en/c/c1/The_Weeknd_-_After_Hours.png",
+           name:"After hours",
+           no_of_streams:70,
+           songs:[songRef]
+        });
+        const artistRef = await addDoc(collection(db,"artist"),{
+            email:"weeknd@xoxo.com",
+            genres:["rnb","pop"],
+            albums:[albumRef],
+            monthly_streams:755,
+            name:"weeknd",
+            no_of_followers:35990,
+            previous_month_streams:10000,
+            produced_by:"",
+            profile_picture:"https://cdn.freelogovectors.net/wp-content/uploads/2020/08/foo-fighters-logo.png",
+            self_produced:true,
+            total_streams:90234
+            
+        });
+
+        //double relationship
+        await updateDoc(songRef,{
+            album:albumRef
+        });
+        await updateDoc(albumRef,{
+            artist:artistRef
+        });
+        //playlist
+        const playlistRef = await addDoc(collection(db,"playlist"),{
+            date:"29/09/2021",
+            name:"mood",
+            songs:[songRef]
+
+        });
+
+        await addDoc(collection(db,"user"),{
+            name:"vaibhav",
+            email:"vaibhav@gmail.com",
+            following:[artistRef],
+            liked_songs:[songRef],
+            playlists:[playlistRef],
+            profile_picture:"https://dummyimage.com/245x100.png/ff4444/ffffff"
+        });
+      </script>
+    
+</body>
+</html>
