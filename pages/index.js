@@ -2,8 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link"
+import { withPublic } from '../src/hook/route';
 
-export default function Home() {
+
+function Home({auth}) {
+  const{user,loginWithGoogle,error} =auth;
   return (
     <div className={styles.container}>
       <Head>
@@ -17,11 +20,11 @@ export default function Home() {
           Welcome to{" "}
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Omuse!</a>
         </h1>
-        <h1>
-          <Link href="/login"><a>login</a></Link>
-          <br></br>
-          <Link href="/logout"><a>logout</a></Link>
-        </h1>
+        
+        <div>
+            {error &&<h1>{error}</h1>}
+            <button onClick={loginWithGoogle}>login</button>
+        </div>
 
        
       </main>
@@ -32,3 +35,4 @@ export default function Home() {
     </div>
   );
 }
+export default withPublic(Home);

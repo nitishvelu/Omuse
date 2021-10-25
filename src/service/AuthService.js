@@ -6,6 +6,7 @@ export const AuthService={
         const provider = new firebase.auth.GoogleAuthProvider();
         try{
             const userCredentials=await firebase.auth().signInWithPopup(provider);
+            console.log(userCredentials.user);
             return{
                 user:userCredentials.user,
             };
