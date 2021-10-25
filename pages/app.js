@@ -2,8 +2,7 @@ import React from 'react'
 import { withProtected } from '../src/hook/route'
 import { Flex, Text, IconButton } from '@chakra-ui/react'
 import { FiMenu } from 'react-icons/fi'
-import Sidebar from '../components/Sidebar'
-
+import Sidebar from '../components/Sidebar';
 
 function App({auth}) {
     const{user,logout}=auth;
@@ -24,7 +23,7 @@ function App({auth}) {
            
         // </div>
         <Flex w="100%">
-        <Sidebar />
+        <Sidebar/>
         <Flex
           pos="absolute"
           top="50%"
