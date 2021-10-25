@@ -19,7 +19,7 @@ export default function Home() {
         </h1>
         <h1>
           <Link href="/login"><a>login</a></Link>
-          <h1></h1>
+          <br></br>
           <Link href="/logout"><a>logout</a></Link>
         </h1>
 
