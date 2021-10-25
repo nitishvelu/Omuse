@@ -14,6 +14,8 @@ function App({auth}) {
             <br></br>
             <img src={photo}/>
             <br></br>
+            <h1>{user?.displayName}</h1>
+            <br></br>
             <button onClick={logout}>Logout</button>
            
         </div>
