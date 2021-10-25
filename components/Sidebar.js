@@ -18,9 +18,12 @@ import {
 } from 'react-icons/fi'
 import { IoPawOutline } from 'react-icons/io5'
 import NavItem from '../components/NavItem'
+import { withProtected } from '../src/hook/route'
 
-export default function Sidebar() {
-    const [navSize, changeNavSize] = useState("large")
+function Sidebar({auth}) {
+    const [navSize, changeNavSize] = useState("large");
+    const {user}=auth;
+    const photo=user?.photoURL;
     return (
         <Flex
             pos="sticky"
@@ -70,13 +73,14 @@ export default function Sidebar() {
             >
                 <Divider display={navSize == "small" ? "none" : "flex"} />
                 <Flex mt={4} align="center">
-                    <Avatar size="sm" src="avatar-1.jpg" />
+                    <Avatar size="sm" src={photo} />
                     <Flex flexDir="column" ml={4} display={navSize == "small" ? "none" : "flex"}>
-                        <Heading as="h3" size="sm">Sylwia Weller</Heading>
-                        <Text color="gray">Admin</Text>
+                        <Heading as="h3" size="sm">{user?.displayName}</Heading>
+                        <Text color="gray">User</Text>
                     </Flex>
                 </Flex>
             </Flex>
         </Flex>
     )
 }
+export default withProtected(Sidebar);
