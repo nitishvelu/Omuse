@@ -28,7 +28,7 @@ function App({ auth }) {
             _hover={{ background: "none" }}
             icon={<FiMenu />}
           />
-          < audio src = ""
+          {/* < audio src = "" */}
           to resize the vertical navigation bar.
         </Text>
         <CheckUser />
