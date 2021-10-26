@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { withProtected } from "../src/hook/route";
 import React, { useEffect } from "react";
-import UploadSong from "../components/cloudFirestore/uploadSong";
+// import UploadSong from "../components/cloudFirestore/uploadSong";
 
 const util = () => {
   //   const { user, logout } = auth;
