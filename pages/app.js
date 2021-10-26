@@ -3,7 +3,7 @@ import { withProtected } from "../src/hook/route";
 import { Flex, Text, IconButton } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
-import Test from "../components/cloudFirestore/createUser";
+import CheckUser from "../components/cloudFirestore/createUser";
 
 function App({ auth }) {
   const { user, logout } = auth;
@@ -26,7 +26,7 @@ function App({ auth }) {
           />
           to resize the vertical navigation bar.
         </Text>
-        <Test />
+        <CheckUser />
       </Flex>
     </Flex>
   );

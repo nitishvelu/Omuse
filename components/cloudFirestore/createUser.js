@@ -1,21 +1,44 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
-import "firebase/storage";
+import { withProtected } from "../../src/hook/route";
 
-const write = () => {
-  //   const { user, logout } = auth;
-  //   const photo = user?.photoURL;
-  //   console.log(user);
+const checkUserExistence = ({ auth }) => {
+  const { user, logout } = auth;
+  const photo = user?.photoURL;
+
   const showData = () => {
     var db = firebase.firestore();
-    db.collection("user")
-      .doc("dXHtoYCZaUdKl6OCjWcQ")
-      .onSnapshot(function (doc) {
-        console.log(doc);
+    var docRef = db.collection("user").doc(user.uid);
+    console.log(user);
+
+    docRef
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          console.log("user exists,  data:", doc.data());
+        } else {
+          //creating the user
+          db.collection("user")
+            .doc(user.uid)
+            .set({
+              email: user.email,
+              name: user.displayName,
+              profile_picture: photo,
+            })
+            .then(() => {
+              console.log("user created");
+            })
+            .catch((error) => {
+              console.error("Error createing user: ", error);
+            });
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
       });
-    firebase.storage;
   };
-  return <button onClick={showData}>show data</button>;
+  return null;
 };
 
-export default write;
+// checkUserExistence();
+export default withProtected(checkUserExistence);
