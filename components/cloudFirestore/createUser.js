@@ -6,7 +6,6 @@ import React, { useEffect } from "react";
 const checkUserExistence = ({ auth }) => {
   const { user, logout } = auth;
   const photo = user?.photoURL;
-
   useEffect(() => {
     showData();
   }, []);
