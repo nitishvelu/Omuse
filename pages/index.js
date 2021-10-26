@@ -5,6 +5,7 @@ import Link from "next/link"
 import { withPublic } from '../src/hook/route';
 
 
+
 function Home({auth}) {
   const{user,loginWithGoogle,error} =auth;
   return (

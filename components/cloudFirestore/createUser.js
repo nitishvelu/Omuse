@@ -1,10 +1,15 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import { withProtected } from "../../src/hook/route";
+import React, { useEffect } from "react";
 
 const checkUserExistence = ({ auth }) => {
   const { user, logout } = auth;
   const photo = user?.photoURL;
+
+  useEffect(() => {
+    showData();
+  }, []);
 
   const showData = () => {
     var db = firebase.firestore();

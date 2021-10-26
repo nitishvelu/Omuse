@@ -4,6 +4,10 @@ import { Flex, Text, IconButton } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
 import CheckUser from "../components/cloudFirestore/createUser";
+// import ReactJkMusicPlayer from "react-jinke-music-player";
+// import "react-jinke-music-player/assets/index.css";
+
+// options = {};
 
 function App({ auth }) {
   const { user, logout } = auth;
@@ -24,10 +28,12 @@ function App({ auth }) {
             _hover={{ background: "none" }}
             icon={<FiMenu />}
           />
+          < audio src = ""
           to resize the vertical navigation bar.
         </Text>
         <CheckUser />
       </Flex>
+      {/* <ReactJkMusicPlayer {...options} /> */}
     </Flex>
   );
 }
