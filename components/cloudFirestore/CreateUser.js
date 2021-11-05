@@ -8,10 +8,6 @@ export default function CreateUser(){
   const auth=useAuth();
   const { user, logout } = auth;
   const photo = user?.photoURL;
-  useEffect(() => {
-    showData();
-  }, []);
-
   const showData = () => {
     var db = firebase.firestore();
     var docRef = db.collection("user").doc(user?.uid);
@@ -43,6 +39,11 @@ export default function CreateUser(){
         console.log("Error getting document:", error);
       });
   };
+  useEffect(() => {
+    showData();
+  }, []);
+
+  
   return null;
 };
 
