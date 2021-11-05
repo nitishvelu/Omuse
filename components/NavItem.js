@@ -18,7 +18,7 @@ export default function NavItem({ icon, title, description, active, navSize }) {
             w="100%"
             alignItems={navSize == "small" ? "center" : "flex-start"}
         >
-            <Menu placement="right">
+            <Menu id="874536983456382428328" placement="right">
                 <Link
                     backgroundColor={active && "#AEC8CA"}
                     p={3}
