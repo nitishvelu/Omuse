@@ -17,12 +17,12 @@ import {
     FiGlobe,
     FiDisc
 } from 'react-icons/fi'
-import { IoPawOutline } from 'react-icons/io5'
-import NavItem from '../components/NavItem'
-import { withProtected } from '../src/hook/route'
+import NavItem from '../components/NavItem';
+import useAuth from '../src/hook/auth';
 
-function Sidebar({auth}) {
+export default function Sidebar() {
     const [navSize, changeNavSize] = useState("large");
+    const auth=useAuth();
     const {user}=auth;
     return (
         <Flex
@@ -83,4 +83,3 @@ function Sidebar({auth}) {
         </Flex>
     )
 }
-export default withProtected(Sidebar);

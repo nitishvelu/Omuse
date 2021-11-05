@@ -2,8 +2,10 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { withProtected } from "../../src/hook/route";
 import React, { useEffect } from "react";
+import useAuth from "../../src/hook/auth";
 
-const checkUserExistence = ({ auth }) => {
+export default function checkUserExistence(){
+  const auth=useAuth();
   const { user, logout } = auth;
   const photo = user?.photoURL;
   useEffect(() => {
@@ -12,7 +14,7 @@ const checkUserExistence = ({ auth }) => {
 
   const showData = () => {
     var db = firebase.firestore();
-    var docRef = db.collection("user").doc(user.uid);
+    var docRef = db.collection("user").doc(user?.uid);
     console.log(user);
 
     docRef
@@ -44,5 +46,4 @@ const checkUserExistence = ({ auth }) => {
   return null;
 };
 
-// checkUserExistence();
-export default withProtected(checkUserExistence);
+
