@@ -4,7 +4,7 @@ import { withProtected } from "../../src/hook/route";
 import React, { useEffect } from "react";
 import useAuth from "../../src/hook/auth";
 
-export default function CheckUserExistence(){
+export default function CreateUser(){
   const auth=useAuth();
   const { user, logout } = auth;
   const photo = user?.photoURL;

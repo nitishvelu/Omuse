@@ -1,5 +1,5 @@
 import React from "react";
-import CheckUser from "../components/cloudFirestore/CreateUser";
+import CreateUser from "../components/cloudFirestore/CreateUser";
 import { withProtected } from "../src/hook/route";
 // import ReactJkMusicPlayer from "react-jinke-music-player";
 // import "react-jinke-music-player/assets/index.css";
@@ -11,7 +11,7 @@ function App({ auth }) {
   return (
    <>
    appp
-   <CheckUser/>
+   <CreateUser/>
    </>
   );
 }
