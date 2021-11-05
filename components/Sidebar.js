@@ -24,6 +24,9 @@ export default function Sidebar() {
     const [navSize, changeNavSize] = useState("large");
     const auth=useAuth();
     const {user}=auth;
+    // if (typeof window !== 'undefined') {
+    //     localStorage.setItem('name',user?.displayName);
+    // }
     return (
         <Flex
             pos="sticky"
