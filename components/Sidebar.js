@@ -10,10 +10,6 @@ import {
 import {
     FiMenu,
     FiHome,
-    FiCalendar,
-    FiUser,
-    FiDollarSign,
-    FiBriefcase,
     FiLogOut,
     FiMusic,
     FiTrendingUp,
@@ -28,7 +24,6 @@ import { withProtected } from '../src/hook/route'
 function Sidebar({auth}) {
     const [navSize, changeNavSize] = useState("large");
     const {user}=auth;
-    const photo=user?.photoURL;
     return (
         <Flex
             pos="sticky"
@@ -78,7 +73,7 @@ function Sidebar({auth}) {
             >
                 <Divider display={navSize == "small" ? "none" : "flex"} />
                 <Flex mt={4} align="center">
-                    <Avatar size="sm" src={photo} />
+                    <Avatar size="sm" src={user?.photoURL} />
                     <Flex flexDir="column" ml={4} display={navSize == "small" ? "none" : "flex"}>
                         <Heading as="h3" size="sm">{user?.displayName}</Heading>
                         <Text color="gray">User</Text>
