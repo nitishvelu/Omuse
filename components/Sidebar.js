@@ -15,15 +15,21 @@ import {
     FiTrendingUp,
     FiHeart,
     FiGlobe,
-    FiDisc
+    FiDisc,
+    FiSun,
+    FiMoon
 } from 'react-icons/fi'
 import NavItem from '../components/NavItem';
 import useAuth from '../src/hook/auth';
+import { useColorMode,useColorModeValue } from "@chakra-ui/color-mode";
+
 
 export default function Sidebar() {
-    const [navSize, changeNavSize] = useState("large");
+    const [navSize, changeNavSize] = useState("small");
     const auth=useAuth();
     const {user}=auth;
+    const {colorMode,toggleColorMode}=useColorMode();
+
     // if (typeof window !== 'undefined') {
     //     localStorage.setItem('name',user?.displayName);
     // }
@@ -65,6 +71,9 @@ export default function Sidebar() {
                 <NavItem navSize={navSize} icon={FiDisc} title="Genre" to="/genre"/>
                 <NavItem navSize={navSize} icon={FiGlobe} title="Language" to="/language"/>
                 <NavItem navSize={navSize} icon={FiLogOut} title="Logout" to="/logout"/>
+               
+                
+                
             </Flex>
 
             <Flex
@@ -74,6 +83,13 @@ export default function Sidebar() {
                 alignItems={navSize == "small" ? "center" : "flex-start"}
                 mb={4}
             >
+                 <IconButton
+                    background="none"
+                    mt={5}
+                    _hover={{ background: 'none' }}
+                    icon={colorMode=="light"?<FiSun/>:<FiMoon/>}
+                    onClick={toggleColorMode}
+                />
                 <Divider display={navSize == "small" ? "none" : "flex"} />
                 <Flex mt={4} align="center">
                     <Avatar size="sm" src={user?.photoURL} />
