@@ -9,9 +9,14 @@ import {
     MenuList
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
+import { useRouter } from 'next/router'
 
 
-export default function NavItem({ icon, title,active, navSize,to }) {
+
+export default function NavItem({ icon, title,navSize,to }) {
+    
+    const router = useRouter()
+    const active = router.pathname === to
     return (
         <Flex
             mt={30}
