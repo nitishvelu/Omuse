@@ -1,17 +1,19 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import { withProtected } from "../../src/hook/route";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useAuth from "../../src/hook/auth";
+import cookie from "js-cookie";
 
 export default function CreateUser(){
   const auth=useAuth();
   const { user, logout } = auth;
   const photo = user?.photoURL;
-  const showData = () => {
+  useEffect(() => {
     var db = firebase.firestore();
     var docRef = db.collection("user").doc(user?.uid);
     console.log(user);
+
 
     docRef
       .get()
@@ -38,12 +40,8 @@ export default function CreateUser(){
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-  };
-  useEffect(() => {
-    showData();
-  }, []);
 
-  
+  },[]);
   return null;
 };
 

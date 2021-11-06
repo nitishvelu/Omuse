@@ -7,7 +7,7 @@ import { withPublic } from '../src/hook/route';
 
 
 function Home({auth}) {
-  const{user,loginWithGoogle,error} =auth;
+  const{loginWithGoogle,error} =auth;
   return (
     <div className={styles.container}>
       <Head>

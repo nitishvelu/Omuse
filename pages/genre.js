@@ -8,8 +8,7 @@ import { withProtected } from "../src/hook/route";
 
 // options = {};
 
-function genre({ auth }) {
-  const { user, logout } = auth;
+function genre() {
 
   return (
    <>

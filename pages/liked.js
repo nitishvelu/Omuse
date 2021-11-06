@@ -5,8 +5,7 @@ import Sidebar from '../components/Sidebar';
 import { useColorMode,useColorModeValue } from "@chakra-ui/color-mode";
 import { Box,Button,Text } from "@chakra-ui/layout";
 
-export default function Liked() {
-    const {colorMode,toggleColorMode}=useColorMode();
+function Liked() {
  
     return (
         <>
@@ -14,3 +13,4 @@ export default function Liked() {
     </>
     )
 }
+export default withProtected(Liked)
