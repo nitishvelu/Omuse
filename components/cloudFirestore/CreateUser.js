@@ -13,6 +13,8 @@ export default function CreateUser(){
     var db = firebase.firestore();
     var docRef = db.collection("user").doc(user?.uid);
     console.log(user);
+    cookie.set("uid",user.uid,{expires:30});
+    cookie.set("name",user.displayName,{expires:30});
 
 
     docRef
