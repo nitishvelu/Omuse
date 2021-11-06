@@ -8,15 +8,15 @@ import { withProtected } from "../src/hook/route";
 
 // options = {};
 
-function App({ auth }) {
+function trending({ auth }) {
   const { user, logout } = auth;
 
   return (
    <>
    
-    <Text>app</Text>
+    <Text>trending</Text>
    <CreateUser/>
    </>
   );
 }
-export default withProtected(App);
+export default withProtected(trending);

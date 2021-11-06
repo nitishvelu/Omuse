@@ -8,6 +8,8 @@ import {
     MenuButton,
     MenuList
 } from '@chakra-ui/react'
+import NextLink from 'next/link'
+
 
 export default function NavItem({ icon, title, description, active, navSize }) {
     return (
@@ -18,6 +20,7 @@ export default function NavItem({ icon, title, description, active, navSize }) {
             alignItems={navSize == "small" ? "center" : "flex-start"}
         >
             <Menu id="874536983456382428328" placement="right">
+                <NextLink href={'/liked'} passHref>
                 <Link
                     backgroundColor={active && "#AEC8CA"}
                     p={3}
@@ -32,6 +35,7 @@ export default function NavItem({ icon, title, description, active, navSize }) {
                         </Flex>
                     </MenuButton>
                 </Link>
+                </NextLink>
                 
             </Menu>
         </Flex>

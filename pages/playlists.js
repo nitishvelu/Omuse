@@ -8,15 +8,15 @@ import { withProtected } from "../src/hook/route";
 
 // options = {};
 
-function App({ auth }) {
+function playlists({ auth }) {
   const { user, logout } = auth;
 
   return (
    <>
    
-    <Text>app</Text>
+    <Text>playlists</Text>
    <CreateUser/>
    </>
   );
 }
-export default withProtected(App);
+export default withProtected(playlists);
