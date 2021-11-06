@@ -11,7 +11,7 @@ import {
 import NextLink from 'next/link'
 
 
-export default function NavItem({ icon, title, description, active, navSize }) {
+export default function NavItem({ icon, title,active, navSize,to }) {
     return (
         <Flex
             mt={30}
@@ -20,7 +20,7 @@ export default function NavItem({ icon, title, description, active, navSize }) {
             alignItems={navSize == "small" ? "center" : "flex-start"}
         >
             <Menu id="874536983456382428328" placement="right">
-                <NextLink href={'/liked'} passHref>
+                <NextLink href={to} passHref>
                 <Link
                     backgroundColor={active && "#AEC8CA"}
                     p={3}

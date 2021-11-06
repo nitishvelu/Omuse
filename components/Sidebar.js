@@ -58,13 +58,13 @@ export default function Sidebar() {
                             changeNavSize("small")
                     }}
                 />
-                <NavItem navSize={navSize} icon={FiHome} title="Dashboard" description="This is the description for the dashboard." active/>
-                <NavItem navSize={navSize} icon={FiMusic} title="Playlists"  />
-                <NavItem navSize={navSize} icon={FiTrendingUp} title="Trending" />
-                <NavItem navSize={navSize} icon={FiHeart} title="Liked" />
-                <NavItem navSize={navSize} icon={FiDisc} title="Genre" />
-                <NavItem navSize={navSize} icon={FiGlobe} title="Language" />
-                <NavItem navSize={navSize} icon={FiLogOut} title="Logout" />
+                <NavItem navSize={navSize} icon={FiHome} title="Dashboard" to="/app"/>
+                <NavItem navSize={navSize} icon={FiMusic} title="Playlists" active to="/playlists" />
+                <NavItem navSize={navSize} icon={FiTrendingUp} title="Trending" to="/trending"/>
+                <NavItem navSize={navSize} icon={FiHeart} title="Liked" to="/liked" />
+                <NavItem navSize={navSize} icon={FiDisc} title="Genre" to="/genre"/>
+                <NavItem navSize={navSize} icon={FiGlobe} title="Language" to="/language"/>
+                <NavItem navSize={navSize} icon={FiLogOut} title="Logout" to="logout"/>
             </Flex>
 
             <Flex
