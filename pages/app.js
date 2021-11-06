@@ -1,3 +1,5 @@
+import { useColorMode,useColorModeValue } from "@chakra-ui/color-mode";
+import { Box,Button,Text } from "@chakra-ui/layout";
 import React from "react";
 import CreateUser from "../components/cloudFirestore/CreateUser";
 import { withProtected } from "../src/hook/route";
@@ -8,9 +10,13 @@ import { withProtected } from "../src/hook/route";
 
 function App({ auth }) {
   const { user, logout } = auth;
+  const {colorMode,toggleColorMode}=useColorMode();
+  const bg = useColorModeValue("red.500", "red.200")
+  const color = useColorModeValue("white", "gray.800")
   return (
    <>
-   appp
+   
+    <Text>app</Text>
    <CreateUser/>
    </>
   );
