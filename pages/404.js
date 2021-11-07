@@ -1,14 +1,14 @@
 import { useColorMode,useColorModeValue } from "@chakra-ui/color-mode";
 import { Box,Button,Text } from "@chakra-ui/layout";
 import React from "react";
-import { withProtected } from "../src/hook/route";
-function genre() {
+
+
+export default function Custom404(){
 
   return (
-   <>
+  
    
-    <Text>genre</Text>
-   </>
-  );
+    <Text>404 | Not Found</Text>
+  
+  )
 }
-export default withProtected(genre);
