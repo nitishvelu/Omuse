@@ -12,7 +12,7 @@ function Liked({songids}) {
     return (
         <>
         <VStack>
-      {songids.map(txt => <Box>{txt}</Box>)}
+      {songids.map(txt => <Box key={txt}>{txt}</Box>)}
       </VStack>
     </>
     )
