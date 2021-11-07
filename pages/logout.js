@@ -8,7 +8,7 @@ function Logout({ auth }) {
   const { logout } = auth;
   return (
     <div>
-      <Button onClick={()=>{logout();cookie.remove("uid");cookie.remove("name");}}>Logout</Button>
+      <Button onClick={()=>{logout();cookie.remove("uid");cookie.remove("name");cookie.remove("typeOfUser")}}>Logout</Button>
     </div>
   );
 }

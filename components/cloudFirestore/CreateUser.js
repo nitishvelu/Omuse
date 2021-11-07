@@ -12,13 +12,16 @@ export default function CreateUser(){
   useEffect(() => {
     const getData=()=>{
     var db = firebase.firestore();
-    var docRef = db.collection("user").doc(user?.uid);
+    var userRef = db.collection("user").doc(user?.uid);
+    var artistRef = db.collection("artist").doc(user?.uid);
+    var producerRef = db.collection("producer").doc(user?.uid);
+
     console.log(user);
     cookie.set("uid",user.uid,{expires:30});
     cookie.set("name",user.displayName,{expires:30});
 
 
-    docRef
+    userRef
       .get()
       .then((doc) => {
         if (doc.exists) {
@@ -42,7 +45,28 @@ export default function CreateUser(){
       })
       .catch((error) => {
         console.log("Error getting document:", error);
-      });};
+      });
+
+//checking for the type of user [Artist,Producer,User]
+      artistRef
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          cookie.set("typeOfUser","Artist",{expires:30});
+        } else {
+          producerRef
+          .get()
+          .then((doc) => {
+            if (doc.exists) {
+              cookie.set("typeOfUser","Producer",{expires:30});
+            } else {
+              cookie.set("typeOfUser","User",{expires:30});
+            }
+          })
+          
+        }
+      })    
+    };
       getData();
 
   },[]);

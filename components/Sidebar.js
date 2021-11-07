@@ -22,6 +22,8 @@ import {
 import NavItem from '../components/NavItem';
 import useAuth from '../src/hook/auth';
 import { useColorMode,useColorModeValue } from "@chakra-ui/color-mode";
+import cookie from "js-cookie";
+
 
 
 export default function Sidebar() {
@@ -95,7 +97,7 @@ export default function Sidebar() {
                     <Avatar size="sm" src={user?.photoURL} />
                     <Flex flexDir="column" ml={4} display={navSize == "small" ? "none" : "flex"}>
                         <Heading as="h3" size="sm">{user?.displayName}</Heading>
-                        <Text color="gray">User</Text>
+                        <Text color="gray">{cookie.get("typeOfUser")||"User"}</Text>
                     </Flex>
                 </Flex>
             </Flex>
