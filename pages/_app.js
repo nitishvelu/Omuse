@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import "../src/config/firebase.config";
-import { ChakraProvider } from "@chakra-ui/react";
 import { AuthProvider } from "../src/hook/auth";
 import AuthStateChanged from "../src/layout/AuthStateChanged";
 import firebaseInit from "../src/config/firebase.config";
@@ -9,6 +8,7 @@ import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import { PushSpinner } from "react-spinners-kit";
 import {Chakra} from "../src/service/Chakra";
+import {Flex} from '@chakra-ui/react'
 
 
 
@@ -39,8 +39,13 @@ function MyApp({ Component, pageProps }) {
       <AuthProvider>
         <Layout>
         <AuthStateChanged>
-        {loading ? (
-          <PushSpinner size={40} color="#82AAAD" loading={loading} />
+        {loading ? (<Flex
+        pos="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)">
+        <PushSpinner size={40} color="#82AAAD" loading={loading} />
+      </Flex>  
         ) : (
           <Component {...pageProps} />
         )}
