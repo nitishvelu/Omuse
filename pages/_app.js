@@ -8,6 +8,7 @@ import Layout from "../src/layout/Layout";
 import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import { PushSpinner } from "react-spinners-kit";
+import {Chakra} from "../src/service/Chakra";
 
 
 
@@ -34,7 +35,7 @@ function MyApp({ Component, pageProps }) {
     };
   }, []);
   return (
-    <ChakraProvider>
+    <Chakra cookies={pageProps.cookies}>
       <AuthProvider>
         <Layout>
         <AuthStateChanged>
@@ -46,7 +47,7 @@ function MyApp({ Component, pageProps }) {
         </AuthStateChanged>
         </Layout>
       </AuthProvider>
-    </ChakraProvider>
+    </Chakra>
   );
 }
 
