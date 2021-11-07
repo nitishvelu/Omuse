@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { withProtected } from "../src/hook/route";
+import { withArtist } from "../src/hook/route";
 import React, { useEffect } from "react";
 
 function changeHandler(event) {
@@ -41,7 +41,7 @@ function changeHandler(event) {
   });
 }
 
-const test = ({ auth }) => {
+function Upload({ auth }){
   const { user, logout } = auth;
   const photo = user?.photoURL;
 
@@ -64,4 +64,4 @@ const test = ({ auth }) => {
 };
 
 // checkUserExistence();
-export default withProtected(test);
+export default withArtist(Upload);
