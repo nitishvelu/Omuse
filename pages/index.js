@@ -1,8 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Link from "next/link"
 import { withPublic } from '../src/hook/route';
+import { Button } from "@chakra-ui/button";
 
 
 
@@ -24,15 +23,15 @@ function Home({auth}) {
         
         <div>
             {error &&<h1>{error}</h1>}
-            <button onClick={loginWithGoogle}>login</button>
+            <Button onClick={loginWithGoogle}>Login</Button>
         </div>
 
        
       </main>
 
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <h1></h1>
-      </footer>
+      </footer> */}
     </div>
   );
 }
