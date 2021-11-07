@@ -7,9 +7,10 @@ import cookie from "js-cookie";
 
 export default function CreateUser(){
   const auth=useAuth();
-  const { user, logout } = auth;
+  const { user } = auth;
   const photo = user?.photoURL;
   useEffect(() => {
+    const getData=()=>{
     var db = firebase.firestore();
     var docRef = db.collection("user").doc(user?.uid);
     console.log(user);
@@ -41,7 +42,8 @@ export default function CreateUser(){
       })
       .catch((error) => {
         console.log("Error getting document:", error);
-      });
+      });};
+      getData();
 
   },[]);
   return null;
