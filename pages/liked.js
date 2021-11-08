@@ -19,7 +19,8 @@ function Liked({songids}) {
 }
 export default withProtected(Liked)
 
-export async function getServerSideProps({req}) {
+export async function getServerSideProps(context) {
+  const {req}=context
   let songids=[];
   const ref = await firebase.firestore()
       .collection("user").doc(req.cookies.uid)
