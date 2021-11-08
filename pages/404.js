@@ -8,7 +8,7 @@ export default function Custom404(){
   return (
   
    
-    <Text>404 | Not Found</Text>
+    <Text fontWeight="bold"fontSize="xl">404 | Not Found</Text>
   
   )
 }

@@ -10,8 +10,9 @@ import {
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
+import { motion } from "framer-motion"
 
-
+const MotionLink=motion(Link)
 
 export default function NavItem({ icon, title,navSize,to }) {
     
@@ -26,12 +27,18 @@ export default function NavItem({ icon, title,navSize,to }) {
         >
             <Menu id="874536983456382428328" placement="right">
                 <NextLink href={to} passHref>
-                <Link
+                <MotionLink
                     backgroundColor={active && "#AEC8CA"}
                     p={3}
                     borderRadius={8}
-                    _hover={{ textDecor: 'none', backgroundColor: "#AEC8CA"}}
+                    _hover={{ textDecor: 'none'}}
+                    _focus={{ boxShadow: "none", }}
                     w={navSize == "large" && "100%"}
+                    drag="x"
+                    dragConstraints={{ left: -0, right: 0 }}
+                    whileHover={navSize == "small" ?{ scale: 1.4 }: { scale: 1.1}}
+                    whileTap={{ scale: 0.9 }} 
+                   
                 >
                     <MenuButton w="100%">
                         <Flex>
@@ -39,7 +46,7 @@ export default function NavItem({ icon, title,navSize,to }) {
                             <Text ml={5} display={navSize == "small" ? "none" : "flex"} >{title}</Text>
                         </Flex>
                     </MenuButton>
-                </Link>
+                </MotionLink>
                 </NextLink>
                 
             </Menu>
