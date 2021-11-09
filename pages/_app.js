@@ -8,7 +8,7 @@ import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import { PushSpinner } from "react-spinners-kit";
 import {Chakra} from "../src/service/Chakra";
-import {Flex} from '@chakra-ui/react'
+import {Box} from '@chakra-ui/react'
 
 
 
@@ -39,13 +39,13 @@ function MyApp({ Component, pageProps }) {
       <AuthProvider>
         <Layout>
         <AuthStateChanged>
-        {loading ? (<Flex
+        {loading ? (<Box
         pos="absolute"
         top="50%"
         left="50%"
         transform="translate(-50%, -50%)">
         <PushSpinner size={40} color="#82AAAD" loading={loading} />
-      </Flex>  
+      </Box>  
         ) : (
           <Component {...pageProps} />
         )}
