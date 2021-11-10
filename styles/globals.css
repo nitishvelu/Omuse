@@ -1,20 +1,67 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .rhap_container {
-  background-color: inherit !important;
+	background-color: inherit !important;
+	-moz-box-shadow: none !important;
+	-goog-ms-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.rhap_time {
+	color: #aec8ca !important;
+}
+
+.rhap_progress-bar {
+	background-color: #aec8ca !important;
+}
+
+.rhap_volume-bar {
+	background: #aec8ca !important;
+}
+
+/* theme */
+.rhap_progress-filled {
+	background-color: #aec8ca !important;
+}
+
+.rhap_progress-indicator {
+	background: #aec8ca !important;
+	box-shadow: rgba(#aec8ca, 0.5) 0 0 5px !important;
+}
+
+.rhap_repeat-button {
+	color: #aec8ca !important;
+}
+
+.rhap_main-controls-button {
+	color: #aec8ca !important;
+}
+
+.rhap_volume-button {
+	color: #aec8ca !important;
+}
+
+.rhap_volume-indicator {
+	background: #aec8ca !important;
+	box-shadow: rgba(#aec8ca, 0.5) 0 0 3px !important;
+}
+
+.rhap_volume-filled {
+	background-color: #aec8ca !important;
 }
