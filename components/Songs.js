@@ -18,8 +18,6 @@ var play_not_pause = true;
 var is_First_play = true;
 import { motion } from "framer-motion";
 
-const MotionLink = motion(Link);
-
 const incrementStreams = (song_id) => {
 	const doc_ref = firebase.firestore().collection("song").doc(song_id);
 	doc_ref.update({ no_of_streams: FieldValue.increment(1) });
@@ -33,6 +31,7 @@ export default function Song({ song_obj }) {
 			templateRows='repeat(5, 1fr)'
 			templateColumns='repeat(5, 1fr)'
 			gap={1}
+			rounded='15px'
 		>
 			<GridItem rowSpan={5} colSpan={2}>
 				<Link>
@@ -55,16 +54,20 @@ export default function Song({ song_obj }) {
 			</GridItem>
 			<GridItem rowSpan={2} colSpan={3}>
 				<NextLink href={"/song/" + song_obj.id} passHref>
-					<MotionLink
-						whileHover={{ scale: 1.1 }}
-						whileTap={{ scale: 0.9 }}
+					<Link
 						_hover={{ textDecor: "none" }}
 						_focus={{ boxShadow: "none" }}
 					>
-						<Text fontSize='3xl' isTruncated>
+						<Text
+							fontSize='3xl'
+							isTruncated
+							_hover={{
+								color: "teal.500",
+							}}
+						>
 							{song_obj.name}
 						</Text>
-					</MotionLink>
+					</Link>
 				</NextLink>
 			</GridItem>
 
