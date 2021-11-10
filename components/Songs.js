@@ -13,35 +13,31 @@ const incrementStreams = (song_id) => {
 
 export default function Song({ song_obj }) {
 	return (
-		<Flex mt={30} flexDir='row' w='100%' alignItems={"flex-start"}>
-			<Flex>
-				{/* <Icon as={icon}  /> */}
-				<div id='song-art' style={{ width: "10vh", height: "auto" }}>
-					<Image src={song_obj.img} alt='album image' />
-				</div>
-				<IconButton
-					background='none'
-					mt={5}
-					_hover={{ background: "none" }}
-					icon={<FiPlay />}
-					onClick={function clickHandler(e) {
-						const div = document.getElementById("musicPlayer");
-						const player = div.childNodes[0];
-						player.childNodes[0].src = song_obj.ref;
-						player.childNodes[0].play();
-						incrementStreams(song_obj.id);
-					}}
-				/>
-				<Text ml={5} display={"flex"}>
-					{song_obj.name}
-				</Text>
-				<Text ml={5} display={"flex"}>
-					{song_obj.genre}
-				</Text>
-				<Text ml={5} display={"flex"}>
-					{song_obj.duration}
-				</Text>
-			</Flex>
+		<Flex>
+			<Image
+				src={song_obj.img}
+				alt='album image'
+				objectFit='cover'
+				boxSize='12vh'
+				borderRadius='30'
+				onClick={function clickHandler(e) {
+					const div = document.getElementById("musicPlayer");
+					const player = div.childNodes[0];
+					player.childNodes[0].src = song_obj.ref;
+					player.childNodes[0].play();
+					incrementStreams(song_obj.id);
+				}}
+				fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+			/>
+			<Text ml={5} display={"flex"}>
+				{song_obj.name}
+			</Text>
+			<Text ml={5} display={"flex"}>
+				{song_obj.genre}
+			</Text>
+			<Text ml={5} display={"flex"}>
+				{song_obj.duration}
+			</Text>
 		</Flex>
 	);
 }

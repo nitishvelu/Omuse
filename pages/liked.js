@@ -5,7 +5,7 @@ import "firebase/firestore";
 import { FiMenu } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
-import { Box, Button, Text, VStack } from "@chakra-ui/layout";
+import { Box, Button, SimpleGrid, Text, VStack } from "@chakra-ui/layout";
 import Song from "../components/Songs";
 import { Heading } from "@chakra-ui/react";
 
@@ -14,11 +14,20 @@ function Liked({ songs_list }) {
 	return (
 		<>
 			<Heading>Favourites</Heading>
-			<VStack>
+			<SimpleGrid
+				column={[1, 1, 2, 3]}
+				spacing={1}
+				overflowX='auto'
+				rounded='1g'
+				height='80%'
+				width='full'
+				spacingX={7}
+				spacingY={7}
+			>
 				{Object.keys(songs_list).map((idx) => {
 					return <Song song_obj={songs_list[idx]} key={idx} />;
 				})}
-			</VStack>
+			</SimpleGrid>
 		</>
 	);
 }
