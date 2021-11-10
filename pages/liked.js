@@ -25,14 +25,14 @@ function Liked({ songs_list }) {
 				spacingY={9}
 				css={{
 					"&::-webkit-scrollbar": {
-						width: "4px",
+						width: "7px",
 					},
 					"&::-webkit-scrollbar-track": {
-						width: "6px",
+						width: "7px",
 					},
 					"&::-webkit-scrollbar-thumb": {
-						background: "white",
-						borderRadius: "24px",
+						background: "pink",
+						borderRadius: "15px",
 					},
 				}}
 			>

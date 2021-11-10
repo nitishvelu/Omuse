@@ -11,9 +11,14 @@ import {
 	Image,
 } from "@chakra-ui/react";
 import firebase from "firebase/app";
+import NextLink from "next/link";
+
 const FieldValue = firebase.firestore.FieldValue;
 var play_not_pause = true;
 var is_First_play = true;
+import { motion } from "framer-motion";
+
+const MotionLink = motion(Link);
 
 const incrementStreams = (song_id) => {
 	const doc_ref = firebase.firestore().collection("song").doc(song_id);
@@ -49,9 +54,18 @@ export default function Song({ song_obj }) {
 				</Link>
 			</GridItem>
 			<GridItem rowSpan={2} colSpan={3}>
-				<Text fontSize='3xl' isTruncated>
-					{song_obj.name}
-				</Text>
+				<NextLink href={"/song/" + song_obj.id} passHref>
+					<MotionLink
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						_hover={{ textDecor: "none" }}
+						_focus={{ boxShadow: "none" }}
+					>
+						<Text fontSize='3xl' isTruncated>
+							{song_obj.name}
+						</Text>
+					</MotionLink>
+				</NextLink>
 			</GridItem>
 
 			<GridItem rowSpan={1} colspan={3} rowEnd={5} colStart={3}>
