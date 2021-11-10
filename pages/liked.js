@@ -14,6 +14,7 @@ function Liked({ songs_list }) {
 	return (
 		<>
 			<Heading>Favourites</Heading>
+
 			<SimpleGrid
 				minChildWidth='300px'
 				overflowX='auto'
@@ -22,6 +23,18 @@ function Liked({ songs_list }) {
 				width='full'
 				spacingX={0}
 				spacingY={9}
+				css={{
+					"&::-webkit-scrollbar": {
+						width: "4px",
+					},
+					"&::-webkit-scrollbar-track": {
+						width: "6px",
+					},
+					"&::-webkit-scrollbar-thumb": {
+						background: "white",
+						borderRadius: "24px",
+					},
+				}}
 			>
 				{Object.keys(songs_list).map((idx) => {
 					return <Song song_obj={songs_list[idx]} key={idx} />;
