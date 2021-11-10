@@ -21,7 +21,7 @@ function Liked({ songs_list }) {
 				height='80%'
 				width='full'
 				spacingX={0}
-				spacingY={0}
+				spacingY={9}
 			>
 				{Object.keys(songs_list).map((idx) => {
 					return <Song song_obj={songs_list[idx]} key={idx} />;
