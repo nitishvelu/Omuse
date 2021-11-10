@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.rhap_container {
+  background-color: inherit !important;
+}
