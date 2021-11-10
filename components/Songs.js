@@ -63,6 +63,7 @@ export default function Song({ song_obj }) {
 							isTruncated
 							_hover={{
 								color: "teal.500",
+								fontWeight: "semibold",
 							}}
 						>
 							{song_obj.name}
