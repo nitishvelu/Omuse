@@ -15,14 +15,13 @@ function Liked({ songs_list }) {
 		<>
 			<Heading>Favourites</Heading>
 			<SimpleGrid
-				column={[1, 1, 2, 3]}
-				spacing={1}
+				minChildWidth='300px'
 				overflowX='auto'
 				rounded='1g'
 				height='80%'
 				width='full'
-				spacingX={7}
-				spacingY={7}
+				spacingX={0}
+				spacingY={0}
 			>
 				{Object.keys(songs_list).map((idx) => {
 					return <Song song_obj={songs_list[idx]} key={idx} />;
