@@ -70,19 +70,18 @@ export default function Song({ song_obj }) {
         </NextLink>
       </GridItem>
 
-      <GridItem rowSpan={1} colspan={3} rowEnd={5} colStart={3}>
+      <GridItem rowSpan={1} colSpan={3} rowEnd={5} colStart={3}>
         <Text as="sup" color="gray.500">
-          {song_obj.genre}
+          {song_obj.duration}
         </Text>
       </GridItem>
       <GridItem rowSpan={1} colSpan={3}>
-        {/* <Text as='sub' color='gray.500'>
-					{song_obj.duration}
-				</Text> */}
         <NextLink href={"/artist/" + song_obj.artist_id}>
-          <Text as="sub" color="gray.500">
-            {song_obj.artist}
-          </Text>
+          <Link>
+            <Text as="sub" color="gray.500">
+              {song_obj.artist_name}
+            </Text>
+          </Link>
         </NextLink>
       </GridItem>
     </Grid>

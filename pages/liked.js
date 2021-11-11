@@ -63,6 +63,10 @@ export async function getServerSideProps({ req }) {
       }
     });
 
+  let artists = [];
+  let albums = [];
+
+  //fetching song data
   for (let i = 0; i < songids.length; i++) {
     const song_obj = new Object();
     song_obj.id = songids[i];
@@ -82,31 +86,31 @@ export async function getServerSideProps({ req }) {
           song_obj.language = doc.data().language;
           song_obj.ref = doc.data().cloud_reference;
           song_obj.img = doc.data().art;
+          albums.push(doc.data().album);
           //   song_obj.album = firebase
-          let album = doc.data().album;
-
-          album.get().then((al) => {
-            if (al.exists) {
-              song_obj.album = al.data().name;
-              let artist = al.data().artist;
-              artist.get().then((art) => {
-                if (art.exists) {
-                  console.log(art.data().name);
-                  song_obj.artist = art.data().name;
-                  song_obj.artist_id = art.id;
-                }
-              });
-            }
-          });
           songs_list.push(song_obj);
         }
       });
   }
-  // console.log(songs_list);
-  // const songs = [songs_list];
-  // console.log(typeof songs);
-  // songs_list = Array(songs_list);
-  // console.log(typeof songs_list);
-  console.log(songs_list);
+
+  // getting albums
+  for (let i = 0; i < albums.length; i++) {
+    const db = await albums[i].get().then((doc) => {
+      if (doc.exists) {
+        songs_list[i].album = doc.data().name;
+        artists.push(doc.data().artist);
+      }
+    });
+  }
+
+  // getting artists
+  for (let i = 0; i < albums.length; i++) {
+    const db = await artists[i].get().then((doc) => {
+      if (doc.exists) {
+        songs_list[i].artist_name = doc.data().name;
+        songs_list[i].artist_id = doc.id;
+      }
+    });
+  }
   return { props: { songs_list } };
 }
