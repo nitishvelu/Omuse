@@ -8,6 +8,7 @@ import { HStack } from "@chakra-ui/react";
 import { CloseButton } from "@chakra-ui/react";
 import cookie from "js-cookie";
 import { useState } from "react";
+import router from "next/router";
 // import { FiHeart } from "react-icons/fi";
 function Songdetails({ song, liked }) {
 	const db = firebase.firestore();
@@ -71,7 +72,7 @@ function Songdetails({ song, liked }) {
 					<Text>{noLikes}</Text>
 					<button onClick={handleClick}>{likeUnlike}</button>
 				</VStack>
-				<CloseButton size='lg' />
+				<CloseButton size='lg' onClick={() => router.back()} />
 			</HStack>
 		</>
 	);
