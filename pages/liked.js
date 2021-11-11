@@ -5,20 +5,41 @@ import "firebase/firestore";
 import { FiMenu } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
-import { Box, Button, Text, VStack } from "@chakra-ui/layout";
+import { Box, Button, SimpleGrid, Text, VStack } from "@chakra-ui/layout";
 import Song from "../components/Songs";
 import { Heading } from "@chakra-ui/react";
 
 function Liked({ songs_list }) {
-  console.log(songs_list);
+  // console.log(songs_list);
   return (
     <>
       <Heading>Favourites</Heading>
-      <VStack>
+
+      <SimpleGrid
+        minChildWidth="300px"
+        overflowX="auto"
+        rounded="1g"
+        height="80%"
+        width="full"
+        spacingX={0}
+        spacingY={9}
+        css={{
+          "&::-webkit-scrollbar": {
+            width: "7px",
+          },
+          "&::-webkit-scrollbar-track": {
+            width: "7px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            background: "pink",
+            borderRadius: "15px",
+          },
+        }}
+      >
         {Object.keys(songs_list).map((idx) => {
           return <Song song_obj={songs_list[idx]} key={idx} />;
         })}
-      </VStack>
+      </SimpleGrid>
     </>
   );
 }
@@ -70,7 +91,9 @@ export async function getServerSideProps({ req }) {
               let artist = al.data().artist;
               artist.get().then((art) => {
                 if (art.exists) {
+                  console.log(art.data().name);
                   song_obj.artist = art.data().name;
+                  song_obj.artist_id = art.id;
                 }
               });
             }
@@ -84,5 +107,6 @@ export async function getServerSideProps({ req }) {
   // console.log(typeof songs);
   // songs_list = Array(songs_list);
   // console.log(typeof songs_list);
+  console.log(songs_list);
   return { props: { songs_list } };
 }
