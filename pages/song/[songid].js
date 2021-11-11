@@ -15,7 +15,10 @@ function Songdetails({ song, liked }) {
 	const [isLiked, setIsLiked] = useState(liked);
 
 	const [likeUnlike, setlikeUnlike] = useState(liked ? "unlike" : "like");
-
+	// handling like event
+	// db operations involved:
+	// removing song from users liked song array
+	// updating no of likes in song document
 	const handleClick = () => {
 		//unliking song
 		if (isLiked) {
@@ -29,6 +32,11 @@ function Songdetails({ song, liked }) {
 						song[0]
 					),
 				});
+			db.collection("song")
+				.doc(song[0])
+				.update({
+					no_of_likes: firebase.firestore.FieldValue.increment(-1),
+				});
 		}
 		//liking song
 		else {
@@ -41,6 +49,11 @@ function Songdetails({ song, liked }) {
 					liked_songs: firebase.firestore.FieldValue.arrayUnion(
 						song[0]
 					),
+				});
+			db.collection("song")
+				.doc(song[0])
+				.update({
+					no_of_likes: firebase.firestore.FieldValue.increment(1),
 				});
 		}
 	};
