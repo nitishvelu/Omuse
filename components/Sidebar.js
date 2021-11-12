@@ -35,9 +35,9 @@ export default function Sidebar() {
 	if (cookie.get("typeOfUser") == "Artist") {
 		return (
 			<Flex
-				pos='sticky'
+				pos='fixed'
 				left='5'
-				h='95vh'
+				h='95%'
 				marginTop='2.5vh'
 				boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
 				borderRadius={navSize == "small" ? "15px" : "19px"}
