@@ -19,7 +19,7 @@ export default function NavItem({ icon, title, navSize, to }) {
 	const active = router.pathname === to;
 	return (
 		<Flex
-			mt={30}
+			mt={[8, 10, 30]}
 			flexDir='column'
 			w='100%'
 			alignItems={navSize == "small" ? "center" : "flex-start"}
@@ -28,7 +28,7 @@ export default function NavItem({ icon, title, navSize, to }) {
 				<NextLink href={to} passHref>
 					<MotionLink
 						backgroundColor={active && "#AEC8CA"}
-						p={3}
+						p={[2, 2, 3]}
 						borderRadius={8}
 						_hover={{ textDecor: "none" }}
 						_focus={{ boxShadow: "none" }}
@@ -48,7 +48,7 @@ export default function NavItem({ icon, title, navSize, to }) {
 									color={active ? "#82AAAD" : "gray.500"}
 								/>
 								<Text
-									ml={5}
+									ml={2}
 									display={
 										navSize == "small" ? "none" : "flex"
 									}

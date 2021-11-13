@@ -38,7 +38,7 @@ export default function Sidebar() {
 				pos='fixed'
 				left='5'
 				h='95%'
-				marginTop='2.5vh'
+				marginTop='1.5vh'
 				boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
 				borderRadius={navSize == "small" ? "15px" : "19px"}
 				w={navSize == "small" ? "75px" : "200px"}
@@ -149,8 +149,9 @@ export default function Sidebar() {
 		return (
 			<Flex
 				pos='sticky'
-				left='5'
-				h='95vh'
+				left={["3", "4", "5"]}
+				h={["89vh", "95vh", "95vh"]}
+				// h='95vh'
 				marginTop='2.5vh'
 				boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
 				borderRadius={navSize == "small" ? "15px" : "19px"}
@@ -170,6 +171,7 @@ export default function Sidebar() {
 						mt={5}
 						_hover={{ background: "none" }}
 						icon={<FiMenu />}
+						display={["none", "flex", "flex"]}
 						onClick={() => {
 							if (navSize == "small") changeNavSize("large");
 							else changeNavSize("small");

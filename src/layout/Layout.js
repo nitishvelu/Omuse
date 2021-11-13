@@ -25,11 +25,11 @@ export default function Layout({ children }) {
 					width='100%'
 					// overflow="hidden"
 					alignItems='flex-start'
-					spacing='3.5em'
+					spacing={["1.5em", "2.5em", "3.5em"]}
 				>
 					<Sidebar />
 					<VStack
-						pr={7}
+						pr={[0, 2, 7]}
 						pt={9}
 						width='100%'
 						height='100vh'
@@ -44,7 +44,7 @@ export default function Layout({ children }) {
 								width='90%'
 								height='auto'
 								position='fixed'
-								bottom={4}
+								bottom={[0.1, 1, 3]}
 								id='musicPlayer'
 								src='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/after%20hours%2F09%20Blinding%20Lights.mp3?alt=media&token=77ad2d5f-6f00-40bb-9e75-cb8401ee139d'
 								onPlay={(e) => console.log("onPlay")}
