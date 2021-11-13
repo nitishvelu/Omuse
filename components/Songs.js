@@ -19,6 +19,7 @@ var is_First_play = true;
 import { motion } from "framer-motion";
 
 const MText = motion(Text);
+const MImage = motion(Image);
 
 const incrementStreams = (song_id) => {
 	const doc_ref = firebase.firestore().collection("song").doc(song_id);
@@ -38,12 +39,19 @@ export default function Song({ song_obj }) {
 		>
 			<GridItem rowSpan={5} colSpan={2}>
 				<Link>
-					<Image
+					<MImage
 						src={song_obj.img}
 						alt='album image'
 						objectFit='cover'
 						boxSize='12vh'
 						borderRadius='30'
+						whileHover={{
+							scale: 1.009,
+							// color: "blue",
+						}}
+						drag='xy'
+						dragConstraints={{ left: -0, right: 0 }}
+						whileTap={{ scale: 0.96 }}
 						onClick={function clickHandler(e) {
 							const div = document.getElementById("musicPlayer");
 							const player = div.childNodes[0];
@@ -65,10 +73,10 @@ export default function Song({ song_obj }) {
 							fontSize='3xl'
 							isTruncated
 							whileHover={{
-								scale: 1.005,
+								scale: 1.009,
 								color: "#AEC8CA",
 							}}
-							whileTap={{ scale: 0.9 }}
+							whileTap={{ scale: 0.96 }}
 						>
 							{song_obj.name}
 						</MText>
@@ -93,7 +101,7 @@ export default function Song({ song_obj }) {
 								scale: 1.005,
 								color: "#AEC8CA",
 							}}
-							whileTap={{ scale: 0.9 }}
+							whileTap={{ scale: 0.96 }}
 							fontSize='xs'
 						>
 							{song_obj.artist_name}
