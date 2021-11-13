@@ -41,7 +41,7 @@ export default function Layout({ children }) {
 						<div id='musicPlayer'>
 							<Box
 								as={AudioPlayer}
-								width='90%'
+								width={["75%", "90%", "90%"]}
 								height='auto'
 								position='fixed'
 								bottom={[0.1, 1, 3]}
