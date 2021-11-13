@@ -18,6 +18,8 @@ var play_not_pause = true;
 var is_First_play = true;
 import { motion } from "framer-motion";
 
+const MText = motion(Text);
+
 const incrementStreams = (song_id) => {
 	const doc_ref = firebase.firestore().collection("song").doc(song_id);
 	doc_ref.update({ no_of_streams: FieldValue.increment(1) });
@@ -32,7 +34,7 @@ export default function Song({ song_obj }) {
 			templateRows='repeat(5, 1fr)'
 			templateColumns='repeat(5, 1fr)'
 			gap={1}
-			rounded='15px'
+			rounded='md'
 		>
 			<GridItem rowSpan={5} colSpan={2}>
 				<Link>
@@ -59,16 +61,17 @@ export default function Song({ song_obj }) {
 						_hover={{ textDecor: "none" }}
 						_focus={{ boxShadow: "none" }}
 					>
-						<Text
+						<MText
 							fontSize='3xl'
 							isTruncated
-							_hover={{
-								color: "teal.500",
-								fontWeight: "semibold",
+							whileHover={{
+								scale: 1.005,
+								color: "#AEC8CA",
 							}}
+							whileTap={{ scale: 0.9 }}
 						>
 							{song_obj.name}
-						</Text>
+						</MText>
 					</Link>
 				</NextLink>
 			</GridItem>
@@ -80,10 +83,21 @@ export default function Song({ song_obj }) {
 			</GridItem>
 			<GridItem rowSpan={1} colSpan={3}>
 				<NextLink href={"/artist/" + song_obj.artist_id}>
-					<Link>
-						<Text as='sub' color='gray.500'>
+					<Link
+						_hover={{ textDecor: "none" }}
+						_focus={{ boxShadow: "none" }}
+					>
+						<MText
+							color='gray.500'
+							whileHover={{
+								scale: 1.005,
+								color: "#AEC8CA",
+							}}
+							whileTap={{ scale: 0.9 }}
+							fontSize='xs'
+						>
 							{song_obj.artist_name}
-						</Text>
+						</MText>
 					</Link>
 				</NextLink>
 			</GridItem>
