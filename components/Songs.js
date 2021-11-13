@@ -46,7 +46,7 @@ export default function Song({ song_obj }) {
 						boxSize='12vh'
 						borderRadius='30'
 						whileHover={{
-							scale: 1.009,
+							scale: 1.05,
 							// color: "blue",
 						}}
 						drag='xy'
