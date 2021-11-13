@@ -30,8 +30,8 @@ export default function Song({ song_obj }) {
 	console.group(song_obj);
 	return (
 		<Grid
-			h='12vh'
-			w='300px'
+			h={["12vh", "12vh", "16vh"]}
+			w={["300px", "300px", "400px"]}
 			templateRows='repeat(5, 1fr)'
 			templateColumns='repeat(5, 1fr)'
 			gap={1}
@@ -43,10 +43,11 @@ export default function Song({ song_obj }) {
 						src={song_obj.img}
 						alt='album image'
 						objectFit='cover'
-						boxSize='12vh'
+						boxSize={["12vh", "12vh", "16vh"]}
 						borderRadius='30'
 						whileHover={{
 							scale: 1.05,
+
 							// color: "blue",
 						}}
 						drag='xy'
@@ -70,7 +71,7 @@ export default function Song({ song_obj }) {
 						_focus={{ boxShadow: "none" }}
 					>
 						<MText
-							fontSize='3xl'
+							fontSize={["3xl", "3xl", "4xl"]}
 							isTruncated
 							whileHover={{
 								scale: 1.009,
@@ -102,7 +103,7 @@ export default function Song({ song_obj }) {
 								color: "#AEC8CA",
 							}}
 							whileTap={{ scale: 0.96 }}
-							fontSize='xs'
+							fontSize={["xs", "xs", "md"]}
 						>
 							{song_obj.artist_name}
 						</MText>

@@ -16,7 +16,7 @@ function Liked({ songs_list }) {
 			<Heading>Favourites</Heading>
 
 			<SimpleGrid
-				minChildWidth='300px'
+				minChildWidth={["300px", "300px", "400px"]}
 				overflowX='auto'
 				rounded='lg'
 				height={["74%", "80%", "80%"]}
