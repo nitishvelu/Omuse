@@ -18,8 +18,8 @@ function Liked({ songs_list }) {
 			<SimpleGrid
 				minChildWidth='300px'
 				overflowX='auto'
-				rounded='1g'
-				height='80%'
+				rounded='lg'
+				height={["74%", "80%", "80%"]}
 				width='full'
 				spacingX={0}
 				spacingY={9}

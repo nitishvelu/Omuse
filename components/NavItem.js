@@ -28,7 +28,7 @@ export default function NavItem({ icon, title, navSize, to }) {
 				<NextLink href={to} passHref>
 					<MotionLink
 						backgroundColor={active && "#AEC8CA"}
-						p={[2, 2, 3]}
+						p={[2.5, 2.5, 3]}
 						borderRadius={8}
 						_hover={{ textDecor: "none" }}
 						_focus={{ boxShadow: "none" }}
