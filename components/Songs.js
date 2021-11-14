@@ -73,6 +73,8 @@ export default function Song({ song_obj }) {
 						<MText
 							fontSize={["3xl", "3xl", "4xl"]}
 							isTruncated
+							margin={0}
+							padding={0}
 							whileHover={{
 								scale: 1.009,
 								color: "#AEC8CA",

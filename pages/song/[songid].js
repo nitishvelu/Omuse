@@ -93,9 +93,11 @@ export async function getServerSideProps(context) {
 				song.push(doc.id);
 				song.push(doc.data().name);
 				song.push(doc.data().year);
+
 				song.push(doc.data().language);
 				song.push(doc.data().genre);
 				song.push(doc.data().no_of_likes);
+				console.log("check");
 			} else {
 				doesnotexists = true;
 			}
