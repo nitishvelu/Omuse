@@ -104,7 +104,7 @@ export default function Song({ song_obj }) {
 								scale: 1.005,
 								color: "#AEC8CA",
 							}}
-							whileTap={{ scale: 0.96 }}
+							whileTap={{ scale: 0.97 }}
 							fontSize={["xs", "xs", "md"]}
 						>
 							{song_obj.artist_name}
