@@ -79,7 +79,7 @@ export async function getServerSideProps({ req }) {
 				if (doc.exists) {
 					song_obj.name = doc.data().name;
 					song_obj.genre = doc.data().genre;
-					song_obj.duration = doc.data().duration;
+					// song_obj.duration = doc.data().duration;
 					song_obj.year = doc.data().year;
 					song_obj.no_of_likes = doc.data().no_of_likes;
 					song_obj.no_of_streams = doc.data().no_of_streams;
