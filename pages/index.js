@@ -7,7 +7,7 @@ function Home({ auth }) {
 	const { loginWithGoogle, error } = auth;
 	return (
 		<div className={styles.container}>
-			<Head>
+			{/* <Head>
 				<title>Omuse</title>
 				<meta
 					name='description'
@@ -18,7 +18,7 @@ function Home({ auth }) {
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 				/>
 				<link rel='icon' href='/favicon.ico' />
-			</Head>
+			</Head> */}
 
 			<main className={styles.main}>
 				<h1 className={styles.title}>
