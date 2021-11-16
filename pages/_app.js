@@ -7,15 +7,13 @@ import Layout from "../src/layout/Layout";
 import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import { PushSpinner } from "react-spinners-kit";
-import {Chakra} from "../src/service/Chakra";
-import {Box} from '@chakra-ui/react'
-
-
+import { Chakra } from "../src/service/Chakra";
+import { Box } from "@chakra-ui/react";
 
 firebaseInit();
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] =useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const start = () => {
       console.log("start");
@@ -38,18 +36,20 @@ function MyApp({ Component, pageProps }) {
     <Chakra cookies={pageProps.cookies}>
       <AuthProvider>
         <Layout>
-        <AuthStateChanged>
-        {loading ? (<Box
-        pos="absolute"
-        top="50%"
-        left="50%"
-        transform="translate(-50%, -50%)">
-        <PushSpinner size={40} color="#82AAAD" loading={loading} />
-      </Box>  
-        ) : (
-          <Component {...pageProps} />
-        )}
-        </AuthStateChanged>
+          <AuthStateChanged>
+            {loading ? (
+              <Box
+                pos="absolute"
+                top="50%"
+                left="50%"
+                transform="translate(-50%, -50%)"
+              >
+                <PushSpinner size={40} color="#82AAAD" loading={loading} />
+              </Box>
+            ) : (
+              <Component {...pageProps} />
+            )}
+          </AuthStateChanged>
         </Layout>
       </AuthProvider>
     </Chakra>
