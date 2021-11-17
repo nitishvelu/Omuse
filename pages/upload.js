@@ -153,8 +153,8 @@ function changeHandler(event) {
         var input = document.createElement("input");
         input.style.color = "black";
         input.type = "text";
-        input.value = tag.tags.genre.split("/")[0];
-        songs[j].genre = input.value;
+        input.value = tag.tags.genre;
+        songs[j].genre = input.value.split("/");
         input.addEventListener("change", (e) => {
           songs[j].genre = e.target.value;
         });
