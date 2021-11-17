@@ -47,11 +47,9 @@ export default function Song({ song_obj }) {
 						borderRadius='30'
 						whileHover={{
 							scale: 1.05,
-
-							// color: "blue",
 						}}
-						drag='xy'
-						dragConstraints={{ left: -0, right: 0 }}
+						// drag='xy'
+						// dragConstraints={{ left: -0, right: 0 }}
 						whileTap={{ scale: 0.96 }}
 						onClick={function clickHandler(e) {
 							const div = document.getElementById("musicPlayer");
@@ -86,13 +84,13 @@ export default function Song({ song_obj }) {
 					</Link>
 				</NextLink>
 			</GridItem>
-
+			{/* 
 			<GridItem rowSpan={1} colSpan={3} rowEnd={5} colStart={3}>
 				<Text as='sup' color='gray.500'>
 					{song_obj.duration}
 				</Text>
-			</GridItem>
-			<GridItem rowSpan={1} colSpan={3}>
+			</GridItem> */}
+			<GridItem rowSpan={2} colSpan={3}>
 				<NextLink href={"/artist/" + song_obj.artist_id}>
 					<Link
 						_hover={{ textDecor: "none" }}
