@@ -8,10 +8,10 @@ import React, { useEffect } from "react";
 var artist = null;
 var album = null;
 var songs = [];
-var alldone = false;
 var num_uploaded = 0;
 var db = firebase.firestore();
 
+// genrating random values for # of streams and likes of each song
 function generateRandom(min = 1000, max = 1000000) {
   let difference = max - min;
 
@@ -26,6 +26,7 @@ function generateRandom(min = 1000, max = 1000000) {
   return rand;
 }
 
+// populating db with all songs and attaching album to the artist
 function writeSongs() {
   for (let i = 0; i < songs.length; i++) {
     const song = db.collection("song").doc();
@@ -58,11 +59,14 @@ function writeSongs() {
     "Success! your album has been uploaded !";
 }
 
+// reading files on state change of file upload
 function changeHandler(event) {
   const jsmediatags = window.jsmediatags;
   var storageRef = firebase.storage().ref();
   var size = event.target.files.length;
+
   document.getElementById("loading").style.display = "block";
+
   for (let j = 0; j < event.target.files.length; j++) {
     let song = new Object();
     song.album = album;
@@ -73,57 +77,54 @@ function changeHandler(event) {
       var content = file;
       content.src = file.src;
 
+      // no metadata for now
       var metadata = {
         contentType: "audio",
       };
 
+      // creating path in storage for album folder -> album_name/ file_name
       var uploadTask = storageRef
         .child(document.getElementById("album_name").value + "/" + file.name)
         .put(file, metadata);
 
       uploadTask.on(
-        firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        firebase.storage.TaskEvent.STATE_CHANGED,
         (snapshot) => {
           var progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           document.getElementById(j + "").value = progress;
 
           switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
+            case firebase.storage.TaskState.PAUSED:
               break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
+            case firebase.storage.TaskState.RUNNING:
               break;
           }
         },
         (error) => {
           switch (error.code) {
             case "storage/unauthorized":
-              // User doesn't have permission to access the object
               console.log("Unauthorised access");
               break;
             case "storage/canceled":
-              // User canceled the upload
               break;
-
-            // ...
-
             case "storage/unknown":
-              // Unknown error occurred, inspect error.serverResponse
+              console.log("unknown error occured");
               break;
           }
         },
+        // success callback wehn file is uploaded to storage
         () => {
-          // Upload completed successfully, now we can get the download URL
           uploadTask.snapshot.ref.getDownloadURL().then((token) => {
             songs[j].cloud_reference = token;
             num_uploaded += 1;
             console.log("uploaded song");
 
+            // checking if all attached files are uploaded to storage
             if (num_uploaded == size) {
               console.log("done");
               document.getElementById("loading").style.display = "none";
               document.getElementById("submit").style.display = "block";
-              alldone = true;
             }
           });
         }
@@ -141,13 +142,19 @@ function changeHandler(event) {
         var imageUri =
           "data:" + picture.format + ";base64," + window.btoa(base64String);
 
+        // please add class names and do css here html looks ugly
+
+        // div for each song preview uploaded
         const container = document.createElement("div");
+
+        //song cover art
         var art = document.createElement("img");
         art.src = imageUri;
         art.style.width = "10vh";
         songs[j].art = imageUri;
         container.appendChild(art);
 
+        //song name
         var name = document.createElement("LABEL");
         name.innerHTML = "Name: ";
         var input = document.createElement("input");
@@ -160,8 +167,9 @@ function changeHandler(event) {
         });
         input.className = "css-class-name"; // set the CSS class
         container.appendChild(name);
-        container.appendChild(input); // put it into the DOM
+        container.appendChild(input);
 
+        //genre
         var genre = document.createElement("LABEL");
         genre.innerHTML = "Genre: ";
         var input = document.createElement("input");
@@ -176,38 +184,28 @@ function changeHandler(event) {
         container.appendChild(genre);
         container.appendChild(input);
 
-        // var year = document.createElement("LABEL");
-        // year.innerHTML = "Year: ";
-        // var input = document.createElement("input");
-        // input.style.color = "black";
-        // input.type = "text";
-        // input.value = tag.tags.year;
-        // songs[j].year = input.value;
-        // input.addEventListener("change", (e) => {
-        //   songs[j].year = e.target.value;
-        // });
-        // input.className = "css-class-name"; // set the CSS class
-        // container.appendChild(year);
-        // container.appendChild(input);
-
+        // language for whoel album
         var lang = document.getElementById("Language");
         songs[j].language = lang.value;
         lang.addEventListener("change", (e) => {
           songs[j].language = e.target.value;
         });
 
+        // year of release of whole album
         var year = document.getElementById("Year");
         songs[j].year = parseInt(year.value);
         year.addEventListener("change", (e) => {
           songs[j].year = parseInt(e.target.value);
         });
 
+        //progress bars for upload
         var bar = document.createElement("progress");
         bar.id = j;
         bar.max = 100;
 
-        songs[j].no_of_likes = 0;
-        songs[j].no_of_streams = 0;
+        // putting random val instead uncomment if needed to change
+        // songs[j].no_of_likes = 0;
+        // songs[j].no_of_streams = 0;
 
         container.appendChild(bar);
         document.getElementById("container").appendChild(container);
@@ -222,6 +220,7 @@ function changeHandler(event) {
   console.log(songs);
 }
 
+// adds album document to the db
 function uploadAlbum() {
   document.getElementById("container").style.display = "block";
 
@@ -234,11 +233,14 @@ function uploadAlbum() {
   });
 }
 
+// display invalid artist id
 function invalid() {
   console.log("invalid artist id try again !");
 }
 
-function fetchArtist(id) {
+// get artist by id
+function createAlbum() {
+  let id = document.getElementById("art_id").value;
   firebase
     .firestore()
     .collection("artist")
@@ -257,21 +259,16 @@ function fetchArtist(id) {
     });
 }
 
-function createAlbum() {
-  let id = document.getElementById("art_id").value;
-  fetchArtist(id);
-}
-
 function Upload({ auth }) {
   const { user, logout } = auth;
   const photo = user?.photoURL;
 
+  //adding script tags for jsmediatags cdn
   var jQueryScript = document.createElement("script");
   jQueryScript.setAttribute(
     "src",
     "https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.js"
   );
-
   document.head.appendChild(jQueryScript);
 
   return (
@@ -352,5 +349,4 @@ function Upload({ auth }) {
   );
 }
 
-// checkUserExistence();
 export default withArtist(Upload);
