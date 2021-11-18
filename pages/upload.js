@@ -4,7 +4,7 @@ import "firebase/storage";
 import { withArtist } from "../src/hook/route";
 import { Input, VStack, Button } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-
+import { Wrap, WrapItem, Flex } from "@chakra-ui/react";
 var artist = null;
 var album = null;
 var songs = [];
@@ -266,28 +266,35 @@ function Upload({ auth }) {
 	return (
 		<div id='root'>
 			{/* used html input chakra causing error */}
-			<Input
-				id='art_id'
-				placeholder='Enter Artist ID'
-				size='md'
-				required
-				variant='flushed'
-			/>
-			<Input
-				id='album_name'
-				placeholder='Enter Album name'
-				size='md'
-				required
-				variant='flushed'
-			/>
+			<Flex width='full' justifyContent='center'>
+				<Wrap>
+					<Input
+						id='art_id'
+						placeholder='Enter Artist ID'
+						size='md'
+						focusBorderColor='pink.400'
+						required
+						variant='filled'
+					/>
+					<Input
+						id='album_name'
+						placeholder='Enter Album name'
+						size='md'
+						required
+						focusBorderColor='pink.400'
+						variant='filled'
+					/>
 
-			<Input
-				value='Create Album'
-				variant='filled'
-				size='xs'
-				type='button'
-				onClick={createAlbum}
-			/>
+					<Input
+						value='Create Album'
+						variant='filled'
+						size='xs'
+						type='button'
+						onClick={createAlbum}
+					/>
+				</Wrap>
+			</Flex>
+
 			<VStack
 				id='container'
 				style={{ display: "none", overflow: "scroll", height: "60vh" }}
