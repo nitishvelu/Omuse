@@ -4,6 +4,7 @@ import "firebase/storage";
 import { withArtist } from "../src/hook/route";
 import { Input, VStack, Button } from "@chakra-ui/react";
 import React, { useEffect } from "react";
+import { Wrap, WrapItem, Flex } from "@chakra-ui/react";
 
 var artist = null;
 var album = null;
@@ -340,7 +341,6 @@ function Upload({ auth }) {
         display="none"
         colorScheme="teal"
         variant="outline"
-        display="none"
         onClick={writeSongs}
       >
         Submit
