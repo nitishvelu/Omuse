@@ -12,6 +12,20 @@ var alldone = false;
 var num_uploaded = 0;
 var db = firebase.firestore();
 
+function generateRandom(min = 1000, max = 1000000) {
+	let difference = max - min;
+
+	// generate random number
+	let rand = Math.random();
+
+	// multiply with difference
+	rand = Math.floor(rand * difference);
+
+	rand = rand + min;
+
+	return rand;
+}
+
 function writeSongs() {
 	for (let i = 0; i < songs.length; i++) {
 		const song = db.collection("song").doc();
@@ -21,8 +35,8 @@ function writeSongs() {
 			cloud_reference: songs[i].cloud_reference,
 			genre: songs[i].genre,
 			language: songs[i].language,
-			no_of_likes: 0,
-			no_of_streams: 0,
+			no_of_likes: generateRandom(),
+			no_of_streams: generateRandom(),
 			year: songs[i].year,
 		});
 		album.update({
@@ -163,7 +177,7 @@ function changeHandler(event) {
 				input.style.color = "black";
 				input.type = "text";
 				input.value = tag.tags.genre;
-				songs[j].genre = input.value.split("/");
+				songs[j].genre = input.value;
 				input.addEventListener("change", (e) => {
 					songs[j].genre = e.target.value;
 				});
@@ -171,24 +185,30 @@ function changeHandler(event) {
 				container.appendChild(genre);
 				container.appendChild(input);
 
-				var year = document.createElement("LABEL");
-				year.innerHTML = "Year: ";
-				var input = document.createElement("input");
-				input.style.color = "black";
-				input.type = "text";
-				input.value = tag.tags.year;
-				songs[j].year = input.value;
-				input.addEventListener("change", (e) => {
-					songs[j].year = e.target.value;
-				});
-				input.className = "css-class-name"; // set the CSS class
-				container.appendChild(year);
-				container.appendChild(input);
+				// var year = document.createElement("LABEL");
+				// year.innerHTML = "Year: ";
+				// var input = document.createElement("input");
+				// input.style.color = "black";
+				// input.type = "text";
+				// input.value = tag.tags.year;
+				// songs[j].year = input.value;
+				// input.addEventListener("change", (e) => {
+				//   songs[j].year = e.target.value;
+				// });
+				// input.className = "css-class-name"; // set the CSS class
+				// container.appendChild(year);
+				// container.appendChild(input);
 
 				var lang = document.getElementById("Language");
 				songs[j].language = lang.value;
 				lang.addEventListener("change", (e) => {
 					songs[j].language = e.target.value;
+				});
+
+				var year = document.getElementById("Year");
+				songs[j].year = parseInt(year.value);
+				year.addEventListener("change", (e) => {
+					songs[j].year = parseInt(e.target.value);
 				});
 
 				var bar = document.createElement("progress");
@@ -266,35 +286,28 @@ function Upload({ auth }) {
 	return (
 		<div id='root'>
 			{/* used html input chakra causing error */}
-			<Flex width='full' justifyContent='center'>
-				<Wrap>
-					<Input
-						id='art_id'
-						placeholder='Enter Artist ID'
-						size='md'
-						focusBorderColor='pink.400'
-						required
-						variant='filled'
-					/>
-					<Input
-						id='album_name'
-						placeholder='Enter Album name'
-						size='md'
-						required
-						focusBorderColor='pink.400'
-						variant='filled'
-					/>
+			<Input
+				id='art_id'
+				placeholder='Enter Artist ID'
+				size='md'
+				required
+				variant='flushed'
+			/>
+			<Input
+				id='album_name'
+				placeholder='Enter Album name'
+				size='md'
+				required
+				variant='flushed'
+			/>
 
-					<Input
-						value='Create Album'
-						variant='filled'
-						size='xs'
-						type='button'
-						onClick={createAlbum}
-					/>
-				</Wrap>
-			</Flex>
-
+			<Input
+				value='Create Album'
+				variant='filled'
+				size='xs'
+				type='button'
+				onClick={createAlbum}
+			/>
 			<VStack
 				id='container'
 				style={{ display: "none", overflow: "scroll", height: "60vh" }}
@@ -302,6 +315,13 @@ function Upload({ auth }) {
 				<Input
 					id='Language'
 					placeholder='Enter Language'
+					size='md'
+					required
+					variant='flushed'
+				/>
+				<Input
+					id='Year'
+					placeholder='Enter Year'
 					size='md'
 					required
 					variant='flushed'
