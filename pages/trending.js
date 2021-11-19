@@ -13,7 +13,7 @@ function Trending({ songs_list }) {
   // console.log(songs_list);
   return (
     <>
-      <Heading>Treandioinsdoijfa</Heading>
+      <Heading>Trending </Heading>
 
       <SimpleGrid
         minChildWidth={["300px", "300px", "400px"]}
@@ -54,6 +54,7 @@ export async function getStaticProps({ req }) {
   const ref = await firebase
     .firestore()
     .collection("song")
+    .orderBy("no_of_likes", "desc")
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -75,7 +76,6 @@ export async function getStaticProps({ req }) {
         songs_list.push(song_obj);
       });
     });
-  console.log(songs_list);
 
   // getting albums
   for (let i = 0; i < albums.length; i++) {
