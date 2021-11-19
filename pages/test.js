@@ -8,7 +8,7 @@ const getData = () => {
   var db = firebase.firestore();
   //       var userRef = db.collection("user").doc(user?.uid);
   db.collection("song")
-    .where("genre", "array-contains", "Rap")
+    .where("genre", "==", "r&b")
     .get()
     .then((snap) => {
       snap.forEach((doc) => {

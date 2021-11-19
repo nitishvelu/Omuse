@@ -40,6 +40,7 @@ function writeSongs() {
       no_of_likes: generateRandom(),
       no_of_streams: generateRandom(),
       year: songs[i].year,
+      art: songs[i].art,
     });
     album.update({
       songs: firebase.firestore.FieldValue.arrayUnion(song),
