@@ -10,7 +10,7 @@ function Genre({ songs_list }) {
   // console.log(songs_list);
   return (
     <>
-      <Heading>Trending </Heading>
+      <Heading>{songs_list[0].genre} </Heading>
 
       <SimpleGrid
         minChildWidth={["300px", "300px", "400px"]}

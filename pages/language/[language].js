@@ -2,15 +2,21 @@
 import { withProtected } from "../../src/hook/route";
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { Box, Button, SimpleGrid, Text, VStack } from "@chakra-ui/layout";
+import {
+  Box,
+  Button,
+  SimpleGrid,
+  Text,
+  VStack,
+  Heading,
+} from "@chakra-ui/layout";
 import Song from "../../components/Songs";
-import { Heading } from "@chakra-ui/react";
 
 function Language({ songs_list }) {
   // console.log(songs_list);
   return (
     <>
-      <Heading>Language </Heading>
+      <Heading>{songs_list[0].language} </Heading>
 
       <SimpleGrid
         minChildWidth={["300px", "300px", "400px"]}
