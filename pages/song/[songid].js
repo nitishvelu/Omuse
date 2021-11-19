@@ -81,13 +81,15 @@ function Songdetails({ song_obj, liked }) {
           <Image src={song_obj.img} objectFit="cover" boxSize="400px" />
           <StatGroup>
             <Stat>
-              <StatLabel>Total Number of Streams</StatLabel>
-              <StatNumber>{song_obj.no_of_streams}</StatNumber>
+              <StatLabel>Number of Likes</StatLabel>
+              <StatNumber>{noLikes}</StatNumber>
+              <StatHelpText>From {song_obj.year} to now</StatHelpText>
             </Stat>
           </StatGroup>
           <Text>{song_obj.album}</Text>
           <Text>{song_obj.language}</Text>
           <Text>{song_obj.year}</Text>
+          <button onClick={handleClick}>{likeUnlike}</button>
 
           {console.log(song_obj)}
         </VStack>
@@ -112,6 +114,7 @@ export async function getServerSideProps(context) {
     .then((doc) => {
       if (doc.exists) {
         song_obj = new Object();
+        song_obj.id = doc.id;
         song_obj.name = doc.data().name;
         song_obj.genre = doc.data().genre;
         song_obj.year = doc.data().year;
