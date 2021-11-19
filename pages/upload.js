@@ -159,14 +159,13 @@ function changeHandler(event) {
         var name = document.createElement("LABEL");
         name.innerHTML = "Name: ";
         var input = document.createElement("input");
-        input.style.color = "black";
         input.type = "text";
         input.value = tag.tags.title;
         songs[j].name = input.value;
         input.addEventListener("change", (e) => {
           songs[j].name = e.target.value;
         });
-        input.className = "css-class-name"; // set the CSS class
+        input.className = "omuse-input";
         container.appendChild(name);
         container.appendChild(input);
 
@@ -174,14 +173,13 @@ function changeHandler(event) {
         var genre = document.createElement("LABEL");
         genre.innerHTML = "Genre: ";
         var input = document.createElement("input");
-        input.style.color = "black";
         input.type = "text";
         input.value = tag.tags.genre;
         songs[j].genre = input.value;
         input.addEventListener("change", (e) => {
           songs[j].genre = e.target.value;
         });
-        input.className = "css-class-name"; // set the CSS class
+        input.className = "omuse-input"; // set the CSS class
         container.appendChild(genre);
         container.appendChild(input);
 
@@ -202,6 +200,7 @@ function changeHandler(event) {
         //progress bars for upload
         var bar = document.createElement("progress");
         bar.id = j;
+        bar.className = "progress-bar";
         bar.max = 100;
 
         // putting random val instead uncomment if needed to change
@@ -275,45 +274,46 @@ function Upload({ auth }) {
   return (
     <div id="root">
       {/* used html input chakra causing error */}
-      <Input
-        id="art_id"
-        placeholder="Enter Artist ID"
-        size="md"
-        required
-        variant="flushed"
-      />
-      <Input
-        id="album_name"
-        placeholder="Enter Album name"
-        size="md"
-        required
-        variant="flushed"
-      />
-
-      <Input
-        value="Create Album"
-        variant="filled"
-        size="xs"
-        type="button"
-        onClick={createAlbum}
-      />
+      <Wrap>
+        <Input
+          id="art_id"
+          autoComplete="off"
+          placeholder="Enter Artist ID"
+          size="md"
+          required
+          variant="filled"
+        />
+        <Input
+          id="album_name"
+          placeholder="Enter Album name"
+          autoComplete="off"
+          size="md"
+          required
+          variant="filled"
+        />
+        <Button size="xs" onClick={createAlbum}>
+          Create Album
+        </Button>
+      </Wrap>
       <VStack
         id="container"
         style={{ display: "none", overflow: "scroll", height: "60vh" }}
       >
         <Input
           id="Language"
+          autoComplete="off"
           placeholder="Enter Language"
           size="md"
           required
-          variant="flushed"
+          variant="filled"
         />
         <Input
           id="Year"
+          autoComplete="off"
           placeholder="Enter Year"
           size="md"
           required
-          variant="flushed"
+          variant="filled"
         />
         <Input
           type="file"
@@ -321,7 +321,7 @@ function Upload({ auth }) {
           accept="audio/*"
           id="input"
           onChange={changeHandler}
-          variant="flushed"
+          variant="filled"
         />
       </VStack>
       <Button
