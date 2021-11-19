@@ -155,5 +155,18 @@ export async function getServerSideProps(context) {
     }
   });
 
-  return { props: { song_obj } };
+  let liked = false;
+  await firebase
+    .firestore()
+    .collection("user")
+    .doc(req.cookies.uid)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        liked = doc.data().liked_songs?.includes(params.songid);
+      } else {
+      }
+    });
+
+  return { props: { song_obj, liked } };
 }
