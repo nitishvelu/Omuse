@@ -96,28 +96,9 @@ a {
 .container-main {
   float: left;
 }
-@media screen and (max-width: 640px) {
-  .container {
-    display: block;
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .container {
-    width: 33.33333%;
-  }
-}
-
-/* .container-main .title {
-  color: #1a1a1a;
-  text-align: center;
-  margin-bottom: 10px;
-} */
 
 .content {
   position: relative;
-  /* width: 90%; */
   max-width: 400px;
   margin: auto;
   overflow: hidden;
@@ -127,8 +108,6 @@ a {
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
   border-radius: 30%;
-  /* height: 99%; */
-  /* width: 100%; */
   left: 0;
   top: 0;
   bottom: 0;
@@ -150,8 +129,6 @@ a {
 .content-details {
   position: absolute;
   text-align: center;
-  padding-left: 1em;
-  padding-right: 1em;
   width: 100%;
   top: 50%;
   left: 50%;
@@ -170,13 +147,9 @@ a {
   opacity: 1;
 }
 
-.content-details h2 {
-  color: #fff;
-  font-weight: 600;
-  font-size: xx-large;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
+.content-details h1 {
+  color: rgb(221 221 221);
+  font-size: 250%;
 }
 
 .fadeIn-bottom {

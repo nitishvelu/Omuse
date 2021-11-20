@@ -56,7 +56,7 @@ export default function Song({ song_obj }) {
                 alt="album image"
                 objectFit="cover"
                 boxSize={["12vh", "12vh", "16vh"]}
-                borderRadius="30"
+                borderRadius="30%"
                 class="content-image"
                 whileHover={{
                   scale: 1.05,
@@ -67,7 +67,7 @@ export default function Song({ song_obj }) {
                 fallbackSrc="https://wallpaperaccess.com/full/2374217.png"
               />
               <div class="content-details fadeIn-bottom">
-                <h2 class="content-title">▶️</h2>
+                <h1 class="content-title">&#9655;</h1>
               </div>
             </div>
           </div>
