@@ -22,6 +22,7 @@ import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, SimpleGrid, Text, VStack } from "@chakra-ui/layout";
 import Song from "../../components/Songs";
 import NextLink from "next/link";
+import cookie from "js-cookie";
 
 function BasicUsage() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -69,6 +70,7 @@ function BasicUsage() {
 								); //January is 0!
 								var yyyy = today.getFullYear();
 								today = mm + "/" + dd + "/" + yyyy;
+
 								console.log(today);
 								const db = firebase.firestore();
 
@@ -85,6 +87,8 @@ function BasicUsage() {
 										name: value,
 										songs: [],
 										date: today,
+										creator: cookie.get("name"),
+										creator_id: cookie.get("uid"),
 									});
 									db.collection("user")
 										.doc(match[2])
