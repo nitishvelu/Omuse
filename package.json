@@ -23,7 +23,8 @@
     "react-instantsearch-dom": "^6.15.0",
     "react-jinke-music-player": "^4.24.2",
     "react-spinners-kit": "^1.9.1",
-    "typesense-instantsearch-adapter": "^2.2.0"
+    "typesense-instantsearch-adapter": "^2.2.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "eslint": "7.32.0",
