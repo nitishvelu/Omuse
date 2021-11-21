@@ -2,6 +2,7 @@ import React from "react";
 import { withProtected } from "../../src/hook/route";
 import firebase from "firebase/app";
 import "firebase/firestore";
+import { v4 as uuid } from "uuid";
 import {
 	Heading,
 	Link,
@@ -27,6 +28,9 @@ import cookie from "js-cookie";
 function Playlists({ playlist_details }) {
 	//handling newly created playlist using use state
 	const [newPlaylist, setPlaylist] = React.useState("");
+	const newPlaylistId = uuid();
+
+	//modal component
 	function BasicUsage() {
 		const { isOpen, onOpen, onClose } = useDisclosure();
 		const [value, setValue] = React.useState("");
@@ -84,7 +88,7 @@ function Playlists({ playlist_details }) {
 										console.log(match[2]);
 										let playlist = db
 											.collection("playlist")
-											.doc();
+											.doc(newPlaylistId);
 										playlist.set({
 											name: value,
 											songs: [],
@@ -157,7 +161,7 @@ function Playlists({ playlist_details }) {
 						})}
 						<div key={newPlaylist}>
 							<NextLink
-								href={"/playlists/" + newPlaylist}
+								href={"/playlists/" + newPlaylistId}
 								passHref
 								key={newPlaylist}
 							>
