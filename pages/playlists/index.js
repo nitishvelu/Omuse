@@ -28,7 +28,8 @@ import cookie from "js-cookie";
 function Playlists({ playlist_details }) {
 	//handling newly created playlist using use state
 	const [newPlaylist, setPlaylist] = React.useState("");
-	const newPlaylistId = uuid();
+
+	const [newPlaylistId, setId] = React.useState(uuid());
 
 	//modal component
 	function BasicUsage() {
@@ -65,6 +66,7 @@ function Playlists({ playlist_details }) {
 							</Button>
 							<Button
 								onClick={(e) => {
+									setPlaylist(value);
 									console.log(value);
 									var today = new Date();
 									var dd = String(today.getDate()).padStart(
@@ -106,7 +108,6 @@ function Playlists({ playlist_details }) {
 											});
 									}
 									onClose();
-									setPlaylist(value);
 
 									//reloading the page after 3 seconds to see changes something else can be done
 									// setInterval(function () {
