@@ -18,35 +18,42 @@ import { motion } from "framer-motion";
 
 const MText = motion(Text);
 const MImage = motion(Image);
+const MLink = motion(Link);
+const MBox = motion(Box);
 
 export default function CoolBox({ genre, color, to }) {
 	return (
 		<GridItem>
 			<NextLink href={"/" + to + "/" + genre} passHref>
-				<Link
+				<MLink
 					_hover={{ textDecor: "none" }}
 					_focus={{ boxShadow: "none" }}
+					whileHover={{ scale: 1.4 }}
+					whileTap={{ scale: 0.9 }}
 				>
-					<Box
+					<MBox
 						bg={color}
 						rounded='xl'
 						h={["12vh", "12vh", "35vh"]}
 						w={["300px", "300px", "400px"]}
+						whileHover={{ scale: 0.97 }}
+						whileTap={{ scale: 0.9 }}
 					>
-						<MText
+						<Heading
 							fontSize={["3xl", "3xl", "4xl"]}
 							isTruncated
 							margin={0}
 							padding={5}
-							whileHover={{
-								scale: 1.009,
-							}}
-							whileTap={{ scale: 0.96 }}
+							color='white'
+							// whileHover={{
+							// 	scale: 1.009,
+							// }}
+							// whileTap={{ scale: 0.96 }}
 						>
 							{genre.charAt(0).toUpperCase() + genre.slice(1)}
-						</MText>
-					</Box>
-				</Link>
+						</Heading>
+					</MBox>
+				</MLink>
 			</NextLink>
 		</GridItem>
 	);

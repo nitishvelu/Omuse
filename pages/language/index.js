@@ -18,7 +18,7 @@ import CoolBox from "../../components/CoolBox";
 export default function Language() {
 	return (
 		<>
-			<Heading>Languages </Heading>
+			<Heading size='3xl'>Languages </Heading>
 			<SimpleGrid
 				minChildWidth={["300px", "300px", "400px"]}
 				overflowX='auto'

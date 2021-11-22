@@ -24,7 +24,7 @@ export default function Genres() {
 	return (
 		// change style for genre
 		<>
-			<Heading>Genres </Heading>
+			<Heading size='3xl'>Genres </Heading>
 			<SimpleGrid
 				minChildWidth={["300px", "300px", "400px"]}
 				overflowX='auto'
