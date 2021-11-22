@@ -25,7 +25,7 @@ import Song from "../../components/Songs";
 import NextLink from "next/link";
 import cookie from "js-cookie";
 
-function Playlists({ playlist_details }) {
+function Playlist({ playlist_details }) {
 	//handling newly created playlist using use state
 	const [newPlaylist, setPlaylist] = React.useState("");
 	const [newPlaylistId, setId] = React.useState(uuid());
@@ -140,7 +140,7 @@ function Playlists({ playlist_details }) {
 								<div key={idx}>
 									<NextLink
 										href={
-											"/playlists/" +
+											"/playlist/" +
 											playlist_details[idx].id
 										}
 										passHref
@@ -161,7 +161,7 @@ function Playlists({ playlist_details }) {
 						})}
 						<div key={newPlaylist}>
 							<NextLink
-								href={"/playlists/" + newPlaylistId}
+								href={"/playlist/" + newPlaylistId}
 								passHref
 								key={newPlaylist}
 							>
@@ -183,7 +183,7 @@ function Playlists({ playlist_details }) {
 		</>
 	);
 }
-export default withProtected(Playlists);
+export default withProtected(Playlist);
 
 export async function getServerSideProps({ req }) {
 	let playlists = [];
