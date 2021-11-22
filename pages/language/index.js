@@ -44,7 +44,7 @@ export default function Language() {
 					genre='english'
 					color='#009DAE'
 					to='language'
-					img='http://starsunfolded.com/wp-content/uploads/2016/07/Michael-Jackson.jpg'
+					img='https://m.media-amazon.com/images/I/4180+9AAv0L._SL1000_.jpg'
 				/>
 				<CoolBox
 					genre='tamil'

@@ -50,7 +50,7 @@ export default function Genres() {
 					genre='pop'
 					color='#009DAE'
 					to='genre'
-					img='https://images.hdqwalls.com/wallpapers/4k-dua-lipa-pj.jpg'
+					img='https://www.theyoungfolks.com/wp-content/uploads/2017/07/dualipa.jpg'
 				/>
 				<CoolBox
 					genre='r&b'
