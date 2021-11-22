@@ -21,7 +21,7 @@ const MImage = motion(Image);
 const MLink = motion(Link);
 const MBox = motion(Box);
 
-export default function CoolBox({ genre, color, to }) {
+export default function CoolBox({ genre, color, to, img }) {
 	return (
 		<GridItem>
 			<NextLink href={"/" + to + "/" + genre} passHref>
@@ -34,7 +34,7 @@ export default function CoolBox({ genre, color, to }) {
 					<MBox
 						bg={color}
 						rounded='xl'
-						h={["12vh", "12vh", "35vh"]}
+						h={["35vh", "35vh", "35vh"]}
 						w={["300px", "300px", "400px"]}
 						whileHover={{ scale: 0.97 }}
 						whileTap={{ scale: 0.9 }}
@@ -52,6 +52,17 @@ export default function CoolBox({ genre, color, to }) {
 						>
 							{genre.charAt(0).toUpperCase() + genre.slice(1)}
 						</Heading>
+						<Image
+							overflow='hidden'
+							src={img}
+							alt='art'
+							objectFit='cover'
+							mx={["29%", "27%", "47%"]}
+							my={["5%", "5%", "5%"]}
+							boxSize={["25vh", "25vh", "25vh"]}
+							borderRadius='full'
+							fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+						/>
 					</MBox>
 				</MLink>
 			</NextLink>

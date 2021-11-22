@@ -40,8 +40,18 @@ export default function Language() {
 					},
 				}}
 			>
-				<CoolBox genre='english' color='#009DAE' to='language' />
-				<CoolBox genre='tamil' color='#FFE652' to='language' />
+				<CoolBox
+					genre='english'
+					color='#009DAE'
+					to='language'
+					img='http://starsunfolded.com/wp-content/uploads/2016/07/Michael-Jackson.jpg'
+				/>
+				<CoolBox
+					genre='tamil'
+					color='#FFE652'
+					to='language'
+					img='https://in.bmscdn.com/iedb/artist/images/website/poster/large/a_r_rahman_38.jpg'
+				/>
 				<CoolBox genre='kannada' color='#396EB0' to='language' />
 				<CoolBox genre='telugu' color='#FFC4E1' to='language' />
 				<CoolBox genre='hindi' color='#AE4CCF' to='language' />
