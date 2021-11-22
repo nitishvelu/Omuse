@@ -30,14 +30,14 @@ export default function GenreBox({ genre, color }) {
 					<Box
 						bg={color}
 						rounded='xl'
-						h={["12vh", "12vh", "16vh"]}
+						h={["12vh", "12vh", "35vh"]}
 						w={["300px", "300px", "400px"]}
 					>
 						<MText
 							fontSize={["3xl", "3xl", "4xl"]}
 							isTruncated
 							margin={0}
-							padding={0}
+							padding={5}
 							whileHover={{
 								scale: 1.009,
 								color: "#AEC8CA",
