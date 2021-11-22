@@ -1,17 +1,19 @@
 import React from "react";
 import {
-  Flex,
-  Link,
-  Grid,
-  GridItem,
-  Text,
-  IconButton,
-  Icon,
-  Image,
-  Heading,
+	Flex,
+	Link,
+	SimpleGrid,
+	GridItem,
+	Text,
+	IconButton,
+	Icon,
+	Image,
+	Heading,
+	Box,
 } from "@chakra-ui/react";
 import firebase from "firebase/app";
 import NextLink from "next/link";
+import GenreBox from "../../components/GenreBox";
 
 import { motion } from "framer-motion";
 
@@ -19,144 +21,38 @@ const MText = motion(Text);
 const MImage = motion(Image);
 
 export default function Genres() {
-  return (
-    // change style for genre
-    <>
-      <Heading>Genres </Heading>
-      <Grid
-        h={["12vh", "12vh", "16vh"]}
-        w={["300px", "300px", "400px"]}
-        // templateRows="repeat(5, 1fr)"
-        // templateColumns="repeat(5, 1fr)"
-        gap={20}
-        rounded="md"
-      >
-        {/* genre #1 */}
-        <GridItem>
-          <NextLink href={"/genre/r&b"} passHref>
-            <Link _hover={{ textDecor: "none" }} _focus={{ boxShadow: "none" }}>
-              <MText
-                fontSize={["3xl", "3xl", "4xl"]}
-                isTruncated
-                margin={0}
-                padding={0}
-                whileHover={{
-                  scale: 1.009,
-                  color: "#AEC8CA",
-                }}
-                whileTap={{ scale: 0.96 }}
-              >
-                R&B
-              </MText>
-            </Link>
-          </NextLink>
-        </GridItem>
-
-        {/* genre #2 */}
-        <GridItem>
-          <NextLink href={"/genre/pop"} passHref>
-            <Link _hover={{ textDecor: "none" }} _focus={{ boxShadow: "none" }}>
-              <MText
-                fontSize={["3xl", "3xl", "4xl"]}
-                isTruncated
-                margin={0}
-                padding={0}
-                whileHover={{
-                  scale: 1.009,
-                  color: "#AEC8CA",
-                }}
-                whileTap={{ scale: 0.96 }}
-              >
-                Pop
-              </MText>
-            </Link>
-          </NextLink>
-        </GridItem>
-
-        {/* genre #3 */}
-        <GridItem>
-          <NextLink href={"/genre/rap"} passHref>
-            <Link _hover={{ textDecor: "none" }} _focus={{ boxShadow: "none" }}>
-              <MText
-                fontSize={["3xl", "3xl", "4xl"]}
-                isTruncated
-                margin={0}
-                padding={0}
-                whileHover={{
-                  scale: 1.009,
-                  color: "#AEC8CA",
-                }}
-                whileTap={{ scale: 0.96 }}
-              >
-                Rap
-              </MText>
-            </Link>
-          </NextLink>
-        </GridItem>
-
-        {/* genre #4 */}
-        <GridItem>
-          <NextLink href={"/genre/hip hop"} passHref>
-            <Link _hover={{ textDecor: "none" }} _focus={{ boxShadow: "none" }}>
-              <MText
-                fontSize={["3xl", "3xl", "4xl"]}
-                isTruncated
-                margin={0}
-                padding={0}
-                whileHover={{
-                  scale: 1.009,
-                  color: "#AEC8CA",
-                }}
-                whileTap={{ scale: 0.96 }}
-              >
-                Hip-Hop
-              </MText>
-            </Link>
-          </NextLink>
-        </GridItem>
-
-        {/* genre #5 */}
-        <GridItem>
-          <NextLink href={"/genre/soul"} passHref>
-            <Link _hover={{ textDecor: "none" }} _focus={{ boxShadow: "none" }}>
-              <MText
-                fontSize={["3xl", "3xl", "4xl"]}
-                isTruncated
-                margin={0}
-                padding={0}
-                whileHover={{
-                  scale: 1.009,
-                  color: "#AEC8CA",
-                }}
-                whileTap={{ scale: 0.96 }}
-              >
-                Soul
-              </MText>
-            </Link>
-          </NextLink>
-        </GridItem>
-
-        {/* genre #6 */}
-        <GridItem>
-          <NextLink href={"/genre/filmi"} passHref>
-            <Link _hover={{ textDecor: "none" }} _focus={{ boxShadow: "none" }}>
-              <MText
-                fontSize={["3xl", "3xl", "4xl"]}
-                isTruncated
-                margin={0}
-                padding={0}
-                whileHover={{
-                  scale: 1.009,
-                  color: "#AEC8CA",
-                }}
-                whileTap={{ scale: 0.96 }}
-              >
-                Filmy
-              </MText>
-            </Link>
-          </NextLink>
-        </GridItem>
-      </Grid>
-    </>
-  );
+	return (
+		// change style for genre
+		<>
+			<Heading>Genres </Heading>
+			<SimpleGrid
+				minChildWidth={["300px", "300px", "400px"]}
+				overflowX='auto'
+				rounded='lg'
+				height={["74%", "80%", "80%"]}
+				width='full'
+				spacingX={0}
+				spacingY={9}
+				css={{
+					"&::-webkit-scrollbar": {
+						width: "7px",
+					},
+					"&::-webkit-scrollbar-track": {
+						width: "7px",
+					},
+					"&::-webkit-scrollbar-thumb": {
+						background: "pink",
+						borderRadius: "15px",
+					},
+				}}
+			>
+				<GenreBox genre='pop' color='#009DAE' />
+				<GenreBox genre='r&b' color='#FFE652' />
+				<GenreBox genre='soul' color='#396EB0' />
+				<GenreBox genre='hip hop' color='#FFC4E1' />
+				<GenreBox genre='filmy' color='#AE4CCF' />
+				{/* <GenreBox genre='hip hop' color='#396EB0' /> */}
+			</SimpleGrid>
+		</>
+	);
 }
