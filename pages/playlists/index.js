@@ -28,7 +28,6 @@ import cookie from "js-cookie";
 function Playlists({ playlist_details }) {
 	//handling newly created playlist using use state
 	const [newPlaylist, setPlaylist] = React.useState("");
-
 	const [newPlaylistId, setId] = React.useState(uuid());
 
 	//modal component
