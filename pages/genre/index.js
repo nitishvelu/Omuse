@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import firebase from "firebase/app";
 import NextLink from "next/link";
-import GenreBox from "../../components/GenreBox";
+import CoolBox from "../../components/CoolBox";
 
 import { motion } from "framer-motion";
 
@@ -46,11 +46,11 @@ export default function Genres() {
 					},
 				}}
 			>
-				<GenreBox genre='pop' color='#009DAE' />
-				<GenreBox genre='r&b' color='#FFE652' />
-				<GenreBox genre='soul' color='#396EB0' />
-				<GenreBox genre='hip hop' color='#FFC4E1' />
-				<GenreBox genre='filmy' color='#AE4CCF' />
+				<CoolBox genre='pop' color='#009DAE' to='genre' />
+				<CoolBox genre='r&b' color='#FFE652' to='genre' />
+				<CoolBox genre='soul' color='#396EB0' to='genre' />
+				<CoolBox genre='hip hop' color='#FFC4E1' to='genre' />
+				<CoolBox genre='filmy' color='#AE4CCF' to='genre' />
 				{/* <GenreBox genre='hip hop' color='#396EB0' /> */}
 			</SimpleGrid>
 		</>

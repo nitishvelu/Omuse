@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 
 const MText = motion(Text);
 const MImage = motion(Image);
-import GenreBox from "../../components/GenreBox";
+import CoolBox from "../../components/CoolBox";
 
 export default function Language() {
 	return (
@@ -40,11 +40,11 @@ export default function Language() {
 					},
 				}}
 			>
-				<GenreBox genre='english' color='#009DAE' />
-				<GenreBox genre='tamil' color='#FFE652' />
-				<GenreBox genre='kannada' color='#396EB0' />
-				<GenreBox genre='telugu' color='#FFC4E1' />
-				<GenreBox genre='hindi' color='#AE4CCF' />
+				<CoolBox genre='english' color='#009DAE' to='language' />
+				<CoolBox genre='tamil' color='#FFE652' to='language' />
+				<CoolBox genre='kannada' color='#396EB0' to='language' />
+				<CoolBox genre='telugu' color='#FFC4E1' to='language' />
+				<CoolBox genre='hindi' color='#AE4CCF' to='language' />
 				{/* <GenreBox genre='hip hop' color='#396EB0' /> */}
 			</SimpleGrid>
 		</>

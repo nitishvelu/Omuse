@@ -19,10 +19,10 @@ import { motion } from "framer-motion";
 const MText = motion(Text);
 const MImage = motion(Image);
 
-export default function GenreBox({ genre, color }) {
+export default function CoolBox({ genre, color, to }) {
 	return (
 		<GridItem>
-			<NextLink href={"/genre/" + genre} passHref>
+			<NextLink href={"/" + to + "/" + genre} passHref>
 				<Link
 					_hover={{ textDecor: "none" }}
 					_focus={{ boxShadow: "none" }}
@@ -40,7 +40,6 @@ export default function GenreBox({ genre, color }) {
 							padding={5}
 							whileHover={{
 								scale: 1.009,
-								color: "#AEC8CA",
 							}}
 							whileTap={{ scale: 0.96 }}
 						>
