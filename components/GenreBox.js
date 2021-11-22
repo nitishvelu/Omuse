@@ -44,7 +44,7 @@ export default function GenreBox({ genre, color }) {
 							}}
 							whileTap={{ scale: 0.96 }}
 						>
-							{genre}
+							{genre.charAt(0).toUpperCase() + genre.slice(1)}
 						</MText>
 					</Box>
 				</Link>
