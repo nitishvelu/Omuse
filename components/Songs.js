@@ -83,7 +83,7 @@ export default function Song({ song_obj }) {
               padding={0}
               whileHover={{
                 scale: 1.009,
-                color: "#AEC8CA",
+                // color: "#AEC8CA",
               }}
               whileTap={{ scale: 0.96 }}
             >

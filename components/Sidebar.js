@@ -18,7 +18,7 @@ import {
   FiDisc,
   FiSun,
   FiMoon,
-  FiUploadCloud,
+  FiUpload,
 } from "react-icons/fi";
 import NavItem from "../components/NavItem";
 import useAuth from "../src/hook/auth";
@@ -92,7 +92,7 @@ export default function Sidebar() {
           />
           <NavItem
             navSize={navSize}
-            icon={FiUploadCloud}
+            icon={FiUpload}
             title="Upload"
             to="/upload"
           />
