@@ -3,6 +3,8 @@ import React from "react";
 import { withProtected } from "../../src/hook/route";
 import firebase from "firebase/app";
 import "firebase/firestore";
+import { FiPlusSquare } from "react-icons/fi";
+import { useRouter } from "next/router";
 import {
   Box,
   Button,
@@ -13,6 +15,7 @@ import {
 } from "@chakra-ui/layout";
 import {
   HStack,
+  Link,
   Image,
   Stat,
   StatLabel,
@@ -20,16 +23,20 @@ import {
   StatHelpText,
   StatArrow,
   StatGroup,
+  Select,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
+// import { IconButton } from "@chakra-ui/react"
 import { CloseButton } from "@chakra-ui/react";
 import cookie from "js-cookie";
 import { useState } from "react";
 import router from "next/router";
 import Song from "../../components/Songs";
 
-// import { FiHeart } from "react-icons/fi";
-function Songdetails({ song_obj, liked }) {
+function Songdetails({ song_obj, liked, playlists }) {
   const db = firebase.firestore();
+  const router = useRouter();
   const [noLikes, setNoLikes] = useState(song_obj.no_of_likes);
   const [isLiked, setIsLiked] = useState(liked);
 
@@ -101,6 +108,37 @@ function Songdetails({ song_obj, liked }) {
           <Text>{song_obj.language}</Text>
           <Text>{song_obj.year}</Text>
           <button onClick={handleClick}>{likeUnlike}</button>
+          <Select
+            icon={<FiPlusSquare />}
+            variant="unstyled"
+            placeholder="Add to playlists"
+            onChange={(e) => {
+              console.log(e.target.value);
+              if (!e.target.value) return;
+              if (e.target.value == "Create new playlist") {
+                router.push("/playlist");
+              } else {
+                router.back();
+                db.collection("playlist")
+                  .doc(e.target.value)
+                  .update({
+                    songs: firebase.firestore.FieldValue.arrayUnion(
+                      song_obj.id
+                    ),
+                  });
+              }
+            }}
+          >
+            {Object.keys(playlists).map((idx) => {
+              return (
+                <option value={playlists[idx].id} key={idx}>
+                  {playlists[idx].name}
+                </option>
+              );
+            })}
+
+            <option id="0">Create new playlist</option>
+          </Select>
 
           {console.log(song_obj)}
         </VStack>
@@ -116,6 +154,8 @@ export async function getServerSideProps(context) {
   let artist = null;
   var album = null;
   var song_obj = null;
+  var playlists_obj = [];
+  var playlists = [];
 
   const ref = await firebase
     .firestore()
@@ -168,5 +208,31 @@ export async function getServerSideProps(context) {
       }
     });
 
-  return { props: { song_obj, liked } };
+  await firebase
+    .firestore()
+    .collection("user")
+    .doc(req.cookies.uid)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        doc.data().playlists?.forEach((element) => {
+          playlists_obj.push(element);
+        });
+      }
+    });
+  console.log(playlists_obj);
+
+  for (let i = 0; i < playlists_obj.length; i++) {
+    const rest = await playlists_obj[i].get().then((doc) => {
+      if (doc.exists) {
+        var playlist = new Object();
+        playlist.name = doc.data().name;
+        playlist.id = doc.id;
+        playlists.push(playlist);
+      }
+    });
+  }
+  console.log(playlists);
+
+  return { props: { song_obj, liked, playlists } };
 }

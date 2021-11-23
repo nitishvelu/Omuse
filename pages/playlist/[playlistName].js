@@ -36,7 +36,7 @@ export async function getServerSideProps(context) {
       if (doc.exists) {
         name = doc.data().name;
         doc.data().songs?.forEach((element) => {
-          songids.push(element.id);
+          songids.push(element);
         });
       } else {
       }
