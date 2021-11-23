@@ -5,6 +5,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { FiPlusSquare } from "react-icons/fi";
 import { useRouter } from "next/router";
+import NextLink from "next/link";
 import {
   Box,
   Button,
@@ -104,7 +105,11 @@ function Songdetails({ song_obj, liked, playlists }) {
               </StatHelpText>
             </Stat>
           </StatGroup>
-          <Text>{song_obj.album}</Text>
+          <NextLink href={"/album/" + song_obj.album_id} passHref>
+            <Link _hover={{ textDecor: "none" }} _focus={{ boxShadow: "none" }}>
+              <Text>{song_obj.album}</Text>
+            </Link>
+          </NextLink>
           <Text>{song_obj.language}</Text>
           <Text>{song_obj.year}</Text>
           <button onClick={handleClick}>{likeUnlike}</button>
@@ -183,6 +188,7 @@ export async function getServerSideProps(context) {
   const db1 = await album.get().then((doc) => {
     if (doc.exists) {
       song_obj.album = doc.data().name;
+      song_obj.album_id = doc.id;
       artist = doc.data().artist;
     }
   });
