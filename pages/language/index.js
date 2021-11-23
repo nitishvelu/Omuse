@@ -46,6 +46,7 @@ export default function Language() {
 					to='language'
 					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fderulo.jpeg?alt=media&token=05666cb7-fe7e-49eb-b280-1386d7a95a48'
 				/>
+				{/* gjgj */}
 				<CoolBox
 					genre='tamil'
 					color='#FFE652'
