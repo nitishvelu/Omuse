@@ -75,19 +75,19 @@ export default function Language() {
 					genre='electornic'
 					color='#CAF7E3'
 					to='genre'
-					img='https://c4.wallpaperflare.com/wallpaper/144/89/99/music-marshmello-dj-marshmello-music-hd-wallpaper-thumb.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
 				/>
 				<CoolBox
 					genre='jpop'
 					color='#046582'
 					to='genre'
-					img='https://c4.wallpaperflare.com/wallpaper/144/89/99/music-marshmello-dj-marshmello-music-hd-wallpaper-thumb.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
 				/>
 				<CoolBox
 					genre='kpop'
 					color='#FFC898'
 					to='genre'
-					img='https://c4.wallpaperflare.com/wallpaper/144/89/99/music-marshmello-dj-marshmello-music-hd-wallpaper-thumb.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
 				/>
 			</SimpleGrid>
 		</>

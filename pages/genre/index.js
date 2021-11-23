@@ -56,14 +56,14 @@ export default function Genres() {
 					genre='r&b'
 					color='#FFE652'
 					to='genre'
-					img='https://m.media-amazon.com/images/I/41Y9A+baBYL.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fabel.jpg?alt=media&token=21d24aec-2705-4995-b7de-24a185a12881'
 				/>
 
 				<CoolBox
 					genre='hip hop'
 					color='#396EB0'
 					to='genre'
-					img='https://townsquare.media/site/625/files/2015/06/kendricklamar1-630x420.jpg?w=980&q=75'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Flamar.jpeg?alt=media&token=730f7206-1282-4b91-b46c-facb818a29de'
 				/>
 				<CoolBox
 					genre='melody'
@@ -81,19 +81,19 @@ export default function Genres() {
 					genre='electornic'
 					color='#CAF7E3'
 					to='genre'
-					img='https://c4.wallpaperflare.com/wallpaper/144/89/99/music-marshmello-dj-marshmello-music-hd-wallpaper-thumb.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
 				/>
 				<CoolBox
 					genre='jpop'
 					color='#046582'
 					to='genre'
-					img='https://c4.wallpaperflare.com/wallpaper/144/89/99/music-marshmello-dj-marshmello-music-hd-wallpaper-thumb.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
 				/>
 				<CoolBox
 					genre='kpop'
 					color='#FFC898'
 					to='genre'
-					img='https://c4.wallpaperflare.com/wallpaper/144/89/99/music-marshmello-dj-marshmello-music-hd-wallpaper-thumb.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
 				/>
 			</SimpleGrid>
 		</>
