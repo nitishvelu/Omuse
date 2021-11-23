@@ -96,7 +96,6 @@ export default function Sidebar() {
             title="Upload"
             to="/upload"
           />
-          ;
           <NavItem
             navSize={navSize}
             icon={FiLogOut}
