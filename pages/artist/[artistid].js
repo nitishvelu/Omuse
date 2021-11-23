@@ -168,6 +168,7 @@ export async function getServerSideProps(context) {
   }
 
   let following = false;
+
   await firebase
     .firestore()
     .collection("user")
@@ -175,7 +176,9 @@ export async function getServerSideProps(context) {
     .get()
     .then((doc) => {
       if (doc.exists) {
-        following = doc.data().following?.includes(params.artistid);
+        if (doc.data().following) {
+          following = doc.data().following?.includes(params.artistid);
+        }
       } else {
       }
     });
