@@ -10,7 +10,11 @@ function Genre({ songs_list }) {
 	// console.log(songs_list);
 	return (
 		<>
-			<Heading>{songs_list[0].genre} </Heading>
+			<Heading size='3xl'>
+				{songs_list[0].genre.replace(/(?:^|\s|["'([{])+\S/g, (match) =>
+					match.toUpperCase()
+				)}{" "}
+			</Heading>
 
 			<SimpleGrid
 				minChildWidth={["300px", "300px", "400px"]}
