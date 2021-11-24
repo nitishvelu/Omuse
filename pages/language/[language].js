@@ -116,6 +116,6 @@ export async function getStaticPaths() {
 			"/language/japanese",
 			"/language/korean",
 		],
-		fallback: false,
+		fallback: true,
 	};
 }
