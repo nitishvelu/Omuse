@@ -83,7 +83,7 @@ export default function Genres() {
 					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fpanicat.jpg?alt=media&token=c6feddf4-cbec-487b-9082-4bc20998ed65'
 				/>
 				<CoolBox
-					id='electornic'
+					id='electronic'
 					name='Electronic'
 					color='#CAF7E3'
 					to='genre'
