@@ -31,6 +31,16 @@ function Playlist({ playlist_details }) {
 	//handling newly created playlist using use state
 	const [newPlaylist, setPlaylist] = React.useState("");
 	const [newPlaylistId, setId] = React.useState(uuid());
+	const boxcolors = [
+		"#009dae",
+		"#ffe652",
+		"#396eb0",
+		"#ffc4e1",
+		"#ae4ccf",
+		"#caf7e3",
+		"#046582",
+		"#ffc898",
+	];
 
 	//modal component
 	function BasicUsage() {
@@ -156,7 +166,7 @@ function Playlist({ playlist_details }) {
 							key={idx}
 							id={playlist_details[idx].id}
 							name={playlist_details[idx].name}
-							color='#009DAE'
+							color={boxcolors[idx]}
 							to='playlist'
 							img=''
 						/>
