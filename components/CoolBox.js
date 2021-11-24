@@ -21,10 +21,10 @@ const MImage = motion(Image);
 const MLink = motion(Link);
 const MBox = motion(Box);
 
-export default function CoolBox({ genre, color, to, img }) {
+export default function CoolBox({ id, name, color, to, img }) {
 	return (
 		<GridItem>
-			<NextLink href={"/" + to + "/" + genre} passHref>
+			<NextLink href={"/" + to + "/" + id} passHref>
 				<MLink
 					_hover={{ textDecor: "none" }}
 					_focus={{ boxShadow: "none" }}
@@ -50,9 +50,7 @@ export default function CoolBox({ genre, color, to, img }) {
 							// }}
 							// whileTap={{ scale: 0.96 }}
 						>
-							{genre.replace(/(?:^|\s|["'([{])+\S/g, (match) =>
-								match.toUpperCase()
-							)}
+							{name}
 						</Heading>
 						<ChakraNextImage
 							overflow='hidden'
