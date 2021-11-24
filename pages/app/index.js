@@ -1,5 +1,5 @@
 import React from "react";
-import CreateUser from "../components/cloudFirestore/CreateUser";
+import CreateUser from "../../components/cloudFirestore/CreateUser";
 
 import {
   Link,
@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 
 const MText = motion(Text);
 const MImage = motion(Image);
-import CoolBox from "../components/CoolBox";
+import CoolBox from "../../components/CoolBox";
 
 export default function Language() {
   return (
@@ -51,14 +51,36 @@ export default function Language() {
           img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
         />
 
-        {/* gjgj
         <CoolBox
-          genre="tamil"
-          color="#FFE652"
-          to="language"
-          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Frahaman.jpeg?alt=media&token=252ada29-ef69-45cf-aab7-3f080618fee2"
+          name="Trending this Year"
+          id="trending"
+          color="#009DAE"
+          to="app"
+          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
         />
         <CoolBox
+          name="90s hits"
+          id="nintysHits"
+          color="#009DAE"
+          to="app"
+          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
+        />
+        <CoolBox
+          name="Best of this decade"
+          id="bestOfDecade"
+          color="#009DAE"
+          to="app"
+          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
+        />
+        <CoolBox
+          name="Pop rising"
+          id="popRising"
+          color="#009DAE"
+          to="app"
+          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
+        />
+
+        {/* <CoolBox
           genre="kannada"
           color="#396EB0"
           to="language"
@@ -92,8 +114,8 @@ export default function Language() {
           genre="kpop"
           color="#FFC898"
           to="genre"
-          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a"
-        /> */}
+          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a" 
+        />   */}
       </SimpleGrid>
     </>
   );
