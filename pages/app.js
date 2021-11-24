@@ -44,13 +44,14 @@ export default function Language() {
         }}
       >
         <CoolBox
-          genre="Workout"
+          name="Workout"
+          id="f6a55e83-9d2a-4683-8094-6b95bd002920"
           color="#009DAE"
-          to="playlist/f6a55e83-9d2a-4683-8094-6b95bd002920"
+          to="playlist"
           img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
         />
 
-        {/* gjgj */}
+        {/* gjgj
         <CoolBox
           genre="tamil"
           color="#FFE652"
@@ -92,7 +93,7 @@ export default function Language() {
           color="#FFC898"
           to="genre"
           img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a"
-        />
+        /> */}
       </SimpleGrid>
     </>
   );
