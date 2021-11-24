@@ -56,6 +56,7 @@ function Playlist({ playlist_details }) {
 					variant='outline'
 					h={["35vh", "35vh", "35vh"]}
 					w={["300px", "300px", "400px"]}
+					color='#AEC8CA'
 				></IconButton>
 
 				<Modal isOpen={isOpen} onClose={onClose}>
