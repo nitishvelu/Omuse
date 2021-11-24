@@ -19,7 +19,7 @@ function albumDetails({ songs_list }) {
         width="full"
         spacingX={0}
         spacingY={9}
-        css={{
+        css={{trending
           "&::-webkit-scrollbar": {
             width: "7px",
           },
@@ -132,6 +132,6 @@ export async function getStaticPaths() {
 
   return {
     paths: res,
-    fallback: false,
+    fallback: true,
   };
 }
