@@ -29,6 +29,11 @@ function generateRandom(min = 1000, max = 1000000) {
 
 // populating db with all songs and attaching album to the artist
 function writeSongs() {
+  setTimeout(function () {
+    document.getElementById("root").innerHTML =
+      "Success! your album has been uploaded !";
+  }, 3000);
+
   for (let i = 0; i < songs.length; i++) {
     const song = db.collection("song").doc();
     song.set({
@@ -57,8 +62,6 @@ function writeSongs() {
   }
   console.log("sucessful !");
   console.log(songs);
-  document.getElementById("root").innerHTML =
-    "Success! your album has been uploaded !";
 }
 
 // reading files on state change of file upload
