@@ -112,6 +112,6 @@ export async function getStaticPaths() {
 			"/genre/jpop",
 			"/genre/electronic",
 		],
-		fallback: flase,
+		fallback: false,
 	};
 }
