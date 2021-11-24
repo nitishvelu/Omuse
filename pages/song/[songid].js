@@ -140,6 +140,27 @@ function Songdetails({ song_obj, liked, playlists }) {
 										.concat("..")}
 								</Heading>
 							</GridItem>
+							<GridItem colSpan={6}>
+								<NextLink
+									href={"/artist/" + song_obj.artist_id}
+									passHref
+								>
+									<Link
+										_hover={{ textDecor: "none" }}
+										_focus={{ boxShadow: "none" }}
+									>
+										<Heading
+											fontSize={["xl", "xl", "3xl"]}
+											color='#AEC8CA'
+										>
+											{song_obj.artist_name.replace(
+												/(?:^|\s|["'([{])+\S/g,
+												(match) => match.toUpperCase()
+											)}
+										</Heading>
+									</Link>
+								</NextLink>
+							</GridItem>
 							<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
 								<StatGroup>
 									<Stat>
@@ -323,6 +344,27 @@ function Songdetails({ song_obj, liked, playlists }) {
 										.slice(0, 16)
 										.concat("..")}
 								</Heading>
+							</GridItem>
+							<GridItem colSpan={6}>
+								<NextLink
+									href={"/artist/" + song_obj.artist_id}
+									passHref
+								>
+									<Link
+										_hover={{ textDecor: "none" }}
+										_focus={{ boxShadow: "none" }}
+									>
+										<Heading
+											fontSize={["xl", "xl", "3xl"]}
+											color='#AEC8CA'
+										>
+											{song_obj.artist_name.replace(
+												/(?:^|\s|["'([{])+\S/g,
+												(match) => match.toUpperCase()
+											)}
+										</Heading>
+									</Link>
+								</NextLink>
 							</GridItem>
 							<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
 								<StatGroup>
