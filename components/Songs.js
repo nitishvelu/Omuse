@@ -21,9 +21,12 @@ import { motion } from "framer-motion";
 const MText = motion(Text);
 const MImage = motion(Image);
 
-const incrementStreams = (song_id) => {
+const incrementStreams = (song_id, artist_id, album_name) => {
   const doc_ref = firebase.firestore().collection("song").doc(song_id);
   doc_ref.update({ no_of_streams: FieldValue.increment(1) });
+
+  const artsit_ref = firebase.firestore().collection("artist").doc(artist_id);
+  doc_ref.update({ total_streams: FieldValue.increment(1) });
 };
 
 export default function Song({ song_obj }) {
@@ -46,7 +49,7 @@ export default function Song({ song_obj }) {
               const player = div.childNodes[0];
               player.childNodes[0].src = song_obj.ref;
               player.childNodes[0].play();
-              incrementStreams(song_obj.id);
+              incrementStreams(song_obj.id, song_obj.artist_id);
             }}
           >
             <div className="content">
