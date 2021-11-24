@@ -94,14 +94,14 @@ export default function Genres() {
 					name='Jpop'
 					color='#046582'
 					to='genre'
-					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fjapane.jpg?alt=media&token=9a741abe-7ca7-49cd-8637-0000c61de9a8'
 				/>
 				<CoolBox
 					id='kpop'
 					name='K PoP'
 					color='#FFC898'
 					to='genre'
-					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fjimin.jpg?alt=media&token=6c00cf1f-735d-434f-a47e-751dff574873'
 				/>
 			</SimpleGrid>
 		</>
