@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const MotionLink = motion(Link);
 
-export default function Custom404() {
+export default function Custom500() {
 	return (
 		<>
 			{/* <Image src='https://i.imgur.com/qIufhof.png' alt='404 page'></Image> */}
@@ -20,7 +20,7 @@ export default function Custom404() {
 				flexDirection='column'
 			>
 				<Heading fontWeight='bold' fontSize='2xl'>
-					404 | Not Found
+					500 | Server Error
 				</Heading>
 				<NextLink href='/app' passHref>
 					<MotionLink
