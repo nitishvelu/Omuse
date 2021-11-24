@@ -9,6 +9,7 @@ import {
 	IconButton,
 	Icon,
 	Image,
+	useColorModeValue,
 } from "@chakra-ui/react";
 import firebase from "firebase/app";
 import NextLink from "next/link";
@@ -31,6 +32,7 @@ const incrementStreams = (song_id, artist_id, album_name) => {
 
 export default function Song({ song_obj }) {
 	console.group(song_obj);
+
 	return (
 		<Grid
 			h={["12vh", "12vh", "16vh"]}
@@ -87,8 +89,9 @@ export default function Song({ song_obj }) {
 							isTruncated
 							margin={0}
 							padding={0}
+							// color='#AEC8CA'
 							whileHover={{
-								scale: 1.009,
+								scale: 1.019,
 								// color: "#AEC8CA",
 							}}
 							whileTap={{ scale: 0.96 }}
@@ -122,7 +125,10 @@ export default function Song({ song_obj }) {
 							whileTap={{ scale: 0.97 }}
 							fontSize={["xs", "xs", "md"]}
 						>
-							{song_obj.artist_name}
+							{song_obj.artist_name.replace(
+								/(?:^|\s|["'([{])+\S/g,
+								(match) => match.toUpperCase()
+							)}
 						</MText>
 					</Link>
 				</NextLink>
