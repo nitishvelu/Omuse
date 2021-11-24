@@ -115,7 +115,6 @@ export async function getStaticProps(context) {
       }
     });
   }
-  console.log(songs_list);
   return { props: { songs_list, album } };
 }
 

@@ -52,7 +52,6 @@ export async function getStaticProps(context) {
   let albums = [];
   let artist_name = "";
 
-  console.log(params["id"]);
   const test = await firebase
     .firestore()
     .collection("artist")
@@ -64,7 +63,6 @@ export async function getStaticProps(context) {
         albums.push(element);
       });
     });
-  console.log(albums);
   let songs = null;
 
   // getting artists
@@ -96,7 +94,6 @@ export async function getStaticProps(context) {
       }
     });
   }
-  console.log(songs_list);
 
   return { props: { songs_list } };
 }

@@ -11,9 +11,7 @@ const getData = () => {
     .where("genre", "==", "r&b")
     .get()
     .then((snap) => {
-      snap.forEach((doc) => {
-        console.log(doc.data());
-      });
+      snap.forEach((doc) => {});
     });
 };
 

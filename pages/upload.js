@@ -61,7 +61,6 @@ function writeSongs() {
       });
   }
   console.log("sucessful !");
-  console.log(songs);
 }
 
 // reading files on state change of file upload
@@ -221,7 +220,6 @@ function changeHandler(event) {
       },
     });
   }
-  console.log(songs);
 }
 
 // adds album document to the db
