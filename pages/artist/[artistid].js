@@ -118,40 +118,44 @@ function Artistdetails({ artist, following, albums }) {
 							</GridItem>
 							<GridItem rowSpan={2} colSpan={6}>
 								{/* regex for capitalizing words in string */}
-								<Heading>
+								<Heading size='4xl'>
 									{artist.name.replace(
 										/(?:^|\s|["'([{])+\S/g,
 										(match) => match.toUpperCase()
 									)}
 								</Heading>
 							</GridItem>
-							<GridItem rowSpan={1} colSpan={6}>
+							<GridItem rowSpan={2} colSpan={6}>
 								<StatGroup>
 									<Stat>
-										<StatLabel>
+										<StatLabel color='#AEC8CA'>
 											Number Of Followers
 										</StatLabel>
 										<StatNumber>{noFollowers}</StatNumber>
 									</Stat>
 								</StatGroup>
 							</GridItem>
-							<Text>{artist.self_produced}</Text>
-							<GridItem rowSpan={2} colStart={7}>
+
+							<GridItem colSpan={6}>
+								<Text>{artist.self_produced}</Text>
 								<Link
+									href='mailto:{artist.email}'
 									_hover={{ textDecor: "none" }}
 									_focus={{ boxShadow: "none" }}
 								>
-									<Box display='inline-flex'>
-										<RiUserUnfollowLine
-											onClick={handleClick}
-										/>
-										<Text onClick={handleClick} pl='2'>
-											{follow}
-										</Text>
-									</Box>
+									<Heading size='md' color='#AEC8CA'>
+										{"Email:  ".concat(artist.email)}
+									</Heading>
 								</Link>
+								{/* <Text>{artist.previous_month_streams}</Text> */}
+								<Heading size='md' color='#AEC8CA'>
+									{"Total Streams: ".concat(
+										artist.total_streams
+									)}
+								</Heading>
 							</GridItem>
 							<GridItem colSpan={6}>
+								<Heading>Albums</Heading>
 								{Object.keys(albums).map((idx) => {
 									return (
 										<div key={idx}>
@@ -169,14 +173,48 @@ function Artistdetails({ artist, following, albums }) {
 														boxShadow: "none",
 													}}
 												>
-													<Text key={idx}>
-														{albums[idx].name}
-													</Text>
+													<Heading
+														key={idx}
+														color='#AEC8CA'
+														size='md'
+													>
+														{albums[
+															idx
+														].name.replace(
+															/(?:^|\s|["'([{])+\S/g,
+															(match) =>
+																match.toUpperCase()
+														)}
+													</Heading>
 												</Link>
 											</NextLink>
 										</div>
 									);
 								})}
+							</GridItem>
+
+							<GridItem rowSpan={2} colStart={5}>
+								<Link
+									_hover={{ textDecor: "none" }}
+									_focus={{ boxShadow: "none" }}
+								>
+									<Box display='inline-flex'>
+										<RiUserUnfollowLine
+											onClick={handleClick}
+											color='red'
+										/>
+										<Text
+											onClick={handleClick}
+											pl='2'
+											color='red.300'
+										>
+											{follow.replace(
+												/(?:^|\s|["'([{])+\S/g,
+												(match) => match.toUpperCase()
+											)}
+										</Text>
+									</Box>
+								</Link>
 							</GridItem>
 						</Grid>
 					</Flex>
@@ -224,40 +262,44 @@ function Artistdetails({ artist, following, albums }) {
 							</GridItem>
 							<GridItem rowSpan={2} colSpan={6}>
 								{/* regex for capitalizing words in string */}
-								<Heading>
+								<Heading size='4xl'>
 									{artist.name.replace(
 										/(?:^|\s|["'([{])+\S/g,
 										(match) => match.toUpperCase()
 									)}
 								</Heading>
 							</GridItem>
-							<GridItem rowSpan={1} colSpan={6}>
+							<GridItem rowSpan={2} colSpan={6}>
 								<StatGroup>
 									<Stat>
-										<StatLabel>
+										<StatLabel color='#AEC8CA'>
 											Number Of Followers
 										</StatLabel>
 										<StatNumber>{noFollowers}</StatNumber>
 									</Stat>
 								</StatGroup>
 							</GridItem>
-							<Text>{artist.self_produced}</Text>
-							<GridItem rowSpan={2} colStart={7}>
+
+							<GridItem colSpan={6}>
+								<Text>{artist.self_produced}</Text>
 								<Link
+									href='mailto:{artist.email}'
 									_hover={{ textDecor: "none" }}
 									_focus={{ boxShadow: "none" }}
 								>
-									<Box display='inline-flex'>
-										<RiUserFollowFill
-											onClick={handleClick}
-										/>
-										<Text onClick={handleClick} pl='2'>
-											{follow}
-										</Text>
-									</Box>
+									<Heading size='md' color='#AEC8CA'>
+										{"Email:  ".concat(artist.email)}
+									</Heading>
 								</Link>
+								{/* <Text>{artist.previous_month_streams}</Text> */}
+								<Heading size='md' color='#AEC8CA'>
+									{"Total Streams: ".concat(
+										artist.total_streams
+									)}
+								</Heading>
 							</GridItem>
 							<GridItem colSpan={6}>
+								<Heading>Albums</Heading>
 								{Object.keys(albums).map((idx) => {
 									return (
 										<div key={idx}>
@@ -275,14 +317,48 @@ function Artistdetails({ artist, following, albums }) {
 														boxShadow: "none",
 													}}
 												>
-													<Text key={idx}>
-														{albums[idx].name}
-													</Text>
+													<Heading
+														key={idx}
+														color='#AEC8CA'
+														size='md'
+													>
+														{albums[
+															idx
+														].name.replace(
+															/(?:^|\s|["'([{])+\S/g,
+															(match) =>
+																match.toUpperCase()
+														)}
+													</Heading>
 												</Link>
 											</NextLink>
 										</div>
 									);
 								})}
+							</GridItem>
+
+							<GridItem rowSpan={2} colStart={5}>
+								<Link
+									_hover={{ textDecor: "none" }}
+									_focus={{ boxShadow: "none" }}
+								>
+									<Box display='inline-flex'>
+										<RiUserFollowFill
+											onClick={handleClick}
+											color='green'
+										/>
+										<Text
+											onClick={handleClick}
+											pl='2'
+											color='green.300'
+										>
+											{follow.replace(
+												/(?:^|\s|["'([{])+\S/g,
+												(match) => match.toUpperCase()
+											)}
+										</Text>
+									</Box>
+								</Link>
 							</GridItem>
 						</Grid>
 					</Flex>
