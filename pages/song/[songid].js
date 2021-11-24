@@ -3,7 +3,8 @@ import React from "react";
 import { withProtected } from "../../src/hook/route";
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { FiHeart, FiPlusSquare } from "react-icons/fi";
+import { FiPlusSquare } from "react-icons/fi";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
 import {
@@ -85,165 +86,173 @@ function Songdetails({ song_obj, liked, playlists }) {
 				});
 		}
 	};
-	return (
-		<>
-			<Flex h='80%' w='100%' justifyContent='center'>
-				<Flex
-					pos='sticky'
-					left={["3", "4", "5"]}
-					h={["80vh", "55vh", "55vh"]}
-					// h='95vh'
-					marginTop='2.5vh'
-					boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
-					borderRadius='19px'
-					width={["300px", "70%", "70%"]}
-					padding='2%'
-					// marginLeft={["0px", "2", "5%"]}
-					margin='auto'
-					textAlign='center'
-					// w={navSize == "small" ? "75px" : "200px"}
-					// flexDir="column"
-					// justifyContent="space-between"
-				>
-					<Grid
-						h={["80vh", "45vh", "45vh"]}
-						w='full'
-						templateRows='repeat(10, 1fr)'
-						templateColumns='repeat(10, 1fr)'
-						gap={2}
-						rounded='md'
+	if (!liked) {
+		return (
+			<>
+				<Flex h='80%' w='100%' justifyContent='center'>
+					<Flex
+						pos='sticky'
+						left={["3", "4", "5"]}
+						h={["80vh", "55vh", "55vh"]}
+						// h='95vh'
+						marginTop='2.5vh'
+						boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
+						borderRadius='19px'
+						width={["300px", "70%", "70%"]}
+						padding='2%'
+						// marginLeft={["0px", "2", "5%"]}
+						margin='auto'
+						textAlign='center'
+						// w={navSize == "small" ? "75px" : "200px"}
+						// flexDir="column"
+						// justifyContent="space-between"
 					>
-						<GridItem rowSpan={[5, 10, 10]} colSpan={[10, 4, 4]}>
-							<Image
-								src={song_obj.img}
-								alt=''
-								objectFit='cover'
-								boxSize={["35vh", "45vh", "45vh"]}
-								borderRadius='30%'
-								fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
-							/>
-						</GridItem>
-						<GridItem rowSpan={[1, 1, 2]} colSpan={6}>
-							{/* regex for capitalizing words in string */}
-							<Heading fontSize={["3xl", "5xl", "7xl"]}>
-								{song_obj.name.replace(
-									/(?:^|\s|["'([{])+\S/g,
-									(match) => match.toUpperCase()
-								)}
-							</Heading>
-						</GridItem>
-						<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
-							<StatGroup>
-								<Stat>
-									<StatLabel color='#AEC8CA'>
-										Number of Likes
-									</StatLabel>
-									<StatNumber>{noLikes}</StatNumber>
-									<StatHelpText>
-										<StatArrow type='increase' />
-										{song_obj.year} To Now
-									</StatHelpText>
-								</Stat>
-							</StatGroup>
-						</GridItem>
-
-						<GridItem colSpan={6}>
-							<NextLink
-								href={"/album/" + song_obj.album_id}
-								passHref
+						<Grid
+							h={["80vh", "45vh", "45vh"]}
+							w='full'
+							templateRows='repeat(10, 1fr)'
+							templateColumns='repeat(10, 1fr)'
+							gap={2}
+							rounded='md'
+						>
+							<GridItem
+								rowSpan={[5, 10, 10]}
+								colSpan={[10, 4, 4]}
 							>
-								<Link
-									_hover={{ textDecor: "none" }}
-									_focus={{ boxShadow: "none" }}
-								>
-									<Heading fontSize={["xl", "xl", "3xl"]}>
-										{song_obj.album.replace(
+								<Image
+									src={song_obj.img}
+									alt=''
+									objectFit='cover'
+									boxSize={["35vh", "45vh", "45vh"]}
+									borderRadius='30%'
+									fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+								/>
+							</GridItem>
+							<GridItem rowSpan={[1, 1, 2]} colSpan={6}>
+								{/* regex for capitalizing words in string */}
+								<Heading fontSize={["3xl", "5xl", "7xl"]}>
+									{song_obj.name
+										.replace(
 											/(?:^|\s|["'([{])+\S/g,
 											(match) => match.toUpperCase()
-										)}
-									</Heading>
-								</Link>
-							</NextLink>
-						</GridItem>
-						<GridItem colSpan={6}>
-							<NextLink
-								href={"/language/" + song_obj.language}
-								passHref
-							>
-								<Link
-									_hover={{ textDecor: "none" }}
-									_focus={{ boxShadow: "none" }}
+										)
+										.slice(0, 16)
+										.concat("..")}
+								</Heading>
+							</GridItem>
+							<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
+								<StatGroup>
+									<Stat>
+										<StatLabel color='#AEC8CA'>
+											Number of Likes
+										</StatLabel>
+										<StatNumber>{noLikes}</StatNumber>
+										<StatHelpText>
+											<StatArrow type='increase' />
+											{song_obj.year} To Now
+										</StatHelpText>
+									</Stat>
+								</StatGroup>
+							</GridItem>
+
+							<GridItem colSpan={6}>
+								<NextLink
+									href={"/album/" + song_obj.album_id}
+									passHref
 								>
-									<Heading
-										color='#AEC8CA'
-										fontSize={["lg", "xl", "xl"]}
+									<Link
+										_hover={{ textDecor: "none" }}
+										_focus={{ boxShadow: "none" }}
 									>
-										{song_obj.language.replace(
-											/(?:^|\s|["'([{])+\S/g,
-											(match) => match.toUpperCase()
-										)}
-									</Heading>
-								</Link>
-							</NextLink>
-						</GridItem>
-						<GridItem colSpan={6}>
-							<Heading
-								color='#AEC8CA'
-								fontSize={["lg", "xl", "xl"]}
-							>
-								{song_obj.year}
-							</Heading>
-						</GridItem>
-						<GridItem colSpan={6}>
-							<Select
-								icon={<FiPlusSquare />}
-								variant='unstyled'
-								placeholder='Add to playlists'
-								onChange={(e) => {
-									console.log(e.target.value);
-									if (!e.target.value) return;
-									if (
-										e.target.value == "Create new playlist"
-									) {
-										router.push("/playlist");
-									} else {
-										router.back();
-										db.collection("playlist")
-											.doc(e.target.value)
-											.update({
-												songs: firebase.firestore.FieldValue.arrayUnion(
-													song_obj.id
-												),
-											});
-									}
-								}}
-							>
-								{Object.keys(playlists).map((idx) => {
-									return (
-										<option
-											value={playlists[idx].id}
-											key={idx}
+										<Heading fontSize={["xl", "xl", "3xl"]}>
+											{song_obj.album.replace(
+												/(?:^|\s|["'([{])+\S/g,
+												(match) => match.toUpperCase()
+											)}
+										</Heading>
+									</Link>
+								</NextLink>
+							</GridItem>
+							<GridItem colSpan={6}>
+								<NextLink
+									href={"/language/" + song_obj.language}
+									passHref
+								>
+									<Link
+										_hover={{ textDecor: "none" }}
+										_focus={{ boxShadow: "none" }}
+									>
+										<Heading
+											color='#AEC8CA'
+											fontSize={["lg", "xl", "xl"]}
 										>
-											{playlists[idx].name}
-										</option>
-									);
-								})}
+											{song_obj.language.replace(
+												/(?:^|\s|["'([{])+\S/g,
+												(match) => match.toUpperCase()
+											)}
+										</Heading>
+									</Link>
+								</NextLink>
+							</GridItem>
+							<GridItem colSpan={6}>
+								<Heading
+									color='#AEC8CA'
+									fontSize={["lg", "xl", "xl"]}
+								>
+									{song_obj.year}
+								</Heading>
+							</GridItem>
+							<GridItem colSpan={6}>
+								<Select
+									icon={<FiPlusSquare />}
+									variant='unstyled'
+									placeholder='Add to playlists'
+									onChange={(e) => {
+										console.log(e.target.value);
+										if (!e.target.value) return;
+										if (
+											e.target.value ==
+											"Create new playlist"
+										) {
+											router.push("/playlist");
+										} else {
+											router.back();
+											db.collection("playlist")
+												.doc(e.target.value)
+												.update({
+													songs: firebase.firestore.FieldValue.arrayUnion(
+														song_obj.id
+													),
+												});
+										}
+									}}
+								>
+									{Object.keys(playlists).map((idx) => {
+										return (
+											<option
+												value={playlists[idx].id}
+												key={idx}
+											>
+												{playlists[idx].name}
+											</option>
+										);
+									})}
 
-								<option id='0'>Create new playlist</option>
-							</Select>
-						</GridItem>
+									<option id='0'>Create new playlist</option>
+								</Select>
+							</GridItem>
 
-						<GridItem rowSpan={2} colStart={5}>
-							<Link
-								_hover={{ textDecor: "none" }}
-								_focus={{ boxShadow: "none" }}
-							>
-								<Box display='inline-flex'>
-									<FiHeart
-										onClick={handleClick}
-										color='green'
-									/>
-									{/* <Text
+							<GridItem rowSpan={2} colStart={5}>
+								<Link
+									_hover={{ textDecor: "none" }}
+									_focus={{ boxShadow: "none" }}
+								>
+									<Box display='inline-flex'>
+										<BsHeart
+											onClick={handleClick}
+											color='green'
+										/>
+										{/* <Text
                   onClick={handleClick}
                   pl='2'
                   color='green.300'
@@ -253,14 +262,199 @@ function Songdetails({ song_obj, liked, playlists }) {
                     (match) => match.toUpperCase()
                   )}
                 </Text> */}
-								</Box>
-							</Link>
-						</GridItem>
-					</Grid>
+									</Box>
+								</Link>
+							</GridItem>
+						</Grid>
+					</Flex>
 				</Flex>
-			</Flex>
-		</>
-	);
+			</>
+		);
+	} else {
+		return (
+			<>
+				<Flex h='80%' w='100%' justifyContent='center'>
+					<Flex
+						pos='sticky'
+						left={["3", "4", "5"]}
+						h={["80vh", "55vh", "55vh"]}
+						// h='95vh'
+						marginTop='2.5vh'
+						boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
+						borderRadius='19px'
+						width={["300px", "70%", "70%"]}
+						padding='2%'
+						// marginLeft={["0px", "2", "5%"]}
+						margin='auto'
+						textAlign='center'
+						// w={navSize == "small" ? "75px" : "200px"}
+						// flexDir="column"
+						// justifyContent="space-between"
+					>
+						<Grid
+							h={["80vh", "45vh", "45vh"]}
+							w='full'
+							templateRows='repeat(10, 1fr)'
+							templateColumns='repeat(10, 1fr)'
+							gap={2}
+							rounded='md'
+						>
+							<GridItem
+								rowSpan={[5, 10, 10]}
+								colSpan={[10, 4, 4]}
+							>
+								<Image
+									src={song_obj.img}
+									alt=''
+									objectFit='cover'
+									boxSize={["35vh", "45vh", "45vh"]}
+									borderRadius='30%'
+									fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+								/>
+							</GridItem>
+							<GridItem rowSpan={[1, 1, 2]} colSpan={6}>
+								{/* regex for capitalizing words in string */}
+								<Heading fontSize={["3xl", "5xl", "7xl"]}>
+									{song_obj.name
+										.replace(
+											/(?:^|\s|["'([{])+\S/g,
+											(match) => match.toUpperCase()
+										)
+										.slice(0, 16)
+										.concat("..")}
+								</Heading>
+							</GridItem>
+							<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
+								<StatGroup>
+									<Stat>
+										<StatLabel color='#AEC8CA'>
+											Number of Likes
+										</StatLabel>
+										<StatNumber>{noLikes}</StatNumber>
+										<StatHelpText>
+											<StatArrow type='increase' />
+											{song_obj.year} To Now
+										</StatHelpText>
+									</Stat>
+								</StatGroup>
+							</GridItem>
+
+							<GridItem colSpan={6}>
+								<NextLink
+									href={"/album/" + song_obj.album_id}
+									passHref
+								>
+									<Link
+										_hover={{ textDecor: "none" }}
+										_focus={{ boxShadow: "none" }}
+									>
+										<Heading fontSize={["xl", "xl", "3xl"]}>
+											{song_obj.album.replace(
+												/(?:^|\s|["'([{])+\S/g,
+												(match) => match.toUpperCase()
+											)}
+										</Heading>
+									</Link>
+								</NextLink>
+							</GridItem>
+							<GridItem colSpan={6}>
+								<NextLink
+									href={"/language/" + song_obj.language}
+									passHref
+								>
+									<Link
+										_hover={{ textDecor: "none" }}
+										_focus={{ boxShadow: "none" }}
+									>
+										<Heading
+											color='#AEC8CA'
+											fontSize={["lg", "xl", "xl"]}
+										>
+											{song_obj.language.replace(
+												/(?:^|\s|["'([{])+\S/g,
+												(match) => match.toUpperCase()
+											)}
+										</Heading>
+									</Link>
+								</NextLink>
+							</GridItem>
+							<GridItem colSpan={6}>
+								<Heading
+									color='#AEC8CA'
+									fontSize={["lg", "xl", "xl"]}
+								>
+									{song_obj.year}
+								</Heading>
+							</GridItem>
+							<GridItem colSpan={6}>
+								<Select
+									icon={<FiPlusSquare />}
+									variant='unstyled'
+									placeholder='Add to playlists'
+									onChange={(e) => {
+										console.log(e.target.value);
+										if (!e.target.value) return;
+										if (
+											e.target.value ==
+											"Create new playlist"
+										) {
+											router.push("/playlist");
+										} else {
+											router.back();
+											db.collection("playlist")
+												.doc(e.target.value)
+												.update({
+													songs: firebase.firestore.FieldValue.arrayUnion(
+														song_obj.id
+													),
+												});
+										}
+									}}
+								>
+									{Object.keys(playlists).map((idx) => {
+										return (
+											<option
+												value={playlists[idx].id}
+												key={idx}
+											>
+												{playlists[idx].name}
+											</option>
+										);
+									})}
+
+									<option id='0'>Create new playlist</option>
+								</Select>
+							</GridItem>
+
+							<GridItem rowSpan={2} colStart={5}>
+								<Link
+									_hover={{ textDecor: "none" }}
+									_focus={{ boxShadow: "none" }}
+								>
+									<Box display='inline-flex'>
+										<BsHeartFill
+											onClick={handleClick}
+											color='green'
+										/>
+										{/* <Text
+                    onClick={handleClick}
+                    pl='2'
+                    color='green.300'
+                  >
+                    {follow.replace(
+                      /(?:^|\s|["'([{])+\S/g,
+                      (match) => match.toUpperCase()
+                    )}
+                  </Text> */}
+									</Box>
+								</Link>
+							</GridItem>
+						</Grid>
+					</Flex>
+				</Flex>
+			</>
+		);
+	}
 }
 export default withProtected(Songdetails);
 

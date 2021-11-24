@@ -3,7 +3,6 @@ import React from "react";
 import { withProtected } from "../src/hook/route";
 import cookie from "js-cookie";
 import { motion } from "framer-motion";
-
 const MotionButton = motion(Button);
 
 function Logout({ auth }) {
