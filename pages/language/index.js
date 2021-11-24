@@ -44,18 +44,51 @@ export default function Language() {
 					genre='english'
 					color='#009DAE'
 					to='language'
-					img='https://m.media-amazon.com/images/I/4180+9AAv0L._SL1000_.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fderulo.jpeg?alt=media&token=05666cb7-fe7e-49eb-b280-1386d7a95a48'
 				/>
+				{/* gjgj */}
 				<CoolBox
 					genre='tamil'
 					color='#FFE652'
 					to='language'
-					img='https://in.bmscdn.com/iedb/artist/images/website/poster/large/a_r_rahman_38.jpg'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Frahaman.jpeg?alt=media&token=252ada29-ef69-45cf-aab7-3f080618fee2'
 				/>
-				<CoolBox genre='kannada' color='#396EB0' to='language' />
-				<CoolBox genre='telugu' color='#FFC4E1' to='language' />
-				<CoolBox genre='hindi' color='#AE4CCF' to='language' />
-				{/* <GenreBox genre='hip hop' color='#396EB0' /> */}
+				<CoolBox
+					genre='kannada'
+					color='#396EB0'
+					to='language'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fsarja.png?alt=media&token=6c2661bd-ecf9-484f-ad89-c933e3403eca'
+				/>
+				<CoolBox
+					genre='telugu'
+					color='#FFC4E1'
+					to='language'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fdsp.jpeg?alt=media&token=fe148013-cc98-41e2-a790-6a06657bc73e'
+				/>
+				<CoolBox
+					genre='hindi'
+					color='#AE4CCF'
+					to='language'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Farijit.jpg?alt=media&token=df55fe2a-4ba8-412e-96c7-e0694812e9c0'
+				/>
+				<CoolBox
+					genre='electornic'
+					color='#CAF7E3'
+					to='genre'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
+				/>
+				<CoolBox
+					genre='jpop'
+					color='#046582'
+					to='genre'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
+				/>
+				<CoolBox
+					genre='kpop'
+					color='#FFC898'
+					to='genre'
+					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
+				/>
 			</SimpleGrid>
 		</>
 	);

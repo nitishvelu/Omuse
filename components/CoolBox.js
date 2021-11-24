@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import firebase from "firebase/app";
 import NextLink from "next/link";
-
+import { ChakraNextImage } from "./ChakraNextImage";
 import { motion } from "framer-motion";
 
 const MText = motion(Text);
@@ -52,7 +52,7 @@ export default function CoolBox({ genre, color, to, img }) {
 						>
 							{genre.charAt(0).toUpperCase() + genre.slice(1)}
 						</Heading>
-						<Image
+						<ChakraNextImage
 							overflow='hidden'
 							src={img}
 							alt='art'
