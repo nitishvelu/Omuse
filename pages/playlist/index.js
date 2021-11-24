@@ -182,7 +182,7 @@ function Playlist({ playlist_details }) {
 						img=''
 					/>
 				) : (
-					<Text></Text>
+					<></>
 				)}
 
 				{BasicUsage()}
