@@ -52,17 +52,19 @@ export default function CoolBox({ id, name, color, to, img }) {
 						>
 							{name}
 						</Heading>
-						<ChakraNextImage
-							overflow='hidden'
-							src={img}
-							alt='art'
-							objectFit='cover'
-							mx={["29%", "27%", "47%"]}
-							my={["5%", "5%", "5%"]}
-							boxSize={["25vh", "25vh", "25vh"]}
-							borderRadius='full'
-							fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
-						/>
+						{img.length > 0 && (
+							<ChakraNextImage
+								overflow='hidden'
+								src={img}
+								alt='art'
+								objectFit='cover'
+								mx={["29%", "27%", "47%"]}
+								my={["5%", "5%", "5%"]}
+								boxSize={["25vh", "25vh", "25vh"]}
+								borderRadius='full'
+								fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+							/>
+						)}
 					</MBox>
 				</MLink>
 			</NextLink>

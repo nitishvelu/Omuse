@@ -44,9 +44,8 @@ function Playlist({ playlist_details }) {
 					onClick={onOpen}
 					icon={<AiOutlinePlus size='1x' />}
 					variant='outline'
-					size='lg'
-					w='300px'
-					h='300px'
+					h={["35vh", "35vh", "35vh"]}
+					w={["300px", "300px", "400px"]}
 				></IconButton>
 
 				<Modal isOpen={isOpen} onClose={onClose}>
@@ -159,7 +158,7 @@ function Playlist({ playlist_details }) {
 							name={playlist_details[idx].name}
 							color='#009DAE'
 							to='playlist'
-							img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fderulo.jpeg?alt=media&token=05666cb7-fe7e-49eb-b280-1386d7a95a48'
+							img=''
 						/>
 					);
 				})}
@@ -170,7 +169,7 @@ function Playlist({ playlist_details }) {
 						name={newPlaylist}
 						color='#009DAE'
 						to='playlist'
-						img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fderulo.jpeg?alt=media&token=05666cb7-fe7e-49eb-b280-1386d7a95a48'
+						img=''
 					/>
 				) : (
 					<Text></Text>
