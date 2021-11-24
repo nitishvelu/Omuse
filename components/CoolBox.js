@@ -58,8 +58,8 @@ export default function CoolBox({ id, name, color, to, img }) {
 								src={img}
 								alt='art'
 								objectFit='cover'
-								mx={["29%", "27%", "47%"]}
-								my={["5%", "5%", "5%"]}
+								mx={["26%", "26%", "38%"]}
+								my={["0.0005%", "0.1%", "2%"]}
 								boxSize={["25vh", "25vh", "25vh"]}
 								borderRadius='full'
 								fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
