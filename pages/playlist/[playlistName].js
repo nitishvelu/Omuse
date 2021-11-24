@@ -9,13 +9,33 @@ import { Heading } from "@chakra-ui/react";
 function Playlist({ songs_list, name }) {
   return (
     <>
-      <Heading>{name}</Heading>
+      <Heading>{name} </Heading>
 
-      <VStack>
+      <SimpleGrid
+        minChildWidth={["300px", "300px", "400px"]}
+        overflowX="auto"
+        rounded="lg"
+        height={["74%", "80%", "80%"]}
+        width="full"
+        spacingX={0}
+        spacingY={9}
+        css={{
+          "&::-webkit-scrollbar": {
+            width: "7px",
+          },
+          "&::-webkit-scrollbar-track": {
+            width: "7px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            background: "pink",
+            borderRadius: "15px",
+          },
+        }}
+      >
         {Object.keys(songs_list).map((idx) => {
           return <Song song_obj={songs_list[idx]} key={idx} />;
         })}
-      </VStack>
+      </SimpleGrid>
     </>
   );
 }
