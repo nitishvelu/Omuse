@@ -56,6 +56,7 @@ function Playlist({ playlist_details }) {
 					variant='outline'
 					h={["35vh", "35vh", "35vh"]}
 					w={["300px", "300px", "400px"]}
+					color='#AEC8CA'
 				></IconButton>
 
 				<Modal isOpen={isOpen} onClose={onClose}>
@@ -138,7 +139,7 @@ function Playlist({ playlist_details }) {
 
 	return (
 		<>
-			<Heading>Playlists</Heading>
+			<Heading size='3xl'>Playlists</Heading>
 			<SimpleGrid
 				minChildWidth={["300px", "300px", "400px"]}
 				overflowX='auto'
