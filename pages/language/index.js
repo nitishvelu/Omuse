@@ -77,24 +77,24 @@ export default function Language() {
 					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Farijit.jpg?alt=media&token=df55fe2a-4ba8-412e-96c7-e0694812e9c0'
 				/>
 				<CoolBox
-					id='electornic'
-					name='Electronic'
+					id='malayalam'
+					name='Malayalam'
 					color='#CAF7E3'
-					to='genre'
+					to='language'
 					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fmello.jpg?alt=media&token=977c10d7-8c64-49d7-8f7a-e6657ad9c46a'
 				/>
 				<CoolBox
 					id='japanese'
 					name='Jpop'
 					color='#046582'
-					to='genre'
+					to='language'
 					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fkumi.jpg?alt=media&token=6622b6f6-a9a4-4e83-abe3-63488459b86c'
 				/>
 				<CoolBox
 					id='korean'
 					name='K PoP'
 					color='#FFC898'
-					to='genre'
+					to='language'
 					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fsuga.png?alt=media&token=c87d647d-22e2-4ab8-b84f-9df1b09cbef6'
 				/>
 			</SimpleGrid>
