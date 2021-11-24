@@ -112,9 +112,10 @@ export async function getStaticPaths() {
 			"/language/tamil",
 			"/language/telugu",
 			"/language/hindi",
+			"/language/malayalam",
 			"/language/japanese",
 			"/language/korean",
 		],
-		fallback: true,
+		fallback: false,
 	};
 }
