@@ -483,3 +483,11 @@ export async function getServerSideProps(context) {
 
 	return { props: { artist, following, albums } };
 }
+
+// email
+// name
+// no_of_followers
+// previous_month_streams
+// profile_picture
+// self_produced
+// total_streams
