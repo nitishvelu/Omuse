@@ -146,22 +146,30 @@ function Artistdetails({ artist, following, albums }) {
 									_hover={{ textDecor: "none" }}
 									_focus={{ boxShadow: "none" }}
 								>
+									{artist.email ? (
+										<Heading
+											fontSize={["lg", "xl", "xl"]}
+											color='#AEC8CA'
+										>
+											{"Email: ".concat(artist.email)}
+										</Heading>
+									) : (
+										<Heading></Heading>
+									)}
+								</Link>
+								{/* <Text>{artist.previous_month_streams}</Text> */}
+								{artist.total_streams ? (
 									<Heading
 										fontSize={["lg", "xl", "xl"]}
 										color='#AEC8CA'
 									>
-										{artist.email}
+										{"Total Streams: ".concat(
+											artist.total_streams
+										)}
 									</Heading>
-								</Link>
-								{/* <Text>{artist.previous_month_streams}</Text> */}
-								<Heading
-									fontSize={["lg", "xl", "xl"]}
-									color='#AEC8CA'
-								>
-									{"Total Streams: ".concat(
-										artist.total_streams
-									)}
-								</Heading>
+								) : (
+									<Heading></Heading>
+								)}
 							</GridItem>
 							<GridItem colSpan={6}>
 								<Heading fontSize={["xl", "xl", "2xl"]}>
@@ -305,22 +313,30 @@ function Artistdetails({ artist, following, albums }) {
 									_hover={{ textDecor: "none" }}
 									_focus={{ boxShadow: "none" }}
 								>
+									{artist.email ? (
+										<Heading
+											fontSize={["lg", "xl", "xl"]}
+											color='#AEC8CA'
+										>
+											{"Email: ".concat(artist.email)}
+										</Heading>
+									) : (
+										<Heading></Heading>
+									)}
+								</Link>
+								{/* <Text>{artist.previous_month_streams}</Text> */}
+								{artist.total_streams ? (
 									<Heading
 										fontSize={["lg", "xl", "xl"]}
 										color='#AEC8CA'
 									>
-										{artist.email}
+										{"Total Streams: ".concat(
+											artist.total_streams
+										)}
 									</Heading>
-								</Link>
-								{/* <Text>{artist.previous_month_streams}</Text> */}
-								<Heading
-									fontSize={["lg", "xl", "xl"]}
-									color='#AEC8CA'
-								>
-									{"Total Streams: ".concat(
-										artist.total_streams
-									)}
-								</Heading>
+								) : (
+									<Heading></Heading>
+								)}
 							</GridItem>
 							<GridItem colSpan={6}>
 								<Heading fontSize={["xl", "xl", "2xl"]}>
