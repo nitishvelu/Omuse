@@ -4,7 +4,7 @@ import { withProtected } from "../../src/hook/route";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import { FiPlusSquare } from "react-icons/fi";
-import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
 import {
@@ -86,7 +86,7 @@ function Songdetails({ song_obj, liked, playlists }) {
 				});
 		}
 	};
-	if (!liked) {
+	if (likeUnlike == "unlike") {
 		return (
 			<>
 				<Flex h='80%' w='100%' justifyContent='center'>
@@ -248,9 +248,9 @@ function Songdetails({ song_obj, liked, playlists }) {
 									_focus={{ boxShadow: "none" }}
 								>
 									<Box display='inline-flex'>
-										<BsHeart
+										<FaHeart
 											onClick={handleClick}
-											color='green'
+											color='red'
 										/>
 										{/* <Text
                   onClick={handleClick}
@@ -432,9 +432,9 @@ function Songdetails({ song_obj, liked, playlists }) {
 									_focus={{ boxShadow: "none" }}
 								>
 									<Box display='inline-flex'>
-										<BsHeartFill
+										<FaRegHeart
 											onClick={handleClick}
-											color='green'
+											color='red'
 										/>
 										{/* <Text
                     onClick={handleClick}
