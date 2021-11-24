@@ -84,7 +84,7 @@ function Artistdetails({ artist, following, albums }) {
 					<Flex
 						pos='sticky'
 						left={["3", "4", "5"]}
-						h={["45vh", "55vh", "55vh"]}
+						h={["80vh", "55vh", "55vh"]}
 						// h='95vh'
 						marginTop='2.5vh'
 						boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
@@ -99,14 +99,17 @@ function Artistdetails({ artist, following, albums }) {
 						// justifyContent="space-between"
 					>
 						<Grid
-							h={["35vh", "45vh", "45vh"]}
+							h={["80vh", "45vh", "45vh"]}
 							w='full'
 							templateRows='repeat(10, 1fr)'
 							templateColumns='repeat(10, 1fr)'
 							gap={2}
 							rounded='md'
 						>
-							<GridItem rowSpan={10} colSpan={4}>
+							<GridItem
+								rowSpan={[5, 10, 10]}
+								colSpan={[10, 4, 4]}
+							>
 								<Image
 									src={artist.profile_picture}
 									alt='artist image'
@@ -116,16 +119,16 @@ function Artistdetails({ artist, following, albums }) {
 									fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
 								/>
 							</GridItem>
-							<GridItem rowSpan={2} colSpan={6}>
+							<GridItem rowSpan={[1, 1, 2]} colSpan={6}>
 								{/* regex for capitalizing words in string */}
-								<Heading size='4xl'>
+								<Heading fontSize={["3xl", "5xl", "7xl"]}>
 									{artist.name.replace(
 										/(?:^|\s|["'([{])+\S/g,
 										(match) => match.toUpperCase()
 									)}
 								</Heading>
 							</GridItem>
-							<GridItem rowSpan={2} colSpan={6}>
+							<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
 								<StatGroup>
 									<Stat>
 										<StatLabel color='#AEC8CA'>
@@ -143,19 +146,27 @@ function Artistdetails({ artist, following, albums }) {
 									_hover={{ textDecor: "none" }}
 									_focus={{ boxShadow: "none" }}
 								>
-									<Heading size='md' color='#AEC8CA'>
-										{"Email:  ".concat(artist.email)}
+									<Heading
+										fontSize={["lg", "xl", "xl"]}
+										color='#AEC8CA'
+									>
+										{artist.email}
 									</Heading>
 								</Link>
 								{/* <Text>{artist.previous_month_streams}</Text> */}
-								<Heading size='md' color='#AEC8CA'>
+								<Heading
+									fontSize={["lg", "xl", "xl"]}
+									color='#AEC8CA'
+								>
 									{"Total Streams: ".concat(
 										artist.total_streams
 									)}
 								</Heading>
 							</GridItem>
 							<GridItem colSpan={6}>
-								<Heading>Albums</Heading>
+								<Heading fontSize={["xl", "xl", "2xl"]}>
+									Albums
+								</Heading>
 								{Object.keys(albums).map((idx) => {
 									return (
 										<div key={idx}>
@@ -176,7 +187,11 @@ function Artistdetails({ artist, following, albums }) {
 													<Heading
 														key={idx}
 														color='#AEC8CA'
-														size='md'
+														fontSize={[
+															"md",
+															"xl",
+															"xl",
+														]}
 													>
 														{albums[
 															idx
@@ -228,7 +243,7 @@ function Artistdetails({ artist, following, albums }) {
 					<Flex
 						pos='sticky'
 						left={["3", "4", "5"]}
-						h={["45vh", "55vh", "55vh"]}
+						h={["80vh", "55vh", "55vh"]}
 						// h='95vh'
 						marginTop='2.5vh'
 						boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
@@ -243,14 +258,17 @@ function Artistdetails({ artist, following, albums }) {
 						// justifyContent="space-between"
 					>
 						<Grid
-							h={["35vh", "45vh", "45vh"]}
+							h={["80vh", "45vh", "45vh"]}
 							w='full'
 							templateRows='repeat(10, 1fr)'
 							templateColumns='repeat(10, 1fr)'
 							gap={2}
 							rounded='md'
 						>
-							<GridItem rowSpan={10} colSpan={4}>
+							<GridItem
+								rowSpan={[5, 10, 10]}
+								colSpan={[10, 4, 4]}
+							>
 								<Image
 									src={artist.profile_picture}
 									alt='artist image'
@@ -260,16 +278,16 @@ function Artistdetails({ artist, following, albums }) {
 									fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
 								/>
 							</GridItem>
-							<GridItem rowSpan={2} colSpan={6}>
+							<GridItem rowSpan={[1, 1, 2]} colSpan={6}>
 								{/* regex for capitalizing words in string */}
-								<Heading size='4xl'>
+								<Heading fontSize={["3xl", "5xl", "7xl"]}>
 									{artist.name.replace(
 										/(?:^|\s|["'([{])+\S/g,
 										(match) => match.toUpperCase()
 									)}
 								</Heading>
 							</GridItem>
-							<GridItem rowSpan={2} colSpan={6}>
+							<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
 								<StatGroup>
 									<Stat>
 										<StatLabel color='#AEC8CA'>
@@ -287,19 +305,27 @@ function Artistdetails({ artist, following, albums }) {
 									_hover={{ textDecor: "none" }}
 									_focus={{ boxShadow: "none" }}
 								>
-									<Heading size='md' color='#AEC8CA'>
-										{"Email:  ".concat(artist.email)}
+									<Heading
+										fontSize={["lg", "xl", "xl"]}
+										color='#AEC8CA'
+									>
+										{artist.email}
 									</Heading>
 								</Link>
 								{/* <Text>{artist.previous_month_streams}</Text> */}
-								<Heading size='md' color='#AEC8CA'>
+								<Heading
+									fontSize={["lg", "xl", "xl"]}
+									color='#AEC8CA'
+								>
 									{"Total Streams: ".concat(
 										artist.total_streams
 									)}
 								</Heading>
 							</GridItem>
 							<GridItem colSpan={6}>
-								<Heading>Albums</Heading>
+								<Heading fontSize={["xl", "xl", "2xl"]}>
+									Albums
+								</Heading>
 								{Object.keys(albums).map((idx) => {
 									return (
 										<div key={idx}>
@@ -320,7 +346,11 @@ function Artistdetails({ artist, following, albums }) {
 													<Heading
 														key={idx}
 														color='#AEC8CA'
-														size='md'
+														fontSize={[
+															"md",
+															"xl",
+															"xl",
+														]}
 													>
 														{albums[
 															idx
