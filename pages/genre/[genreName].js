@@ -109,7 +109,11 @@ export async function getStaticPaths() {
       "/genre/soul",
       "/genre/filmi",
       "/genre/r&b",
+      "/genre/melody",
+      "/genre/rock",
+      "/genre/kpop",
+      "/genre/jpop",
     ],
-    fallback: false,
+    fallback: true,
   };
 }
