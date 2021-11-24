@@ -50,7 +50,9 @@ export default function CoolBox({ genre, color, to, img }) {
 							// }}
 							// whileTap={{ scale: 0.96 }}
 						>
-							{genre.charAt(0).toUpperCase() + genre.slice(1)}
+							{genre.replace(/(?:^|\s|["'([{])+\S/g, (match) =>
+								match.toUpperCase()
+							)}
 						</Heading>
 						<ChakraNextImage
 							overflow='hidden'
