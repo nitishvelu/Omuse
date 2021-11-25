@@ -10,8 +10,6 @@ const MotionLink = motion(Link);
 export default function Custom500() {
 	return (
 		<>
-			{/* <Image src='https://i.imgur.com/qIufhof.png' alt='404 page'></Image> */}
-
 			<Flex
 				justifyContent='center'
 				alignItems='center'
