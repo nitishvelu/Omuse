@@ -1,4 +1,4 @@
-import { Button, Flex, Heading } from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/button";
 import React from "react";
 import { withProtected } from "../src/hook/route";
 import cookie from "js-cookie";
