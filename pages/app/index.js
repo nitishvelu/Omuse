@@ -83,6 +83,7 @@ export default function Language() {
           to="app"
           img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
         />
+        {/* test */}
         <CoolBox
           name="Pop rising"
           id="popRising"
