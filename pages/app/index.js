@@ -81,7 +81,7 @@ export default function Language() {
           id="bestOfDecade"
           color={boxcolors[3]}
           to="app"
-          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
+          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fsuga.png?alt=media&token=c87d647d-22e2-4ab8-b84f-9df1b09cbef6"
         />
         {/* test */}
         <CoolBox
@@ -89,7 +89,7 @@ export default function Language() {
           id="popRising"
           color={boxcolors[4]}
           to="app"
-          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae"
+          img="https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Flipa.jpg?alt=media&token=0eb05e9b-7f47-4f26-8bf6-68d32a42ddc4"
         />
         <CoolBox
           name="This is Eminem"
