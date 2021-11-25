@@ -39,3 +39,4 @@ function Logout({ auth }) {
 	);
 }
 export default withProtected(Logout);
+//
