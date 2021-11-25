@@ -4,7 +4,6 @@ import "firebase/storage";
 import { withArtist } from "../src/hook/route";
 import { Input, VStack, Button } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-import cookie from "js-cookie";
 import { Wrap, WrapItem, Flex } from "@chakra-ui/react";
 
 var artist = null;
@@ -43,8 +42,8 @@ function writeSongs() {
       cloud_reference: songs[i].cloud_reference,
       genre: songs[i].genre,
       language: songs[i].language,
-      no_of_likes: 0,
-      no_of_streams: 0,
+      no_of_likes: generateRandom(),
+      no_of_streams: generateRandom(),
       year: songs[i].year,
       art: songs[i].art,
     });
@@ -56,7 +55,7 @@ function writeSongs() {
     });
 
     db.collection("artist")
-      .doc(cookie.get("uid"))
+      .doc(artist.id)
       .update({
         albums: firebase.firestore.FieldValue.arrayUnion(album),
       });
@@ -243,7 +242,7 @@ function invalid() {
 
 // get artist by id
 function createAlbum() {
-  let id = cookie.get("uid");
+  let id = document.getElementById("art_id").value;
   firebase
     .firestore()
     .collection("artist")
@@ -278,15 +277,14 @@ function Upload({ auth }) {
     <div id="root">
       {/* used html input chakra causing error */}
       <Wrap>
-        {/* <Input
+        <Input
           id="art_id"
           autoComplete="off"
           placeholder="Enter Artist ID"
           size="md"
           required
           variant="filled"
-          display={}
-        /> */}
+        />
         <Input
           id="album_name"
           placeholder="Enter Album name"
