@@ -55,6 +55,7 @@ export async function getStaticProps({ req }) {
 		.firestore()
 		.collection("song")
 		.orderBy("no_of_likes", "desc")
+		.limit(30)
 		.get()
 		.then((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
