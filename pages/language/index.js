@@ -14,8 +14,9 @@ import { motion } from "framer-motion";
 const MText = motion(Text);
 const MImage = motion(Image);
 import CoolBox from "../../components/CoolBox";
+import { withProtected } from "../../src/hook/route";
 
-export default function Language() {
+function Language() {
 	return (
 		<>
 			<Heading size='3xl'>Languages </Heading>
@@ -101,3 +102,4 @@ export default function Language() {
 		</>
 	);
 }
+export default withProtected(Language);
