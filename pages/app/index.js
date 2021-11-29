@@ -9,7 +9,7 @@ import {
 	Image,
 	Heading,
 } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { withProtected } from "../../src/hook/route";
 
 import { motion } from "framer-motion";
 
@@ -17,7 +17,7 @@ const MText = motion(Text);
 const MImage = motion(Image);
 import CoolBox from "../../components/CoolBox";
 
-export default function Language() {
+function App() {
 	const boxcolors = [
 		"#009dae",
 		"#ffe652",
@@ -102,3 +102,4 @@ export default function Language() {
 	);
 }
 //
+export default withProtected(App);

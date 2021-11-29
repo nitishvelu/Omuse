@@ -14,13 +14,14 @@ import {
 import firebase from "firebase/app";
 import NextLink from "next/link";
 import CoolBox from "../../components/CoolBox";
+import { withProtected } from "../../src/hook/route";
 
 import { motion } from "framer-motion";
 
 const MText = motion(Text);
 const MImage = motion(Image);
 
-export default function Genres() {
+function Genres() {
 	return (
 		// change style for genre
 		<>
@@ -107,3 +108,4 @@ export default function Genres() {
 		</>
 	);
 }
+export default withProtected(Genres);
