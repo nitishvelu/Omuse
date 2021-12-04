@@ -86,10 +86,15 @@ function Artistdetails({ artist, following, albums }) {
 						h={["80vh", "55vh", "55vh"]}
 						// h='95vh'
 						marginTop='2.5vh'
-						boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
+						boxShadow={[
+							"0 0 0 0 rgba(0, 0, 0, 0)",
+							"0 0 0 0 rgba(0, 0, 0, 0)",
+							"0 4px 12px 0 rgba(0, 0, 0, 0.439)",
+						]}
 						borderRadius='19px'
 						width={["300px", "70%", "70%"]}
 						padding='2%'
+						pl={["8%", "2%", "2%"]}
 						// marginLeft={["0px", "2", "5%"]}
 						margin='auto'
 						textAlign='center'
@@ -253,10 +258,15 @@ function Artistdetails({ artist, following, albums }) {
 						h={["80vh", "55vh", "55vh"]}
 						// h='95vh'
 						marginTop='2.5vh'
-						boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
+						boxShadow={[
+							"0 0 0 0 rgba(0, 0, 0, 0)",
+							"0 0 0 0 rgba(0, 0, 0, 0)",
+							"0 4px 12px 0 rgba(0, 0, 0, 0.439)",
+						]}
 						borderRadius='19px'
 						width={["300px", "70%", "70%"]}
 						padding='2%'
+						pl={["8%", "2%", "2%"]}
 						// marginLeft={["0px", "2", "5%"]}
 						margin='auto'
 						textAlign='center'
