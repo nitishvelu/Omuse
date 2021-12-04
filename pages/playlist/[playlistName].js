@@ -41,7 +41,7 @@ function Playlist({ songs_list, name }) {
 }
 export default withProtected(Playlist);
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 	const { params, req } = context;
 	let songids = [];
 	let songs_list = [];
@@ -112,4 +112,11 @@ export async function getServerSideProps(context) {
 		});
 	}
 	return { props: { songs_list, name } };
+}
+
+export async function getStaticPaths() {
+	return {
+		paths: ["/playlist/f6a55e83-9d2a-4683-8094-6b95bd002920"],
+		fallback: true,
+	};
 }
