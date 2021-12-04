@@ -64,11 +64,36 @@ export default function Song({ song_obj }) {
 										/(?:^|\s|["'([{])+\S/g,
 										(match) => match.toUpperCase()
 									),
-									// album: "Omuse",
+									album: "Omuse",
 									artwork: [
 										{
-											src: "https://dummyimage.com/96x96",
-
+											src: song_obj.img,
+											sizes: "96x96",
+											type: "image/png",
+										},
+										{
+											src: song_obj.img,
+											sizes: "128x128",
+											type: "image/png",
+										},
+										{
+											src: song_obj.img,
+											sizes: "192x192",
+											type: "image/png",
+										},
+										{
+											src: song_obj.img,
+											sizes: "256x256",
+											type: "image/png",
+										},
+										{
+											src: song_obj.img,
+											sizes: "384x384",
+											type: "image/png",
+										},
+										{
+											src: song_obj.img,
+											sizes: "512x512",
 											type: "image/png",
 										},
 									],
