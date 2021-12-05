@@ -34,8 +34,8 @@ export default function CoolBox({ id, name, color, to, img }) {
 					<MBox
 						bg={color}
 						rounded='xl'
-						h={["20vh", "35vh", "35vh"]}
-						w={["290px", "300px", "400px"]}
+						h={["20vh", "20vh", "35vh"]}
+						w={["73vw", "73vw", "400px"]}
 						whileHover={{ scale: 0.97 }}
 						whileTap={{ scale: 0.9 }}
 					>
@@ -59,9 +59,9 @@ export default function CoolBox({ id, name, color, to, img }) {
 								src={img}
 								alt='art'
 								objectFit='cover'
-								mx={["56%", "26%", "38%"]}
-								my={["-8%", "0.1%", "2%"]}
-								boxSize={["13vh", "25vh", "25vh"]}
+								mx={["60%", "65%", "38%"]}
+								my={["-8%", "-13%", "2%"]}
+								boxSize={["13vh", "17vh", "25vh"]}
 								borderRadius='full'
 								fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
 							/>

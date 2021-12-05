@@ -17,21 +17,21 @@ function Liked({ songs_list }) {
 
 			<SimpleGrid
 				minChildWidth={["300px", "300px", "400px"]}
-				overflowX='auto'
+				overflowX='hidden'
 				rounded='lg'
 				height={["74%", "80%", "80%"]}
 				width='full'
 				spacingX={0}
-				spacingY={9}
+				spacingY={7}
 				css={{
 					"&::-webkit-scrollbar": {
-						width: "7px",
+						width: "4px",
 					},
 					"&::-webkit-scrollbar-track": {
-						width: "7px",
+						width: "4px",
 					},
 					"&::-webkit-scrollbar-thumb": {
-						background: "pink",
+						background: "#aec8ca",
 						borderRadius: "15px",
 					},
 				}}
