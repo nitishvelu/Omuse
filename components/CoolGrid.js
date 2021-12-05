@@ -6,7 +6,7 @@ function CoolGrid(props) {
 			<Heading size='3xl'>
 				{props.title.replace(/(?:^|\s|["'([{])+\S/g, (match) =>
 					match.toUpperCase()
-				)}{" "}
+				)}
 			</Heading>
 			<SimpleGrid
 				minChildWidth={["300px", "300px", "400px"]}
