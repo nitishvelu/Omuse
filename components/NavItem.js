@@ -1,13 +1,5 @@
 import React from "react";
-import {
-	Flex,
-	Text,
-	Icon,
-	Link,
-	Menu,
-	MenuButton,
-	MenuList,
-} from "@chakra-ui/react";
+import { Flex, Text, Icon, Link, Menu, MenuButton } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
@@ -19,7 +11,7 @@ export default function NavItem({ icon, title, navSize, to }) {
 	const active = router.pathname === to;
 	return (
 		<Flex
-			mt={[8, 10, 30]}
+			mt={["1.8vh", 10, 30]}
 			flexDir='column'
 			w='100%'
 			alignItems={navSize == "small" ? "center" : "flex-start"}
@@ -28,7 +20,7 @@ export default function NavItem({ icon, title, navSize, to }) {
 				<NextLink href={to} passHref>
 					<MotionLink
 						backgroundColor={active && "#AEC8CA"}
-						p={[2.5, 2.5, 3]}
+						p={["1.5vh", 2.5, 3]}
 						borderRadius={8}
 						_hover={{ textDecor: "none" }}
 						_focus={{ boxShadow: "none" }}

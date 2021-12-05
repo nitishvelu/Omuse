@@ -11,13 +11,10 @@ import {
 	Heading,
 	Box,
 } from "@chakra-ui/react";
-import firebase from "firebase/app";
 import NextLink from "next/link";
 import { ChakraNextImage } from "./ChakraNextImage";
 import { motion } from "framer-motion";
 
-const MText = motion(Text);
-const MImage = motion(Image);
 const MLink = motion(Link);
 const MBox = motion(Box);
 
@@ -35,7 +32,7 @@ export default function CoolBox({ id, name, color, to, img }) {
 						bg={color}
 						rounded='xl'
 						h={["20vh", "20vh", "35vh"]}
-						w={["73vw", "73vw", "400px"]}
+						w={["75vw", "73vw", "400px"]}
 						whileHover={{ scale: 0.97 }}
 						whileTap={{ scale: 0.9 }}
 					>
@@ -43,7 +40,8 @@ export default function CoolBox({ id, name, color, to, img }) {
 							fontSize={["2xl", "3xl", "4xl"]}
 							isTruncated
 							margin={0}
-							padding={5}
+							pt={[3, 4, 5]}
+							pl={[3, 4, 5]}
 							color='white'
 							// display='inline-block'
 							// whileHover={{
@@ -60,7 +58,7 @@ export default function CoolBox({ id, name, color, to, img }) {
 								alt='art'
 								objectFit='cover'
 								mx={["60%", "65%", "38%"]}
-								my={["-8%", "-13%", "2%"]}
+								my={["0px", "-13%", "2%"]}
 								boxSize={["13vh", "17vh", "25vh"]}
 								borderRadius='full'
 								fallbackSrc='https://wallpaperaccess.com/full/2374217.png'

@@ -152,15 +152,19 @@ export default function Sidebar() {
 		return (
 			<Flex
 				pos='sticky'
-				left={["3", "4", "5"]}
-				h={["89vh", "95vh", "95vh"]}
+				left={["0", "4", "5"]}
+				h={["100vh", "95vh", "95vh"]}
 				// h='95vh'
 				marginTop='2.5vh'
-				boxShadow='0 4px 12px 0 rgba(0, 0, 0, 0.439)'
+				boxShadow={[
+					"0 0px 0px 0 rgba(0, 0, 0, 0.439)",
+					"0 4px 12px 0 rgba(0, 0, 0, 0.439)",
+					"0 4px 12px 0 rgba(0, 0, 0, 0.439)",
+				]}
 				borderRadius={navSize == "small" ? "15px" : "19px"}
 				w={navSize == "small" ? "75px" : "200px"}
 				flexDir='column'
-				justifyContent='space-between'
+				justifyContent={["flex-start", "space-evenly", "space-between"]}
 			>
 				<Flex
 					p='5%'
@@ -168,6 +172,7 @@ export default function Sidebar() {
 					w='100%'
 					alignItems={navSize == "small" ? "center" : "flex-start"}
 					as='nav'
+					mt={[14, 0, 0]}
 				>
 					<IconButton
 						background='none'
@@ -229,11 +234,11 @@ export default function Sidebar() {
 					flexDir='column'
 					w='100%'
 					alignItems={navSize == "small" ? "center" : "flex-start"}
-					mb={4}
+					mb={[0, 0, 4]}
 				>
 					<IconButton
 						background='none'
-						mt={5}
+						mt={[0, 0, 5]}
 						_hover={{ background: "none" }}
 						icon={colorMode == "light" ? <FiSun /> : <FiMoon />}
 						onClick={toggleColorMode}
