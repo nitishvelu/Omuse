@@ -26,6 +26,7 @@ export default function Layout({ children }) {
 					// overflow="hidden"
 					alignItems='flex-start'
 					spacing={["0.5em", "2.5em", "3.5em"]}
+					height='full'
 				>
 					<Sidebar />
 					<VStack
@@ -37,24 +38,37 @@ export default function Layout({ children }) {
 						overflow='hidden'
 						alignItems='flex-start'
 					>
-						{children}
-						<div id='musicPlayer'>
-							<Box
-								as={AudioPlayer}
-								width={["75%", "80%", "90%"]}
-								height='auto'
-								position='fixed'
-								bottom={[0.1, 1, 3]}
-								id='musicPlayer'
-								b='grey'
-								customIcons={{
-									play: <FiPlayCircle />,
-									pause: <FiPauseCircle />,
-									rewind: <AiOutlineDoubleLeft />,
-									forward: <AiOutlineDoubleRight />,
-								}}
-							/>
-						</div>
+						<Grid
+							h='full'
+							w='full'
+							templateRows='repeat(40, 1fr)'
+							templateColumns='repeat(30, 1fr)'
+							// gap={1}
+							// rounded='md'
+						>
+							<GridItem rowSpan={32} colSpan={30}>
+								{children}
+							</GridItem>
+							<GridItem rowSpan={8} colSpan={30}>
+								<div id='musicPlayer'>
+									<Box
+										as={AudioPlayer}
+										width={["75%", "80%", "90%"]}
+										height={["12%", "12%", "auto"]}
+										position='fixed'
+										bottom={[0.1, 1, 3]}
+										id='musicPlayer'
+										b='grey'
+										customIcons={{
+											play: <FiPlayCircle />,
+											pause: <FiPauseCircle />,
+											rewind: <AiOutlineDoubleLeft />,
+											forward: <AiOutlineDoubleRight />,
+										}}
+									/>
+								</div>
+							</GridItem>
+						</Grid>
 					</VStack>
 				</HStack>
 			</>

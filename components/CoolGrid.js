@@ -12,7 +12,7 @@ function CoolGrid(props) {
 				minChildWidth={["300px", "300px", "400px"]}
 				overflowX='hidden'
 				rounded='lg'
-				height={["74%", "80%", "80%"]}
+				height={["full", "80%", "80%"]}
 				width='full'
 				spacingX={0}
 				spacingY={7}

@@ -94,7 +94,7 @@ function Artistdetails({ artist, following, albums }) {
 						borderRadius='19px'
 						width={["300px", "70%", "70%"]}
 						padding='2%'
-						pl={["8%", "2%", "2%"]}
+						pl={["0%", "2%", "2%"]}
 						// marginLeft={["0px", "2", "5%"]}
 						margin='auto'
 						textAlign='center'
@@ -109,21 +109,29 @@ function Artistdetails({ artist, following, albums }) {
 							templateColumns='repeat(10, 1fr)'
 							gap={2}
 							rounded='md'
+							justifyContent='center'
 						>
 							<GridItem
-								rowSpan={[5, 10, 10]}
+								rowSpan={[6, 10, 10]}
 								colSpan={[10, 4, 4]}
 							>
-								<Image
-									src={artist.profile_picture}
-									alt='artist image'
-									objectFit='cover'
-									boxSize={["35vh", "45vh", "45vh"]}
-									borderRadius='30%'
-									fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
-								/>
+								<Flex
+									h='full'
+									w='full'
+									justifyContent='center'
+									alignItems='center'
+								>
+									<Image
+										src={artist.profile_picture}
+										alt='artist image'
+										objectFit='cover'
+										boxSize={["35vh", "45vh", "45vh"]}
+										borderRadius='30%'
+										fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+									/>
+								</Flex>
 							</GridItem>
-							<GridItem rowSpan={[1, 1, 2]} colSpan={6}>
+							<GridItem rowSpan={[1, 1, 2]} colSpan={[10, 6, 6]}>
 								{/* regex for capitalizing words in string */}
 								<Heading fontSize={["3xl", "5xl", "7xl"]}>
 									{artist.name.replace(
@@ -132,7 +140,7 @@ function Artistdetails({ artist, following, albums }) {
 									)}
 								</Heading>
 							</GridItem>
-							<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
+							<GridItem rowSpan={[1, 2, 2]} colSpan={[10, 6, 6]}>
 								<StatGroup>
 									<Stat>
 										<StatLabel color='#AEC8CA'>
@@ -143,7 +151,7 @@ function Artistdetails({ artist, following, albums }) {
 								</StatGroup>
 							</GridItem>
 
-							<GridItem colSpan={6}>
+							<GridItem colSpan={[10, 6, 6]}>
 								<Text>{artist.self_produced}</Text>
 								<Link
 									href='mailto:{artist.email}'
@@ -175,7 +183,7 @@ function Artistdetails({ artist, following, albums }) {
 									<Heading></Heading>
 								)}
 							</GridItem>
-							<GridItem colSpan={6}>
+							<GridItem colSpan={[10, 6, 6]}>
 								<Heading fontSize={["xl", "xl", "2xl"]}>
 									Albums
 								</Heading>
@@ -220,7 +228,11 @@ function Artistdetails({ artist, following, albums }) {
 								})}
 							</GridItem>
 
-							<GridItem rowSpan={2} colStart={5}>
+							<GridItem
+								rowSpan={2}
+								colSpan={[10, 6, 6]}
+								colStart={[0, 5, 5]}
+							>
 								<Link
 									_hover={{ textDecor: "none" }}
 									_focus={{ boxShadow: "none" }}
@@ -228,12 +240,12 @@ function Artistdetails({ artist, following, albums }) {
 									<Box display='inline-flex'>
 										<RiUserUnfollowLine
 											onClick={handleClick}
-											color='red'
+											color='green'
 										/>
 										<Text
 											onClick={handleClick}
 											pl='2'
-											color='red.300'
+											color='green.300'
 										>
 											{follow.replace(
 												/(?:^|\s|["'([{])+\S/g,
@@ -266,7 +278,7 @@ function Artistdetails({ artist, following, albums }) {
 						borderRadius='19px'
 						width={["300px", "70%", "70%"]}
 						padding='2%'
-						pl={["8%", "2%", "2%"]}
+						pl={["0%", "2%", "2%"]}
 						// marginLeft={["0px", "2", "5%"]}
 						margin='auto'
 						textAlign='center'
@@ -281,21 +293,29 @@ function Artistdetails({ artist, following, albums }) {
 							templateColumns='repeat(10, 1fr)'
 							gap={2}
 							rounded='md'
+							justifyContent='center'
 						>
 							<GridItem
-								rowSpan={[5, 10, 10]}
+								rowSpan={[6, 10, 10]}
 								colSpan={[10, 4, 4]}
 							>
-								<Image
-									src={artist.profile_picture}
-									alt='artist image'
-									objectFit='cover'
-									boxSize={["35vh", "45vh", "45vh"]}
-									borderRadius='30%'
-									fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
-								/>
+								<Flex
+									h='full'
+									w='full'
+									justifyContent='center'
+									alignItems='center'
+								>
+									<Image
+										src={artist.profile_picture}
+										alt='artist image'
+										objectFit='cover'
+										boxSize={["35vh", "45vh", "45vh"]}
+										borderRadius='30%'
+										fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+									/>
+								</Flex>
 							</GridItem>
-							<GridItem rowSpan={[1, 1, 2]} colSpan={6}>
+							<GridItem rowSpan={[1, 1, 2]} colSpan={[10, 6, 6]}>
 								{/* regex for capitalizing words in string */}
 								<Heading fontSize={["3xl", "5xl", "7xl"]}>
 									{artist.name.replace(
@@ -304,7 +324,7 @@ function Artistdetails({ artist, following, albums }) {
 									)}
 								</Heading>
 							</GridItem>
-							<GridItem rowSpan={[1, 2, 2]} colSpan={6}>
+							<GridItem rowSpan={[1, 2, 2]} colSpan={[10, 6, 6]}>
 								<StatGroup>
 									<Stat>
 										<StatLabel color='#AEC8CA'>
@@ -315,7 +335,7 @@ function Artistdetails({ artist, following, albums }) {
 								</StatGroup>
 							</GridItem>
 
-							<GridItem colSpan={6}>
+							<GridItem colSpan={[10, 6, 6]}>
 								<Text>{artist.self_produced}</Text>
 								<Link
 									href='mailto:{artist.email}'
@@ -347,7 +367,7 @@ function Artistdetails({ artist, following, albums }) {
 									<Heading></Heading>
 								)}
 							</GridItem>
-							<GridItem colSpan={6}>
+							<GridItem colSpan={[10, 6, 6]}>
 								<Heading fontSize={["xl", "xl", "2xl"]}>
 									Albums
 								</Heading>
@@ -392,7 +412,11 @@ function Artistdetails({ artist, following, albums }) {
 								})}
 							</GridItem>
 
-							<GridItem rowSpan={2} colStart={5}>
+							<GridItem
+								rowSpan={2}
+								colSpan={[10, 6, 6]}
+								colStart={[0, 5, 5]}
+							>
 								<Link
 									_hover={{ textDecor: "none" }}
 									_focus={{ boxShadow: "none" }}
