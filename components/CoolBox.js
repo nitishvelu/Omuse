@@ -34,17 +34,18 @@ export default function CoolBox({ id, name, color, to, img }) {
 					<MBox
 						bg={color}
 						rounded='xl'
-						h={["35vh", "35vh", "35vh"]}
-						w={["300px", "300px", "400px"]}
+						h={["20vh", "35vh", "35vh"]}
+						w={["290px", "300px", "400px"]}
 						whileHover={{ scale: 0.97 }}
 						whileTap={{ scale: 0.9 }}
 					>
 						<Heading
-							fontSize={["3xl", "3xl", "4xl"]}
+							fontSize={["2xl", "3xl", "4xl"]}
 							isTruncated
 							margin={0}
 							padding={5}
 							color='white'
+							// display='inline-block'
 							// whileHover={{
 							// 	scale: 1.009,
 							// }}
@@ -58,9 +59,9 @@ export default function CoolBox({ id, name, color, to, img }) {
 								src={img}
 								alt='art'
 								objectFit='cover'
-								mx={["26%", "26%", "38%"]}
-								my={["0.0005%", "0.1%", "2%"]}
-								boxSize={["25vh", "25vh", "25vh"]}
+								mx={["56%", "26%", "38%"]}
+								my={["-8%", "0.1%", "2%"]}
+								boxSize={["13vh", "25vh", "25vh"]}
 								borderRadius='full'
 								fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
 							/>
