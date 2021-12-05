@@ -59,44 +59,44 @@ function App() {
 					id='f6a55e83-9d2a-4683-8094-6b95bd002920'
 					color={boxcolors[0]}
 					to='playlist'
-					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/ab67706c0000bebb783b1fe068146c9c16d31563.jpeg?alt=media&token=2e1812ec-e4c1-4876-bfa1-8c40b9a83dae'
+					img='/images/arnold.jpg'
 				/>
 
 				<CoolBox
-					name='Trending this Year'
+					name='Trending This Year'
 					id='trending'
 					color={boxcolors[1]}
 					to='app'
-					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/jkkj.jpeg?alt=media&token=a1027eb0-edb4-4621-a634-5c400e273e52'
+					img='/images/grande.jpg'
 				/>
 				<CoolBox
-					name='90s hits'
+					name='90s Hits'
 					id='nintysHits'
 					color={boxcolors[2]}
 					to='app'
-					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/test.jpg?alt=media&token=de8c73d7-fa3d-4ab5-b6f3-f20d83f48ef9'
+					img='/images/90.jpg'
 				/>
 				<CoolBox
-					name='Best of this decade'
+					name='Best Of This Decade'
 					id='bestOfDecade'
 					color={boxcolors[3]}
 					to='app'
-					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Fsuga.png?alt=media&token=c87d647d-22e2-4ab8-b84f-9df1b09cbef6'
+					img='/images/abel.jpg'
 				/>
 				{/* test */}
 				<CoolBox
-					name='Pop rising'
+					name='Pop Rising'
 					id='popRising'
 					color={boxcolors[4]}
 					to='app'
-					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/image_assets%2Flipa.jpg?alt=media&token=0eb05e9b-7f47-4f26-8bf6-68d32a42ddc4'
+					img='/images/jimin.jpg'
 				/>
 				<CoolBox
-					name='This is Eminem'
+					name='This Is Eminem'
 					id='TId4XDMkGSUDKKUsxJB9'
 					color={boxcolors[5]}
 					to='app/artist'
-					img='https://firebasestorage.googleapis.com/v0/b/omuse-ac842.appspot.com/o/p.jpeg?alt=media&token=e90ea1a3-c8f0-4186-b653-cb495281eca4'
+					img='/images/eminem.jpg'
 				/>
 			</SimpleGrid>
 		</>
