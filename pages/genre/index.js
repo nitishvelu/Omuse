@@ -1,26 +1,8 @@
 import React from "react";
-import {
-	Flex,
-	Link,
-	SimpleGrid,
-	GridItem,
-	Text,
-	IconButton,
-	Icon,
-	Image,
-	Heading,
-	Box,
-} from "@chakra-ui/react";
-import firebase from "firebase/app";
-import NextLink from "next/link";
 import CoolBox from "../../components/CoolBox";
 import { withProtected } from "../../src/hook/route";
 
-import { motion } from "framer-motion";
 import CoolGrid from "../../components/CoolGrid";
-
-const MText = motion(Text);
-const MImage = motion(Image);
 
 function Genres() {
 	return (

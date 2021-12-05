@@ -2,41 +2,16 @@
 import { withProtected } from "../../src/hook/route";
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { Box, Button, SimpleGrid, Text, VStack } from "@chakra-ui/layout";
 import Song from "../../components/Songs";
-import { Heading } from "@chakra-ui/react";
+import CoolGrid from "../../components/CoolGrid";
 
 function Playlist({ songs_list, name }) {
 	return (
-		<>
-			<Heading size='3xl'>{name} </Heading>
-
-			<SimpleGrid
-				minChildWidth={["300px", "300px", "400px"]}
-				overflowX='auto'
-				rounded='lg'
-				height={["74%", "80%", "80%"]}
-				width='full'
-				spacingX={0}
-				spacingY={9}
-				css={{
-					"&::-webkit-scrollbar": {
-						width: "7px",
-					},
-					"&::-webkit-scrollbar-track": {
-						width: "7px",
-					},
-					"&::-webkit-scrollbar-thumb": {
-						background: "pink",
-						borderRadius: "15px",
-					},
-				}}
-			>
-				{Object.keys(songs_list).map((idx) => {
-					return <Song song_obj={songs_list[idx]} key={idx} />;
-				})}
-			</SimpleGrid>
-		</>
+		<CoolGrid title={name}>
+			{Object.keys(songs_list).map((idx) => {
+				return <Song song_obj={songs_list[idx]} key={idx} />;
+			})}
+		</CoolGrid>
 	);
 }
 export default withProtected(Playlist);
