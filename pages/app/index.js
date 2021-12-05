@@ -1,20 +1,12 @@
 import React from "react";
 import CreateUser from "../../components/cloudFirestore/CreateUser";
 
-import {
-	Link,
-	SimpleGrid,
-	GridItem,
-	Text,
-	Image,
-	Heading,
-} from "@chakra-ui/react";
+import { Text, Image, Heading } from "@chakra-ui/react";
+import CoolGrid from "../../components/CoolGrid";
 import { withProtected } from "../../src/hook/route";
 
 import { motion } from "framer-motion";
 
-const MText = motion(Text);
-const MImage = motion(Image);
 import CoolBox from "../../components/CoolBox";
 
 function App() {
@@ -32,28 +24,8 @@ function App() {
 	return (
 		<>
 			<CreateUser />
-			<Heading size='3xl'>Dashboard </Heading>
-			<SimpleGrid
-				minChildWidth={["300px", "300px", "400px"]}
-				overflowX='hidden'
-				rounded='lg'
-				height={["74%", "80%", "80%"]}
-				width='full'
-				spacingX={0}
-				spacingY={7}
-				css={{
-					"&::-webkit-scrollbar": {
-						width: "4px",
-					},
-					"&::-webkit-scrollbar-track": {
-						width: "4px",
-					},
-					"&::-webkit-scrollbar-thumb": {
-						background: "#aec8ca",
-						borderRadius: "15px",
-					},
-				}}
-			>
+
+			<CoolGrid title='dashboard'>
 				<CoolBox
 					name='Workout'
 					id='f6a55e83-9d2a-4683-8094-6b95bd002920'
@@ -98,7 +70,7 @@ function App() {
 					to='app/artist'
 					img='/images/eminem.jpg'
 				/>
-			</SimpleGrid>
+			</CoolGrid>
 		</>
 	);
 }

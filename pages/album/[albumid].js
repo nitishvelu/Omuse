@@ -1,42 +1,16 @@
-// import React from "react";
 import { withProtected } from "../../src/hook/route";
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { Box, Button, SimpleGrid, Text, VStack } from "@chakra-ui/layout";
+import CoolGrid from "../../components/CoolGrid";
 import Song from "../../components/Songs";
-import { Heading } from "@chakra-ui/react";
 
 function albumDetails({ songs_list }) {
 	return (
-		<>
-			<Heading>{songs_list[0].album} </Heading>
-
-			<SimpleGrid
-				minChildWidth={["300px", "300px", "400px"]}
-				overflowX='hidden'
-				rounded='lg'
-				height={["74%", "80%", "80%"]}
-				width='full'
-				spacingX={0}
-				spacingY={7}
-				css={{
-					"&::-webkit-scrollbar": {
-						width: "4px",
-					},
-					"&::-webkit-scrollbar-track": {
-						width: "4px",
-					},
-					"&::-webkit-scrollbar-thumb": {
-						background: "#aec8ca",
-						borderRadius: "15px",
-					},
-				}}
-			>
-				{Object.keys(songs_list).map((idx) => {
-					return <Song song_obj={songs_list[idx]} key={idx} />;
-				})}
-			</SimpleGrid>
-		</>
+		<CoolGrid title={songs_list[0].album}>
+			{Object.keys(songs_list).map((idx) => {
+				return <Song song_obj={songs_list[idx]} key={idx} />;
+			})}
+		</CoolGrid>
 	);
 }
 export default withProtected(albumDetails);

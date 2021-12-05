@@ -4,8 +4,6 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { v4 as uuid } from "uuid";
 import {
-	Heading,
-	Link,
 	IconButton,
 	Modal,
 	Button,
@@ -20,12 +18,9 @@ import {
 } from "@chakra-ui/react";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
-import { Box, SimpleGrid, Text, VStack } from "@chakra-ui/layout";
-import Song from "../../components/Songs";
-import NextLink from "next/link";
 import cookie from "js-cookie";
 import CoolBox from "../../components/CoolBox";
+import CoolGrid from "../../components/CoolGrid";
 
 function Playlist({ playlist_details }) {
 	//handling newly created playlist using use state
@@ -135,57 +130,34 @@ function Playlist({ playlist_details }) {
 	console.log(playlist_details);
 
 	return (
-		<>
-			<Heading size='3xl'>Playlists</Heading>
-			<SimpleGrid
-				minChildWidth={["300px", "300px", "400px"]}
-				overflowX='hidden'
-				rounded='lg'
-				height={["74%", "80%", "80%"]}
-				width='full'
-				spacingX={0}
-				spacingY={7}
-				css={{
-					"&::-webkit-scrollbar": {
-						width: "4px",
-					},
-					"&::-webkit-scrollbar-track": {
-						width: "4px",
-					},
-					"&::-webkit-scrollbar-thumb": {
-						background: "#aec8ca",
-						borderRadius: "15px",
-					},
-				}}
-			>
-				{Object.keys(playlist_details).map((idx) => {
-					return (
-						<CoolBox
-							key={idx}
-							id={playlist_details[idx].id}
-							name={playlist_details[idx].name}
-							color={boxcolors[idx]}
-							to='playlist'
-							img=''
-						/>
-					);
-				})}
-				{newPlaylist ? (
+		<CoolGrid title='playlists'>
+			{Object.keys(playlist_details).map((idx) => {
+				return (
 					<CoolBox
-						key={3}
-						id={newPlaylistId}
-						name={newPlaylist}
-						color='#009DAE'
+						key={idx}
+						id={playlist_details[idx].id}
+						name={playlist_details[idx].name}
+						color={boxcolors[idx]}
 						to='playlist'
 						img=''
 					/>
-				) : (
-					<></>
-				)}
+				);
+			})}
+			{newPlaylist ? (
+				<CoolBox
+					key={3}
+					id={newPlaylistId}
+					name={newPlaylist}
+					color='#009DAE'
+					to='playlist'
+					img=''
+				/>
+			) : (
+				<></>
+			)}
 
-				{BasicUsage()}
-			</SimpleGrid>
-		</>
+			{BasicUsage()}
+		</CoolGrid>
 	);
 }
 export default withProtected(Playlist);
