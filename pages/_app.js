@@ -7,10 +7,9 @@ import Layout from "../src/layout/Layout";
 import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import { PushSpinner } from "react-spinners-kit";
-import { Chakra } from "../src/service/Chakra";
-import { Box } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
-
+import theme from "../theme";
 firebaseInit();
 
 function MyApp({ Component, pageProps }) {
@@ -47,7 +46,7 @@ function MyApp({ Component, pageProps }) {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Chakra cookies={pageProps.cookies}>
+			<ChakraProvider theme={theme}>
 				<AuthProvider>
 					<Layout>
 						<AuthStateChanged>
@@ -70,7 +69,7 @@ function MyApp({ Component, pageProps }) {
 						</AuthStateChanged>
 					</Layout>
 				</AuthProvider>
-			</Chakra>
+			</ChakraProvider>
 		</>
 	);
 }
