@@ -12,7 +12,7 @@ const config = {
 const styles = {
 	global: (props) => ({
 		body: {
-			color: mode("teal.200", "whiteAlpha.900")(props),
+			color: mode("teal.200", "purple.200")(props),
 			bg: mode("green.50", "gray.700")(props),
 		},
 	}),
