@@ -27,11 +27,18 @@ function App() {
 
 			<CoolGrid title='dashboard'>
 				<CoolBox
+					name='Best Of This Decade'
+					id='bestOfDecade'
+					color={boxcolors[0]}
+					to='app'
+					img='/images/abel.jpg'
+				/>
+				<CoolBox
 					name='Workout'
 					id='f6a55e83-9d2a-4683-8094-6b95bd002920'
-					color={boxcolors[0]}
+					color={boxcolors[3]}
 					to='playlist'
-					img='/images/arnold.jpg'
+					img='/images/workout.jpg'
 				/>
 
 				<CoolBox
@@ -48,14 +55,6 @@ function App() {
 					to='app'
 					img='/images/90.jpg'
 				/>
-				<CoolBox
-					name='Best Of This Decade'
-					id='bestOfDecade'
-					color={boxcolors[3]}
-					to='app'
-					img='/images/abel.jpg'
-				/>
-				{/* test */}
 				<CoolBox
 					name='Pop Rising'
 					id='popRising'
