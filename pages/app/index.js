@@ -36,17 +36,9 @@ function App() {
 				<CoolBox
 					name='Workout'
 					id='f6a55e83-9d2a-4683-8094-6b95bd002920'
-					color={boxcolors[3]}
+					color={boxcolors[1]}
 					to='playlist'
 					img='/images/workout.jpg'
-				/>
-
-				<CoolBox
-					name='Trending This Year'
-					id='trending'
-					color={boxcolors[1]}
-					to='app'
-					img='/images/grande.jpg'
 				/>
 				<CoolBox
 					name='90s Hits'
@@ -55,6 +47,15 @@ function App() {
 					to='app'
 					img='/images/90.jpg'
 				/>
+
+				<CoolBox
+					name='Trending This Year'
+					id='trending'
+					color={boxcolors[3]}
+					to='app'
+					img='/images/grande.jpg'
+				/>
+
 				<CoolBox
 					name='Pop Rising'
 					id='popRising'
