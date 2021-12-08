@@ -30,37 +30,25 @@ export default function Layout({ children }) {
 						overflow='hidden'
 						alignItems='flex-start'
 					>
-						<Grid
-							h='full'
-							w='full'
-							templateRows='repeat(40, 1fr)'
-							templateColumns='repeat(30, 1fr)'
-							// gap={1}
-							// rounded='md'
-						>
-							<GridItem rowSpan={33} colSpan={30}>
-								{children}
-							</GridItem>
-							<GridItem rowSpan={7} colSpan={30}>
-								<Box id='musicPlayer'>
-									<Box
-										as={AudioPlayer}
-										width={["75%", "80%", "90%"]}
-										height={["12%", "12%", "auto"]}
-										position='fixed'
-										bottom={[1, 1, 3]}
-										opacity={1}
-										backgroundColor={value}
-										customIcons={{
-											play: <FiPlayCircle />,
-											pause: <FiPauseCircle />,
-											rewind: <AiOutlineDoubleLeft />,
-											forward: <AiOutlineDoubleRight />,
-										}}
-									/>
-								</Box>
-							</GridItem>
-						</Grid>
+						{children}
+
+						<Box id='musicPlayer'>
+							<Box
+								as={AudioPlayer}
+								width={["75%", "80%", "90%"]}
+								height={["12%", "12%", "auto"]}
+								position='fixed'
+								bottom={[1, 1, 3]}
+								opacity={1}
+								backgroundColor={value}
+								customIcons={{
+									play: <FiPlayCircle />,
+									pause: <FiPauseCircle />,
+									rewind: <AiOutlineDoubleLeft />,
+									forward: <AiOutlineDoubleRight />,
+								}}
+							/>
+						</Box>
 					</VStack>
 				</HStack>
 			</>

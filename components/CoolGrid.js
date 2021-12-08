@@ -3,7 +3,7 @@ import { SimpleGrid, Heading } from "@chakra-ui/layout";
 function CoolGrid(props) {
 	return (
 		<>
-			<Heading size='3xl' mb={4}>
+			<Heading size='3xl' mb={[2, 4, 4]} mt={[2, 0, 0]}>
 				{props.title.replace(/(?:^|\s|["'([{])+\S/g, (match) =>
 					match.toUpperCase()
 				)}
@@ -12,7 +12,7 @@ function CoolGrid(props) {
 				minChildWidth={["300px", "300px", "400px"]}
 				overflowX='hidden'
 				rounded='lg'
-				height='full'
+				height='75vh'
 				width='full'
 				spacingX={0}
 				spacingY={7}
