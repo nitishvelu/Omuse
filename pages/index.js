@@ -2,7 +2,6 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { withPublic } from "../src/hook/route";
 import { Button } from "@chakra-ui/button";
-import { Chakra } from "../src/Chakra";
 
 function Home({ auth }) {
 	const { loginWithGoogle, error } = auth;
@@ -42,4 +41,3 @@ function Home({ auth }) {
 	);
 }
 export default withPublic(Home);
-export { getServerSideProps } from "../src/Chakra";
