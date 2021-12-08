@@ -30,7 +30,8 @@ a {
 }
 
 .rhap_container {
-	background-color: inherit !important;
+	/* background-color: inherit !important; */
+	/* opacity: 1 !important; */
 	-moz-box-shadow: none !important;
 	-goog-ms-box-shadow: none !important;
 	-webkit-box-shadow: none !important;

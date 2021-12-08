@@ -40,7 +40,9 @@ export default function NavItem({ icon, title, navSize, to }) {
 									color={active ? "#82AAAD" : "gray.500"}
 								/>
 								<Text
+									fontWeight='bold'
 									ml={2}
+									color={active ? "whiteAlpha.800" : ""}
 									display={
 										navSize == "small" ? "none" : "flex"
 									}

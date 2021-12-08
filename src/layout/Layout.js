@@ -50,15 +50,16 @@ export default function Layout({ children }) {
 								{children}
 							</GridItem>
 							<GridItem rowSpan={8} colSpan={30}>
-								<div id='musicPlayer'>
+								<Box id='musicPlayer'>
 									<Box
 										as={AudioPlayer}
 										width={["75%", "80%", "90%"]}
 										height={["12%", "12%", "auto"]}
 										position='fixed'
 										bottom={[0.1, 1, 3]}
-										id='musicPlayer'
-										b='grey'
+										opacity={1}
+										backgroundColor='gray.700'
+										// b='grey'
 										customIcons={{
 											play: <FiPlayCircle />,
 											pause: <FiPauseCircle />,
@@ -66,7 +67,7 @@ export default function Layout({ children }) {
 											forward: <AiOutlineDoubleRight />,
 										}}
 									/>
-								</div>
+								</Box>
 							</GridItem>
 						</Grid>
 					</VStack>
