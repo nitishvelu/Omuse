@@ -121,14 +121,31 @@ function Artistdetails({ artist, following, albums }) {
 									justifyContent='center'
 									alignItems='center'
 								>
-									<Image
-										src={artist.profile_picture}
-										alt='artist image'
-										objectFit='cover'
-										boxSize={["35vh", "45vh", "45vh"]}
-										borderRadius='30%'
-										fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
-									/>
+									<Box position='relative'>
+										<Image
+											src={artist.profile_picture}
+											alt='artist image'
+											objectFit='cover'
+											boxSize={["35vh", "45vh", "45vh"]}
+											borderRadius='30%'
+											position='absolute'
+											inset={0}
+											filter='blur(16px)'
+											zIndex={0}
+											transform='scale(1.1,1.1,1.1)'
+											fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+										/>
+										<Image
+											src={artist.profile_picture}
+											alt='artist image'
+											objectFit='cover'
+											boxSize={["35vh", "45vh", "45vh"]}
+											borderRadius='30%'
+											zIndex={100}
+											position='relative'
+											fallbackSrc='https://wallpaperaccess.com/full/2374217.png'
+										/>
+									</Box>
 								</Flex>
 							</GridItem>
 							<GridItem rowSpan={[1, 1, 2]} colSpan={[10, 6, 6]}>
