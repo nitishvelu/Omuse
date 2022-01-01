@@ -1,3 +1,0 @@
-# OMUSE
-
-Online music platform
